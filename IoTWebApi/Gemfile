@@ -17,8 +17,6 @@ gem 'rack-cors'
 #for attacks DDoS
 gem 'rack-attack'
 
-gem 'byebug'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -41,9 +39,6 @@ group :development, :test do
 
   # Use Factory Girl for generating random test data
   gem 'factory_girl_rails'
-end
-
-group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
