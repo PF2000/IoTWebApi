@@ -20,3 +20,6 @@
 .byebug_history
 
 *.orig
+
+# Ignore .vagrant folder
+.vagrant
