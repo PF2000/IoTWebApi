@@ -1,28 +1,46 @@
-<div id="login" class="row" ng-init="isAuth()">
-  <div class="large-6 large-offset-3">
-    <div class="alert-box">{{ message }}</div>
-    <form ng-submit="login()">
-      <fieldset class="radius">
-        <div class="row">
-          <div class="large-6 columns">
-            <input type="text" name="username" placeholder="username" ng-model="credentials.username" required/>
-          </div>
-            <div class="large-6 columns">
-              <input type="password" name="password" placeholder="password" ng-model="credentials.password" required/>
-          </div>
-        </div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-default navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="" type="submit" ng-click="home()">Home</a>
+						</li>
+						<li>
+							<a href="" type="submit" ng-click="documentation()">Documentation</a>
+						</li>
+						<li >
+							<a href="" type="submit" ng-click="examples()">Examples</a>
+						</li>	
+					</ul>
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li class= "active">
+							<a>Login / Register</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="alert-box">{{ message }}</div>
+			<div class="login-page">
+				<div class="form">
+					<form class="login-form" ng-submit="login()">
+						<input type="text" name="username" placeholder="username" ng-model="credentials.username" required/>
+						<input type="password" name="password" placeholder="password" ng-model="credentials.password" required/>
+						<button id="log-in" type="submit">login</button>
+						<p class="message">Not registered? <a href="" type="submit" ng-click="register()">Create an account</a></p>
+						<p class="message">Recover <a href="" type="submit" ng-click="passRecovery()">Password</a></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
-        <div class="row">
-          <div class="large-12 columns">
-            <button id="log-in" type="submit" class="button large expand radius">Log In</button>
-          </div>
-        </div>
-      </fieldset>
-    </form>
-    <div class="large-12 columns">
-      <button id="register" type="submit" class="button large expand radius" ng-click="register()">Register</button>
-      <button id="register" type="submit" class="button large expand radius" ng-click="passRecovery()">Password Recovery</button>
-    </div>
-    <h1>{{token}}</h1>
-  </div>
 </div>
+

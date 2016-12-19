@@ -1,12 +1,42 @@
-<div id="login" class="row">
-  <div class="large-6 large-offset-3">
-    <div class="alert-box">{{ message }}</div>
-	<div class="large-6 columns">
-    	<input type="text" name="E-mail" placeholder="E-mail" ng-model="data.email" required/>
-    </div>
-    <div class="large-12 columns">
-      <button id="register" type="submit" class="button large expand radius" ng-click="recover()">Recover</button>
-    </div>
-    <h1>{{token}}</h1>
-  </div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-default navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="" type="submit" ng-click="home()">Home</a>
+						</li>
+						<li>
+							<a href="" type="submit" ng-click="documentation()">Documentation</a>
+						</li>
+						<li >
+							<a href="" type="submit" ng-click="examples()">Examples</a>
+						</li>	
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class= "active">
+							<a href="" type="submit" ng-click="login()">Login / Register</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!--<div class="alert-box">{{ message }}</div>-->
+			<div class="login-page">
+			<div class="form">
+				<form class="login-form" ng-submit="login()">
+					<input type="text" name="E-mail" placeholder="E-mail" ng-model="data.email" required/>
+					<button id="register" type="submit" class="button large expand radius" ng-click="recover()">Recover</button>
+				</form>
+			</div>
+		</div>
+		</div>
+	</div>
+	<h1>{{token}}</h1>
 </div>
+

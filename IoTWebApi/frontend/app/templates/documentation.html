@@ -1,16 +1,33 @@
-<div id="documentation" class="row">
-  <div class="large-6 large-offset-3">
-    <div class="alert-box">{{ message }}</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-default navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="" type="submit" ng-click="home()">Home</a>
+						</li>
+						<li class= "active">
+							<a href="" type="submit" ng-click="documentation()">Documentation</a>
+						</li>
+						<li>
+							<a href="" type="submit" ng-click="examples()">Examples</a>
+						</li>	
+					</ul>
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="" type="submit" ng-click="login()">Login / Register</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
 
-
-
-
-     <div class="large-12 columns">
-      <button id="btn_documentation" type="submit" class="button large expand radius" ng-click="documentation()">Documentation</button>
-      <button id="btn_examples" type="submit" class="button large expand radius" ng-click="examples()">Examples</button>
-      <button id="btn_login" type="submit" class="button large expand radius" ng-click="login()">Log-in</button>
-      <button id="btn_register" type="submit" class="button large expand radius" ng-click="register()">Register</button>
-      
-    </div>
-  </div>
 </div>
