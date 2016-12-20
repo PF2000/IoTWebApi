@@ -27,7 +27,7 @@ module Api::V1
       summary "Fetches a Project item"
       notes "This lists an active Project"
       param :path, :id, :integer, :optional, "Project ID"
-      response :ok, "Success", :Project
+      response :ok, "Success", :project
       response :unauthorized
       response :not_acceptable
       response :not_found
@@ -49,7 +49,7 @@ module Api::V1
       summary "Creates a Project item"
       notes "Creates a Project item"
       #param :course ,:name, :string, :optional, "Name"
-      param  :body ,:body, :Project, :required, "Create a Project"
+      param  :body ,:body, :project, :required, "Create a Project"
       response :unauthorized
       response :not_acceptable, "Project ID doesn't exist"
     end
@@ -67,7 +67,7 @@ module Api::V1
       summary "Degree a Project item"
       notes "Degree a Project item"
       param :path, :id, :integer, :optional, "Project ID"
-      param :body ,:body, :Project, :required, "Updates a Project"
+      param :body ,:body, :project, :required, "Updates a Project"
       response :unauthorized
       response :not_acceptable, "Project ID doesn't exist"
     end
@@ -85,13 +85,23 @@ module Api::V1
       response :not_acceptable, "Project ID doesn't exist"
     end
 
-    swagger_model :Project do
-     description "A Project object."
+    swagger_model :project do
+      description "A Project object."
+      property :project, :pos, :required, "Project ID"
+    end
+
+    swagger_model :pos do
+     description "A Aux Project object."
      property :id, :integer, :required, "Project ID"
      property :name, :string, :optional, "Name"
      property :description, :string, :optional, "Description"
      property :grade, :integer, :optional, "Grade"
-     property :discipline_id, :string, :optional, "Discipline ID"
+     property_list :disciplines, :disciplines, :required, "Disciplines", [:disciplines,:disciplines]
+    end
+
+    swagger_model :disciplines do
+      description "A Disciplines object."
+      property :id, :integer, :required, "Disciplines ID"
     end
 
     private
@@ -102,7 +112,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def project_params
-        params.require(:project).permit(:name, :description, :grade, :discipline_id)
+        params.require(:project).permit(:name, :description, :grade, :disciplines => [:id])
       end
   end
 end

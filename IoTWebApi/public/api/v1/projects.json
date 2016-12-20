@@ -51,7 +51,7 @@
             {
               "paramType": "body",
               "name": "body",
-              "type": "Project",
+              "type": "project",
               "description": "Create a Project",
               "required": true
             }
@@ -100,7 +100,7 @@
           "responseMessages": [
             {
               "code": 200,
-              "responseModel": "Project",
+              "responseModel": "project",
               "message": "Success"
             },
             {
@@ -151,7 +151,7 @@
             {
               "paramType": "body",
               "name": "body",
-              "type": "Project",
+              "type": "project",
               "description": "Updates a Project",
               "required": true
             }
@@ -210,10 +210,24 @@
   ],
   "authorizations": null,
   "models": {
-    "Project": {
-      "id": "Project",
+    "project": {
+      "id": "project",
       "required": [
-        "id"
+        "project"
+      ],
+      "properties": {
+        "project": {
+          "type": "pos",
+          "description": "Project ID"
+        }
+      },
+      "description": "A Project object."
+    },
+    "pos": {
+      "id": "pos",
+      "required": [
+        "id",
+        "disciplines"
       ],
       "properties": {
         "id": {
@@ -232,12 +246,32 @@
           "type": "integer",
           "description": "Grade"
         },
-        "disciplineId": {
-          "type": "string",
-          "description": "Discipline ID"
+        "disciplines": {
+          "type": "disciplines",
+          "description": "Disciplines",
+          "allowableValues": {
+            "valueType": "LIST",
+            "values": [
+              "disciplines",
+              "disciplines"
+            ]
+          }
         }
       },
-      "description": "A Project object."
+      "description": "A Aux Project object."
+    },
+    "disciplines": {
+      "id": "disciplines",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Disciplines ID"
+        }
+      },
+      "description": "A Disciplines object."
     }
   }
 }
