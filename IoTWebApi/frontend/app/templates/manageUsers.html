@@ -1,6 +1,6 @@
 <div class="container" ng-init="isAuth();isAdmin();getUsersAndRoles();getRoles();">
-  <div id="alert-box">{{ message }}</div>
   <form name="manageUserForm" class="formManagement">
+    <div id="alert-box">{{ message }}</div>
     <table ng-show="usersRoles.length > 0" class="marginAuto formLike">
     <tr>
       <th>Name</th>

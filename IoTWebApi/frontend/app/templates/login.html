@@ -1,7 +1,7 @@
 <div ng-init="isAuth()">
-  <div id="alert-box">{{ message }}</div>
       <div class="form">
         <form ng-submit="login()">
+          <div id="alert-box">{{ message }}</div>
           <input type="text" name="username" placeholder="username" ng-model="credentials.username" required/>
           <input type="password" name="password" placeholder="password" ng-model="credentials.password" required/>
           <button id="log-in" type="submit" >Log In</button>
