@@ -3,9 +3,10 @@ angular.module("app").controller('ChangePasswordController',function($scope, $lo
   if(SessionService.isLoggedIn() == null &&  $routeParams.token === undefined){
     $location.path('/login');
   }  
-	$scope.message = "ChangePasswordController";
+	$scope.message = "";
 	$scope.credentials = {};
 	$scope.changePassword = false;
+  $scope.alertClass = "";
 
  var onResetPasswordSuccess = function(data) {
     $location.path('/login');
@@ -55,6 +56,7 @@ angular.module("app").controller('ChangePasswordController',function($scope, $lo
 
   //update User Data
   var onUpdateUserDataSuccess = function(data) {
+     $scope.alertClass = "alert alert-success";
      $scope.message = "password changed..";
   };  
   var onUpdateUserDataError = function(data) {

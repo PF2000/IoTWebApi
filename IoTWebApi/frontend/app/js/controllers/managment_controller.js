@@ -5,6 +5,8 @@ angular.module("app").controller('managmentController', function($scope, $locati
 
   $scope.changePassword = false;
 
+  $scope.alertClass = "";
+
 var onGetUserSuccess, onGetUserError, onResetTokenSuccess, onResetTokenError;
 var onUpdateUserDataSuccess, onUpdateUserDataError;
  
@@ -28,7 +30,7 @@ var onUpdateUserDataSuccess, onUpdateUserDataError;
   }; 
    onGetUserSuccess = function(data) {
      $scope.credentials = data;
-     $scope.message = "Success...";
+     //$scope.message = "Success...";
   };
    onGetUserError = function(data) {
      $scope.message = data.exception;
@@ -59,13 +61,16 @@ var onUpdateUserDataSuccess, onUpdateUserDataError;
     delete user.user['role'];
     ManageUserService.updateUser(user).success(onUpdateUserDataSuccess).error(onUpdateUserDataError);
   };
+
    onUpdateUserDataSuccess = function(data) {
+     $scope.alertClass = "alert alert-success";
      $scope.credentials = data;
      $scope.message = "Data update success...";
      $scope.editUserData();    
   };  
    onUpdateUserDataError = function(data) {
-     $scope.message = data.exception;
+     $scope.alertClass = "alert alert-danger";
+     $scope.message = data;
   }; 
 
 
@@ -75,9 +80,6 @@ var onUpdateUserDataSuccess, onUpdateUserDataError;
   };
 
   //Navigation----
-  $scope.redirect = function() {
-      $location.path('/manageUsers');
-  };
   $scope.changePassword = function() {
     $location.path('/changePassword');
   };

@@ -1,6 +1,6 @@
 <div class="container" ng-init="isAuth();getUser()">
     <div id="formMgm" class="managment" >
-      <div id="alert-box">{{ message }}</div>
+      <div id="alert-box" ng-class="alertClass" >{{ message }}</div>
       <form ng-submit="updateUserData()">
           <div class="form-group">
             <label class="col-sm-2 control-label">Name</label>
@@ -33,7 +33,7 @@
           </div>
 
           <button id="btn_UpdateUserData" type="submit" ng-if="!readOnly" >Update User Data</button>  
-          <button id="log-in" type="button"  ng-click="redirect()" ng-if="isAdmin()">Manage</button>
+          <!-- <button id="log-in" type="button"  ng-click="redirect()" ng-if="isAdmin()">Manage</button> -->
           <button id="btn_changePasswordd" type="button"  ng-click="changePassword()" ng-if="canChangePassword()" >Change Password</button>
           <button id="btn_UpdateUserData" type="button"  ng-click="editUserData()">Edit User Data</button>
           <button id="log-out" type="button"  ng-click="logout()">Log out</button>

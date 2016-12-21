@@ -1,4 +1,4 @@
-angular.module("app").controller('HeaderController',function($scope, $location,$routeParams,SessionService,ManageUserService) {
+angular.module("app").controller('HeaderController',function($scope, $location,$routeParams,SessionService,ManageUserService,AuthenticationService) {
   
   $scope.name = "";
 
@@ -19,6 +19,10 @@ angular.module("app").controller('HeaderController',function($scope, $location,$
   $scope.goToUserManagment = function() {
    var id = SessionService.getLoggedID();
     $location.path('/managment/'+id );
+  };
+
+  $scope.isAdmin = function() {
+   return AuthenticationService.isAdmin(SessionService.getLoggedRole()) ;
   };
 
   	
