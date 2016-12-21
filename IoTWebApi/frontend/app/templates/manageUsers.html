@@ -11,8 +11,8 @@
       <th></th>
     </tr>
     <tr ng-repeat="user in usersRoles | startFrom:currentPage*pageSize | limitTo:pageSize">
-      <td><input type="text" name="userName" ng-model="user.name" required></td>
-      <td><input type="text" name="email" ng-model="user.email" required></td>
+      <td><input type="text" name="userName" ng-model="user.name" readonly="true" ></td>
+      <td><input type="text" name="email" ng-model="user.email" readonly="true" ></td>
       <!-- <td>{{user.role.name}}</td>      --> 
       <td>
       <select id="ddl_roles"  ng-model="newRole">
@@ -21,7 +21,7 @@
       </select>
       </td>
       <td><button ng-click="viewUser(user)">View</button></td>
-      <td><button class="updateBtn" ng-click="updateUser(user,newRole)" >Update</button></td>
+      <td><button class="updateBtn" ng-click="updateUser(user,newRole)" ng-disabled=" isUndefined(newRole) " >Update</button></td>
       <td><button class="deleteBtn" ng-click="deleteUser(user)">Delete</button></td>
     </tr>
     <tr >

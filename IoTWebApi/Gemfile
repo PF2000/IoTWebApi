@@ -22,7 +22,6 @@ gem 'byebug'
 # Swagger
 gem 'swagger-docs'
 
-gem 'swagger-ui_rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'

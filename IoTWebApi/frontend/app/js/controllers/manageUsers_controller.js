@@ -45,14 +45,17 @@
   var onUpdateUserError = function(data) {
      $scope.message = data;
   };
-  $scope.updateUser = function(user,rId) {
-    //para susbtituir pelo ngenable ou ngif
+  $scope.updateUser = function(usr, rId) {
     if(rId){
-      user.role= {id: rId } ;
+     var user =  {id: usr.id ,role: {id: rId}};
       user = {user:user};
       ManageUserService.updateUser(user).success(onUpdateUserSuccess).error(onUpdateUserError);
     }
   };
+
+  $scope.isUndefined = function(rId) {
+    return (rId === undefined) ? true : false;
+ };
 
 
   //--Deletes user Button
@@ -69,6 +72,7 @@
        }    
     });
   };
+
   var onDeleteUserError = function(data) {
     $scope.message = data;
   };
