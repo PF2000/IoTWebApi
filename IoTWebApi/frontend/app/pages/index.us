@@ -5,7 +5,7 @@
     <title><%= pkg.name %></title>
     <link rel="stylesheet" type="text/css" href="/css/app.css" media="all" />
   </head>
-  <body ng-style="{'background-image':'url(/img/illustration-2000x1690-62.jpg)', 'background-size': 'cover' ,'background-repeat':'no-repeat'  , 'background-position': 'center center' , 'background-color' : '#28282866'} ">
+  <body ng-style="{'background-image':'url(/img/illustration-2000x1690-62.jpg)', 'background-size': '100%' ,'background-repeat':'no-repeat'  , 'background-position': 'center center' , 'background-color' : '#28282866'} ">
     
 
         <div ng-include='"header.html"'></div>
