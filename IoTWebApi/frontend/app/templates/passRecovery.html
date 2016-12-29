@@ -1,12 +1,10 @@
-<div id="login" class="row">
-  <div class="large-6 large-offset-3">
-    <div class="alert-box">{{ message }}</div>
-	<div class="large-6 columns">
-    	<input type="text" name="E-mail" placeholder="E-mail" ng-model="data.email" required/>
-    </div>
-    <div class="large-12 columns">
-      <button id="register" type="submit" class="button large expand radius" ng-click="recover()">Recover</button>
-    </div>
-    <h1>{{token}}</h1>
-  </div>
+<div class="container">
+      <div class="form">
+  <div id="alert-box">{{ message }}</div>
+        <form class="login-form" ng-submit="login()">
+          <input type="text" name="E-mail" placeholder="E-mail" ng-model="data.email" required/>
+          <button id="register" type="submit"  ng-click="recover()">Recover</button>
+        </form>
+      </div>
+  <h1>{{token}}</h1>
 </div>

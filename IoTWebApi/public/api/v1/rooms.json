@@ -1,0 +1,270 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "rooms",
+  "apis": [
+    {
+      "path": "/v1/rooms.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            }
+          ],
+          "summary": "Fetches all Room items",
+          "notes": "This lists all the active Rooms",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Room ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Rooms#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/v1/rooms.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "body",
+              "name": "body",
+              "type": "Room",
+              "description": "Create a Room",
+              "required": true
+            }
+          ],
+          "summary": "Creates a Room item",
+          "notes": "Creates a Room item",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Room ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Rooms#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/v1/rooms/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Room ID",
+              "required": false
+            }
+          ],
+          "summary": "Fetches a Room item",
+          "notes": "This lists an active Room",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Room",
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Room ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Rooms#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/v1/rooms/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Room ID",
+              "required": false
+            },
+            {
+              "paramType": "body",
+              "name": "body",
+              "type": "Room",
+              "description": "Updates a Room",
+              "required": true
+            }
+          ],
+          "summary": "Degree a Room item",
+          "notes": "Degree a Room item",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Room ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Rooms#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/v1/rooms/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Room ID",
+              "required": false
+            }
+          ],
+          "summary": "Destroys a Room item",
+          "notes": "Destroys a Room item",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Room ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Rooms#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null,
+  "models": {
+    "Rm": {
+      "id": "Rm",
+      "required": [
+        "id",
+        "school"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Room ID"
+        },
+        "school": {
+          "type": "school",
+          "description": "School"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description"
+        },
+        "projector": {
+          "type": "boolean",
+          "description": "Has Projector?"
+        },
+        "seats": {
+          "type": "integer",
+          "description": "Number of Seats"
+        }
+      },
+      "description": "A Aux Room object."
+    },
+    "school": {
+      "id": "school",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "School ID"
+        }
+      },
+      "description": "A School object."
+    },
+    "Room": {
+      "id": "Room",
+      "required": [
+        "room"
+      ],
+      "properties": {
+        "room": {
+          "type": "Rm",
+          "description": "Room"
+        }
+      },
+      "description": "A Room object."
+    }
+  }
+}

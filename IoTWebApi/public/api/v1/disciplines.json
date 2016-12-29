@@ -1,0 +1,231 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "disciplines",
+  "apis": [
+    {
+      "path": "/v1/disciplines.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            }
+          ],
+          "summary": "Fetches all Discipline items",
+          "notes": "This lists all the active Disciplines",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Discipline ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Disciplines#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/v1/disciplines.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "body",
+              "name": "body",
+              "type": "Discipline",
+              "description": "Create a Discipline",
+              "required": true
+            }
+          ],
+          "summary": "Creates a Discipline item",
+          "notes": "Creates a Discipline item",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Discipline ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Disciplines#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/v1/disciplines/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Discipline ID",
+              "required": false
+            }
+          ],
+          "summary": "Fetches a Discipline item",
+          "notes": "This lists an active Discipline",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Discipline",
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Discipline ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Disciplines#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/v1/disciplines/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Discipline ID",
+              "required": false
+            },
+            {
+              "paramType": "body",
+              "name": "body",
+              "type": "Discipline",
+              "description": "Updates a Discipline",
+              "required": true
+            }
+          ],
+          "summary": "Degree a Discipline item",
+          "notes": "Degree a Discipline item",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Discipline ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Disciplines#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/v1/disciplines/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Discipline ID",
+              "required": false
+            }
+          ],
+          "summary": "Destroys a Discipline item",
+          "notes": "Destroys a Discipline item",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Discipline ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Disciplines#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null,
+  "models": {
+    "Discipline": {
+      "id": "Discipline",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Discipline ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name"
+        }
+      },
+      "description": "A Discipline object."
+    }
+  }
+}

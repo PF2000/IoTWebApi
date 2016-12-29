@@ -1,14 +1,18 @@
 {
-  "name": "lineman-angular-template",
-  "title": "An HTML/JS/CSS app using Angular.JS",
+  "name": "OpenDataAPI",
+  "title": "API Management",
   "version": "0.0.1",
   "private": true,
   "author": {
-    "name": "John Doe",
-    "company": "ACME, Inc."
+    "name": "IPT",
+    "company": "IPT"
   },
   "devDependencies": {
     "coffee-script": "^1.6.3",
+    "grunt-concat-sourcemap": "^0.4.3",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-ng-annotate": "^3.0.0",
     "jasmine-given": "^2.6.2",
     "lineman": "^0.34.0",
     "lineman-angular": "^0.3.0",

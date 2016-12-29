@@ -1,28 +1,13 @@
-<div id="login" class="row" ng-init="isAuth()">
-  <div class="large-6 large-offset-3">
-    <div class="alert-box">{{ message }}</div>
-    <form ng-submit="login()">
-      <fieldset class="radius">
-        <div class="row">
-          <div class="large-6 columns">
-            <input type="text" name="username" placeholder="username" ng-model="credentials.username" required/>
-          </div>
-            <div class="large-6 columns">
-              <input type="password" name="password" placeholder="password" ng-model="credentials.password" required/>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="large-12 columns">
-            <button id="log-in" type="submit" class="button large expand radius">Log In</button>
-          </div>
-        </div>
-      </fieldset>
-    </form>
-    <div class="large-12 columns">
-      <button id="register" type="submit" class="button large expand radius" ng-click="register()">Register</button>
-      <button id="register" type="submit" class="button large expand radius" ng-click="passRecovery()">Password Recovery</button>
-    </div>
-    <h1>{{token}}</h1>
-  </div>
+<div ng-init="isAuth()">
+      <div class="form">
+        <form ng-submit="login()">
+          <div id="alert-box" ng-class="alertClass" >{{ message }}</div>
+          <input type="text" name="username" placeholder="username" ng-model="credentials.username" required/>
+          <input type="password" name="password" placeholder="password" ng-model="credentials.password" required/>
+          <button id="log-in" type="submit" >Log In</button>
+           <p class="message">Not registered? <a href="#/register">Create an account</a></p>
+           <p class="message">Forgot your password? <a href="#/passRecovery">Reset your password</a></p>
+        </form>
+      </div>
+  <h1>{{token}}</h1>
 </div>

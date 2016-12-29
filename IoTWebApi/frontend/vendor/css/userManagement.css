@@ -1,0 +1,84 @@
+
+/*.userManagement-page {
+  height: 100%;
+
+
+}*/
+.formManagement tr {
+  background-color: #282828 !important;
+}
+
+.formManagement td,.formManagement th{
+  color: #FFFFFF !important;
+}
+
+.formManagement select{
+  margin-top: -5px;
+  color: #000000!important;
+}
+
+.deleteBtn{
+  background: #cf1f17!important
+}
+
+.updateBtn{
+  background: #f1830f!important
+}
+
+.formManagement table {
+  border: none;
+  box-shadow: none;
+}
+
+.formManagement {
+  position: relative;
+  z-index: 1;
+  background: #282828;
+  max-width: 750px;
+  margin: auto;
+  padding: 45px;
+  text-align: center;
+}
+.formManagement td > input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #FFFFFF;
+  width: 100%;
+  border: 0;
+  margin: 0 0 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.formManagement td > button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #19602e;
+  width: 100%;
+  border: 0;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+  padding: 5px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.formManagement td > button:hover,.formManagement td > button:active,.formManagement td > button:focus {
+  background: #43A047;
+}
+.formManagement .message {
+  margin: 0 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.formManagement .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+

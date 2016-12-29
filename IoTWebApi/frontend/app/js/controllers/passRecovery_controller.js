@@ -1,7 +1,13 @@
+/*global onResetSuccess, onResetError*/
+
 angular.module("app").controller('PassRecoveryController',function($scope, $location,AuthenticationService) {
  
-$scope.message = "PassRecoveryController";
+
+$scope.message = "";
 $scope.data = {email:""};
+
+//definir variaveis para não dar erro no JSHint
+var onResetSuccess, onResetError;
 
 $scope.recover = function() {
    AuthenticationService.resetPassWord($scope.data)
@@ -9,11 +15,11 @@ $scope.recover = function() {
     .error(onResetError);
   };
 
-var onResetSuccess = function(data) {
+  onResetSuccess = function(data) {
      $location.path('/resetConfirm');
   };
   
-  var onResetError = function(data) {
+  onResetError = function(data) {
     $scope.message = data;
   };
 

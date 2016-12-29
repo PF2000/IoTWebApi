@@ -3,7 +3,9 @@ module Api::V1
     # Generic API stuff here
 	
 	before_action :authenticate , :except => [:login]
-	before_action :autorize, :except => [:login]
+	before_action :autorize, :except => [:login] 
+
+
 
 
 	def autorize

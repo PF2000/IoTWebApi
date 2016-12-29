@@ -1,36 +1,42 @@
-<div id="managment" class="row" ng-init="isAuth();getUser()">
-  <div class="large-6 large-offset-3">
-    <div class="alert-box">{{ message }}</div>
-     <div class="row">          
-    <form ng-submit="updateUserData()">
-      <fieldset class="radius">
-        <div class="row">
-          <div class="large-3 columns">
-            <input type="text" name="name" placeholder="name" ng-model="credentials.name" ng-readonly="readOnly"  />
+<div class="container" ng-init="isAuth();getUser()">
+    <div id="formMgm" class="managment" >
+      <div id="alert-box" ng-class="alertClass" >{{ message }}</div>
+      <form ng-submit="updateUserData()">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">    
+              <input type="text" name="name" placeholder="name" ng-model="credentials.name" ng-readonly="readOnly"/>
+            </div>
           </div>
-          <div class="large-3 columns">
-            <input type="text" name="surname" placeholder="surname" ng-model="credentials.surname" ng-readonly="readOnly"  />
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Surname</label>
+            <div class="col-sm-10">    
+              <input type="text" name="surname" placeholder="surname" ng-model="credentials.surname" ng-readonly="readOnly"/>
+            </div>
           </div>
-            <div class="large-3 columns">
-              <input type="text" name="email" placeholder="email" ng-model="credentials.email" ng-readonly="readOnly" />
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">    
+             <input type="text" name="email" placeholder="email" ng-model="credentials.email" ng-readonly="readOnly" />
+            </div>
           </div>
-          <div class="large-3 columns">
-              <input type="text" name="api_key" placeholder="api_key" ng-model="credentials.api_key" readonly="true" />
-              <button id="btn_resetToken" type="button" class="button" ng-click="resetToken()">ResetToken</button>
+          <div class="row">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Token</label>
+            <div class="col-sm-7">    
+              <input type="text" name="api_key" placeholder="api_key" ng-model="credentials.api_key" readonly="true" />   
+            </div>
+            <div class="col-sm-2">   
+              <button id="btn_resetToken" type="button" ng-click="resetToken()">Reset</button>
+            </div>
           </div>
-        </div>  
-         <div class="row">
-          <div class="large-12 columns">
-            <button id="btn_UpdateUserData" type="submit" class="button large expand radius" ng-if="!readOnly" >Update User Data</button>
           </div>
-        </div>      
-      </fieldset>     
+
+          <button id="btn_UpdateUserData" type="submit" ng-if="!readOnly" >Update User Data</button>  
+          <!-- <button id="log-in" type="button"  ng-click="redirect()" ng-if="isAdmin()">Manage</button> -->
+          <button id="btn_changePasswordd" type="button"  ng-click="changePassword()" ng-if="canChangePassword()" >Change Password</button>
+          <button id="btn_UpdateUserData" type="button"  ng-click="editUserData()">Edit User Data</button>
+          <button id="log-out" type="button"  ng-click="logout()">Log out</button>
     </form>
-    <div class="large-12 columns">
-      <button id="log-in" type="button" class="button large expand radius" ng-click="redirect()" ng-if="isAdmin()">Manage</button>
-      <button id="btn_changePasswordd" type="button" class="button large expand radius" ng-click="changePassword()" ng-if="canChangePassword()" >Change Password</button>
-      <button id="btn_UpdateUserData" type="button" class="button large expand radius" ng-click="editUserData()">Edit User Data</button>
-      <button id="log-out" type="button" class="button large expand radius" ng-click="logout()">Log out</button>
-    </div>
-  </div>
+  </div>    
 </div>

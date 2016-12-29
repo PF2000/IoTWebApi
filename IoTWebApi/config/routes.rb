@@ -12,6 +12,14 @@ scope module: 'api' do
 
 			resources :users
 
+
+  			resources :roles
+			resources :schools 
+			resources :courses
+			resources :degrees
+			resources :rooms
+			resources :disciplines
+
 			resources :schools do
 				resources :courses
 			end
@@ -36,9 +44,6 @@ scope module: 'api' do
 			resources :rooms
 			resources :disciplines
 		    resources :projects
-
-
-
 		  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 		end
 	end
