@@ -31,6 +31,8 @@
                 </li>
                 <li ng-if="isLoggedIn()" ng-click="logout()"><a href="" >Log-Out</a>
                 </li>
+                <li ng-if="isLoggedIn() && isAdmin();" ><a href="#/manageUsers" >Manage</a>
+                </li>
                 <li ng-if="isLoggedIn()" > <a href="" ng-click="goToUserManagment()">{{name}}</a>
                 </li>
             </ul>
@@ -39,3 +41,6 @@
     </div>
     <!-- /.container -->
 </nav>
+
+
+<button id="log-in" type="button"  ng-click="redirect()" ng-if="isAdmin()">Manage</button>

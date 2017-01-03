@@ -1,6 +1,6 @@
- angular.module("app").controller('ManageUsersController',function($scope, $location, ManageUserService,SessionService,AuthenticationService) {
+ angular.module("app").controller('ManageUsersController',function($scope, $location,$route, ManageUserService,SessionService,AuthenticationService) {
 
-
+$scope.alertClass = "";
 
   //Authentication
   $scope.isAuth = function() {
@@ -12,16 +12,16 @@
  var  onGetUsersAndRolesSuccess = function(data) {
     $scope.usersRoles = data;
   };
+
   $scope.isAdmin = function() {
     if(!AuthenticationService.isAdmin(SessionService.getLoggedRole())){
       $location.path('/login');
     }
   };
+  
 
   $scope.usersRoles = {};
   $scope.roles = {};
-
-
 
 
   $scope.getUsersAndRoles = function() {
@@ -38,25 +38,33 @@
 
    //--UpdateUsers
   var onUpdateUserSuccess = function(data) {
-      //update frontEnd
-     $scope.message = "Updated with success User with the ID = " + data.id;
+    //update frontEnd
+    $scope.alertClass = "alert alert-success";
+    $scope.message = "Updated with success User with the ID = " + data.id;
   };
 
   var onUpdateUserError = function(data) {
-     $scope.message = data;
+    $scope.alertClass = "alert alert-danger";
+    $scope.message = data;
   };
-  $scope.updateUser = function(user,rId) {
-    //para susbtituir pelo ngenable ou ngif
+  $scope.updateUser = function(usr, rId) {
     if(rId){
-      user.role= {id: rId } ;
+     var user =  {id: usr.id ,role: {id: rId}};
       user = {user:user};
       ManageUserService.updateUser(user).success(onUpdateUserSuccess).error(onUpdateUserError);
+      //resets the role id to undefined
     }
   };
+
+  $scope.isUndefined = function(rId) {
+    return (rId === undefined ) ? true : false;
+ };
 
 
   //--Deletes user Button
   var onDeleteUserSuccess = function(data) {
+    $scope.alertClass = "alert alert-success";
+    $scope.message = "Deleted with success" ;
     //objects deleted id to update the view
     var id = data.id;
     //variavel auxiliar
@@ -69,7 +77,9 @@
        }    
     });
   };
+
   var onDeleteUserError = function(data) {
+    $scope.alertClass = "alert alert-danger";
     $scope.message = data;
   };
   $scope.deleteUser = function(user) {

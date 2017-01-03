@@ -1,5 +1,7 @@
 angular.module("app").controller('LoginController',function($scope, $location, AuthenticationService,SessionService) {
   
+$scope.alertClass = "";
+
   $scope.isAuth = function() { 
     if(SessionService.isLoggedIn()){
       $location.path('/managment/'+ SessionService.getLoggedID());
@@ -19,6 +21,7 @@ angular.module("app").controller('LoginController',function($scope, $location, A
   };
   
   var onLoginError = function(data) {
+    $scope.alertClass = "alert alert-danger";
     $scope.message = data;
   };
 

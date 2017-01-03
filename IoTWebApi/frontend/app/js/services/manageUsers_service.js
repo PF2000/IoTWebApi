@@ -12,7 +12,6 @@ angular.module("app").factory('ManageUserService', function($http) {
       return $http.get('/v1/users/'+ id);
     },
     updateUser: function(user) {
-      console.log(user);
       var id = user.user.id;
       return $http.put('/v1/users/'+ id, user);
     },

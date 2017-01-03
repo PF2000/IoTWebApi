@@ -1,6 +1,7 @@
 angular.module("app").controller('ExamplesController',function($scope,$window, $location) {
   
 
+  	$scope.message = "";
 	$scope.login = function() {
 	    $location.path('/login');
 	}; 
