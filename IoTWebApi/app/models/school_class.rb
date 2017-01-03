@@ -1,6 +1,7 @@
 class SchoolClass < ApplicationRecord
 	belongs_to :discipline
 	belongs_to :room
+	belongs_to :school_year
 
 	#overrides the sets
 	def discipline=(params)

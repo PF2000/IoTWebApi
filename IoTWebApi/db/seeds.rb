@@ -318,6 +318,35 @@ puts "#################### Adicionar  cursos ####################"
 puts "############# Ligação - Courses / SchoolYears #############"
 
 @course1.school_years << @SchoolYear1
+@course2.school_years << @SchoolYear2
+@course3.school_years << @SchoolYear3
+@course4.school_years << @SchoolYear4
+@course5.school_years << @SchoolYear5
+@course6.school_years << @SchoolYear6
+@course7.school_years << @SchoolYear7
+@course8.school_years << @SchoolYear8
+@course9.school_years << @SchoolYear9
+@course10.school_years << @SchoolYear10
+@course11.school_years << @SchoolYear11
+@course12.school_years << @SchoolYear1
+@course13.school_years << @SchoolYear2
+@course14.school_years << @SchoolYear3
+@course15.school_years << @SchoolYear4
+@course16.school_years << @SchoolYear5
+@course17.school_years << @SchoolYear6
+@course18.school_years << @SchoolYear7
+@course19.school_years << @SchoolYear8
+@course20.school_years << @SchoolYear9
+@course21.school_years << @SchoolYear10
+@course22.school_years << @SchoolYear11
+@course23.school_years << @SchoolYear1
+@course24.school_years << @SchoolYear2
+@course25.school_years << @SchoolYear3
+@course26.school_years << @SchoolYear4
+@course27.school_years << @SchoolYear5
+@course28.school_years << @SchoolYear6
+@course29.school_years << @SchoolYear7
+@course30.school_years << @SchoolYear8
 
 
 puts "################## Adicionar  disciplina ##################"
@@ -388,33 +417,32 @@ puts "############# Ligação - Courses / Disciplines #############"
 
 puts "##################### Adicionar projectos #################"
 
-@project1 = Project.create(name:'Prj1',description:'Descr Proj 1',grade:10,discipline:@discipline1)
-@project2 = Project.create(name:'Prj2',description:'Descr Proj 2',grade:10,discipline:@discipline2)
-@project3 = Project.create(name:'Prj3',description:'Descr Proj 3',grade:10,discipline:@discipline3)
-@project4 = Project.create(name:'Prj4',description:'Descr Proj 4',grade:10,discipline:@discipline4)
-@project5 = Project.create(name:'Prj5',description:'Descr Proj 5',grade:10,discipline:@discipline5)
-@project6 = Project.create(name:'Prj6',description:'Descr Proj 6',grade:10,discipline:@discipline6)
-@project7 = Project.create(name:'Prj7',description:'Descr Proj 7',grade:10,discipline:@discipline7)
-@project8 = Project.create(name:'Prj8',description:'Descr Proj 8',grade:10,discipline:@discipline8)
-@project9 = Project.create(name:'Prj9',description:'Descr Proj 9',grade:10,discipline:@discipline9)
-@project10 = Project.create(name:'Prj10',description:'Descr Proj 10',grade:10,discipline:@discipline10)
-@project11 = Project.create(name:'Prj11',description:'Descr Proj 11',grade:10,discipline:@discipline11)
+@project1 = Project.create(name:'Prj1',description:'Descr Proj 1',grade:10,discipline:@discipline1,school_year:@SchoolYear1)
+@project2 = Project.create(name:'Prj2',description:'Descr Proj 2',grade:10,discipline:@discipline2,school_year:@SchoolYear2)
+@project3 = Project.create(name:'Prj3',description:'Descr Proj 3',grade:10,discipline:@discipline3,school_year:@SchoolYear3)
+@project4 = Project.create(name:'Prj4',description:'Descr Proj 4',grade:10,discipline:@discipline4,school_year:@SchoolYear4)
+@project5 = Project.create(name:'Prj5',description:'Descr Proj 5',grade:10,discipline:@discipline5,school_year:@SchoolYear5)
+@project6 = Project.create(name:'Prj6',description:'Descr Proj 6',grade:10,discipline:@discipline6,school_year:@SchoolYear6)
+@project7 = Project.create(name:'Prj7',description:'Descr Proj 7',grade:10,discipline:@discipline7,school_year:@SchoolYear7)
+@project8 = Project.create(name:'Prj8',description:'Descr Proj 8',grade:10,discipline:@discipline8,school_year:@SchoolYear8)
+@project9 = Project.create(name:'Prj9',description:'Descr Proj 9',grade:10,discipline:@discipline9,school_year:@SchoolYear9)
+@project10 = Project.create(name:'Prj10',description:'Descr Proj 10',grade:10,discipline:@discipline10,school_year:@SchoolYear10)
+@project11 = Project.create(name:'Prj11',description:'Descr Proj 11',grade:10,discipline:@discipline11,school_year:@SchoolYear11)
+
 
 puts "####################### Adicionar Aulas ###################"
-
-#puts @room1.inspect
-
-@SchoolClass1 = SchoolClass.create(description:'SchoolClass1',startTime:DateTime.now,endTime:DateTime.now,classLetter:'A',classType:'T',professor:'Prof1',room:@room1,discipline:@discipline1)
-@SchoolClass2 = SchoolClass.create(description:'SchoolClass2',startTime:DateTime.now,endTime:DateTime.now,classLetter:'A',classType:'T',professor:'Prof2',room:@room2,discipline:@discipline2)
-@SchoolClass3 = SchoolClass.create(description:'SchoolClass3',startTime:DateTime.now,endTime:DateTime.now,classLetter:'A',classType:'T+TP',professor:'Prof3',room:@room3,discipline:@discipline3)
-@SchoolClass4 = SchoolClass.create(description:'SchoolClass4',startTime:DateTime.now,endTime:DateTime.now,classLetter:'B',classType:'T',professor:'Prof4',room:@room4,discipline:@discipline4)
-@SchoolClass5 = SchoolClass.create(description:'SchoolClass5',startTime:DateTime.now,endTime:DateTime.now,classLetter:'B',classType:'T',professor:'Prof5',room:@room5,discipline:@discipline5)
-@SchoolClass6 = SchoolClass.create(description:'SchoolClass6',startTime:DateTime.now,endTime:DateTime.now,classLetter:'B',classType:'T+TP',professor:'Prof6',room:@room6,discipline:@discipline6)
-@SchoolClass7 = SchoolClass.create(description:'SchoolClass7',startTime:DateTime.now,endTime:DateTime.now,classLetter:'C',classType:'T',professor:'Prof7',room:@room7,discipline:@discipline7)
-@SchoolClass8 = SchoolClass.create(description:'SchoolClass8',startTime:DateTime.now,endTime:DateTime.now,classLetter:'C',classType:'T',professor:'Prof8',room:@room8,discipline:@discipline8)
-@SchoolClass9 = SchoolClass.create(description:'SchoolClass9',startTime:DateTime.now,endTime:DateTime.now,classLetter:'C',classType:'T+TP',professor:'Prof9',room:@room9,discipline:@discipline9)
-@SchoolClass10 = SchoolClass.create(description:'SchoolClass10',startTime:DateTime.now,endTime:DateTime.now,classLetter:'D',classType:'T',professor:'Prof10',room:@room10,discipline:@discipline10)
-@SchoolClass11 = SchoolClass.create(description:'SchoolClass11',startTime:DateTime.now,endTime:DateTime.now,classLetter:'D',classType:'T+TP',professor:'Prof11',room:@room11,discipline:@discipline11)
+	
+@SchoolClass1 = SchoolClass.create(description:'SchoolClass1',startTime:DateTime.now,endTime:DateTime.now,classLetter:'A',classType:'T',professor:'Prof1',room:@room1,discipline:@discipline1,school_year:@SchoolYear1)
+@SchoolClass2 = SchoolClass.create(description:'SchoolClass2',startTime:DateTime.now,endTime:DateTime.now,classLetter:'A',classType:'T',professor:'Prof2',room:@room2,discipline:@discipline2,school_year:@SchoolYear2)
+@SchoolClass3 = SchoolClass.create(description:'SchoolClass3',startTime:DateTime.now,endTime:DateTime.now,classLetter:'A',classType:'T+TP',professor:'Prof3',room:@room3,discipline:@discipline3,school_year:@SchoolYear3)
+@SchoolClass4 = SchoolClass.create(description:'SchoolClass4',startTime:DateTime.now,endTime:DateTime.now,classLetter:'B',classType:'T',professor:'Prof4',room:@room4,discipline:@discipline4,school_year:@SchoolYear4)
+@SchoolClass5 = SchoolClass.create(description:'SchoolClass5',startTime:DateTime.now,endTime:DateTime.now,classLetter:'B',classType:'T',professor:'Prof5',room:@room5,discipline:@discipline5,school_year:@SchoolYear5)
+@SchoolClass6 = SchoolClass.create(description:'SchoolClass6',startTime:DateTime.now,endTime:DateTime.now,classLetter:'B',classType:'T+TP',professor:'Prof6',room:@room6,discipline:@discipline6,school_year:@SchoolYear6)
+@SchoolClass7 = SchoolClass.create(description:'SchoolClass7',startTime:DateTime.now,endTime:DateTime.now,classLetter:'C',classType:'T',professor:'Prof7',room:@room7,discipline:@discipline7,school_year:@SchoolYear7)
+@SchoolClass8 = SchoolClass.create(description:'SchoolClass8',startTime:DateTime.now,endTime:DateTime.now,classLetter:'C',classType:'T',professor:'Prof8',room:@room8,discipline:@discipline8,school_year:@SchoolYear8)
+@SchoolClass9 = SchoolClass.create(description:'SchoolClass9',startTime:DateTime.now,endTime:DateTime.now,classLetter:'C',classType:'T+TP',professor:'Prof9',room:@room9,discipline:@discipline9,school_year:@SchoolYear9)
+@SchoolClass10 = SchoolClass.create(description:'SchoolClass10',startTime:DateTime.now,endTime:DateTime.now,classLetter:'D',classType:'T',professor:'Prof10',room:@room10,discipline:@discipline10,school_year:@SchoolYear10)
+@SchoolClass11 = SchoolClass.create(description:'SchoolClass11',startTime:DateTime.now,endTime:DateTime.now,classLetter:'D',classType:'T+TP',professor:'Prof11',room:@room11,discipline:@discipline11,school_year:@SchoolYear11)
 
 
 puts "################## Carregado com sucesso ##################"
