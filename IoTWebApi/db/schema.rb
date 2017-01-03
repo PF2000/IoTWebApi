@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103175519) do
+ActiveRecord::Schema.define(version: 20170103220643) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -74,10 +74,10 @@ ActiveRecord::Schema.define(version: 20170103175519) do
 
   create_table "school_classes", force: :cascade do |t|
     t.string   "description"
-    t.datetime "startTime"
-    t.datetime "endTime"
-    t.string   "classLetter"
-    t.string   "classType"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "class_letter"
+    t.string   "class_type"
     t.string   "professor"
     t.integer  "discipline_id"
     t.integer  "room_id"
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 20170103175519) do
 
   create_table "school_years", force: :cascade do |t|
     t.string   "description"
-    t.datetime "startTime"
-    t.datetime "endTime"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -100,13 +100,13 @@ ActiveRecord::Schema.define(version: 20170103175519) do
   create_table "schools", force: :cascade do |t|
     t.string   "name"
     t.string   "country"
-    t.string   "distric"
+    t.string   "district"
     t.string   "city"
     t.string   "county"
-    t.string   "postCode"
-    t.string   "addressDetails"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "post_code"
+    t.string   "address_details"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|
