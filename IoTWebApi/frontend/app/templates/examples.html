@@ -3,9 +3,80 @@
   	<div id="alert-box">{{ message }}</div>
 		<ui-accordions>
 			<ui-accordion title="Android Example" class="acordionTitle">
-				<pre><cod>static HttpClient client = new HttpClient();
-...
-static async Task<School> CreateSchoolAsync(School school){
+				<pre><cod> private void makeRequest(String url, final int method, JSONObject reqObj){
+
+                JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                        (method, url , reqObj, new Response.Listener<JSONObject>() {
+
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                if (response.length()>0) {
+                                    if(method == 0 || method == 1 || method == 7) {
+                                        if (!setDataFromJson(response)) {
+                                            sendToast(getResources().getString(R.string.ErrorParsingResponse));
+                                        }
+                                    }else{
+                                        sendToast("success");
+                                    }
+                                } else {
+                                    sendToast(getResources().getString(R.string.noResponseFromAPI));
+                                }
+                            }
+
+                        }, new Response.ErrorListener() {
+
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                sendToast(error.toString());
+
+                            }
+                        }){
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        Map<String, String> headers = new HashMap<>();
+                        headers.put("Content-Type", "application/json");
+                        headers.put("Authorization",token);
+                        return headers;
+                    }
+                };
+                queue.add(jsObjRequest);
+    }
+
+    @Nullable
+    private JSONObject setDataToSend(){
+        JSONObject  params = new JSONObject();
+        try {
+            if(!edId.getText().toString().equals("")) {
+                params.put("id", edId.getText().toString());
+            }
+            if(!edName.getText().toString().equals("")) {
+                params.put("name", edName.getText().toString());
+            }
+            if(!edCountry.getText().toString().equals("")) {
+                params.put("country", edCountry.getText().toString());
+            }
+            if(!edDistric.getText().toString().equals("")) {
+                params.put("distric", edDistric.getText().toString());
+            }
+            if(!edCity.getText().toString().equals("")) {
+                params.put("city", edCity.getText().toString());
+            }
+            if(!edCounty.getText().toString().equals("")) {
+                params.put("county", edCounty.getText().toString());
+            }
+            if(!edPostCode.getText().toString().equals("")) {
+                params.put("postCode", edPostCode.getText().toString());
+            }
+            if(!edAdressDetails.getText().toString().equals("")) {
+                params.put("addressDetails", edAdressDetails.getText().toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return params;
+    }
+
 				</cod></pre>
 				<br><br><button ng-click = "androidGit()">Android Sample</button>
 			</ui-accordion>
@@ -62,7 +133,38 @@ static async Task<School> CreateSchoolAsync(School school){
 			</ui-accordion>
 
 			<ui-accordion title="Ruby Example" class="acordionTitle">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<pre><cod>@action =  ARGV[0]
+@id =  ARGV[1]
+
+@url = 'http://localhost:3000'
+@token = 'Token token=jStvR2Bw1mcb6jePzm7noQtt';
+				</cod></pre>
+				<pre><cod>puts case @action
+when 'Get'
+	response = HTTParty.get(@url + "/v1/schools/"+@id, 
+	:headers => { "Authorization" => @token})
+	
+when 'Post'
+	@School = {school:{name: "TesteRuby"}}
+	
+	response = HTTParty.post(@url + "/v1/schools", 
+	:headers => { "Authorization" => @token},
+	:body => @School)
+when 'Put'
+	@School = {school:{name: "TesteRubyUpdate"}}
+	
+	response = HTTParty.put(@url + "/v1/schools/" + @id, 
+	:headers => { "Authorization" => @token},
+	:body => @School)
+
+when 'Delete'
+	response = HTTParty.delete(@url + "/v1/schools/" + @id, 
+	:headers => { "Authorization" => @token})
+	
+else
+	puts 'Get Put Post or Delete'
+end
+				</cod></pre>
 				<br><br><button ng-click = "rubyGit()" >Ruby Sample</button>
 			</ui-accordion>
 			
