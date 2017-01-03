@@ -20,6 +20,7 @@ School.delete_all
 Discipline.delete_all
 Project.delete_all
 SchoolClass.delete_all
+SchoolYear.delete_all
 
 puts ""
 puts "######### Apagou com sucesso os dados anteriores ##########"
@@ -211,6 +212,20 @@ puts "############### Adicionar Níveis de cursos ################"
 @r4 = Degree.create(description:'Doutoramento')
 @r5 = Degree.create(description:'Pós-Graduação')
 
+puts "################ Adicionar anos lectivos ##################"
+
+@SchoolYear1 = SchoolYear.create(description:'2005/2006',startTime:DateTime.now,endTime:DateTime.now)
+@SchoolYear2 = SchoolYear.create(description:'2006/2007',startTime:DateTime.now,endTime:DateTime.now)
+@SchoolYear3 = SchoolYear.create(description:'2007/2008',startTime:DateTime.now,endTime:DateTime.now)
+@SchoolYear4 = SchoolYear.create(description:'2008/2009',startTime:DateTime.now,endTime:DateTime.now)
+@SchoolYear5 = SchoolYear.create(description:'2009/2010',startTime:DateTime.now,endTime:DateTime.now)
+@SchoolYear6 = SchoolYear.create(description:'2010/2011',startTime:DateTime.now,endTime:DateTime.now)
+@SchoolYear7 = SchoolYear.create(description:'2011/2012',startTime:DateTime.now,endTime:DateTime.now)
+@SchoolYear8 = SchoolYear.create(description:'2012/2013',startTime:DateTime.now,endTime:DateTime.now)
+@SchoolYear9 = SchoolYear.create(description:'2013/2014',startTime:DateTime.now,endTime:DateTime.now)
+@SchoolYear10 = SchoolYear.create(description:'2014/2015',startTime:DateTime.now,endTime:DateTime.now)
+@SchoolYear11 = SchoolYear.create(description:'2015/2016',startTime:DateTime.now,endTime:DateTime.now)
+
 puts "#################### Adicionar  cursos ####################"
 
 @course1 = @s1.courses.create(name:'Administração de Bases de Dados',degree:@r1)
@@ -300,6 +315,11 @@ puts "#################### Adicionar  cursos ####################"
 @course85 = @s1.courses.create(name:'Proteção Civil: A Gestão da Comunicação no Risco, nas Emergências e nas Crises',degree:@r5)
 @course86 = @s1.courses.create(name:'Pós-graduação em Novas Tecnologias da Comunicação',degree:@r5)
 
+puts "############# Ligação - Courses / SchoolYears #############"
+
+@course1.school_years << @SchoolYear1
+
+
 puts "################## Adicionar  disciplina ##################"
 
 @discipline1 = Discipline.create(name:'Álgebra')
@@ -332,9 +352,6 @@ puts "################## Adicionar  disciplina ##################"
 @discipline28 = Discipline.create(name:'Projecto de Sistemas de Informação')
 @discipline29 = Discipline.create(name:'Projecto Final')
 @discipline30 = Discipline.create(name:'Sistemas de Informação nas Organizações')
-
-
-
 
 puts "############# Ligação - Courses / Disciplines #############"
 

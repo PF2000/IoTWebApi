@@ -3,6 +3,7 @@ class Course < ApplicationRecord
 	belongs_to :degree, :foreign_key => 'degree_id', :class_name => 'Degree'
 
     has_and_belongs_to_many :disciplines
+    has_and_belongs_to_many :school_years
 
 	#overrides the sets
 	def school=(params)
@@ -23,6 +24,13 @@ class Course < ApplicationRecord
 		super(@dis)	
 	end
 
+	def school_years=(params)
+		@sy = [];
+		params.each do |school_yearsId|
+		     @sy << School_Years.find( school_yearsId[:id] )
+		end 		
+		super(@sy)	
+	end
 
 	#Overrides the Gets
 	def school	
@@ -32,6 +40,10 @@ class Course < ApplicationRecord
 		super
  	end
 	def disciplines		
+		super
+ 	end
+
+ 	def school_years		
 		super
  	end
 
