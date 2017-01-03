@@ -47,7 +47,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def school_class_params
-        params.require(:school_class).permit(:description, :startTime, :endTime, :classLetter, :classType, :professor, :discipline_id, :room_id)
+        params.require(:school_class).permit(:description, :start_time, :end_time, :class_letter, :class_type, :professor, :discipline_id, :room_id)
       end
   end
 end

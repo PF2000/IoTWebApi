@@ -1,3 +1,3 @@
 class SchoolYearSerializer < ActiveModel::Serializer
-  attributes :id, :description, :startTime, :endTime
+  attributes :id, :description, :start_time, :end_time
 end

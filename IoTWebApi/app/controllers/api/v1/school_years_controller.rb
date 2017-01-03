@@ -47,7 +47,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def school_year_params
-        params.require(:school_year).permit(:description, :startTime, :endTime)
+        params.require(:school_year).permit(:description, :start_time, :end_time)
       end
   end
 end
