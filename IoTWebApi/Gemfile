@@ -11,9 +11,6 @@ gem 'puma', '~> 3.0'
 #Use for serialization (JSON)
 gem 'active_model_serializers'
 
-#Enable CORS ??
-gem 'rack-cors'
-
 #for attacks DDoS
 gem 'rack-attack'
 
@@ -34,7 +31,7 @@ gem 'swagger-docs'
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

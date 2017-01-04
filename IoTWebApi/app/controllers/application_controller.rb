@@ -4,18 +4,13 @@ class ApplicationController < ActionController::API
 
 	#Para autenticar com token 
 	include ActionController::HttpAuthentication::Token::ControllerMethods
+	#Swagger
+  	include Swagger::Docs::ImpotentMethods
+  	
 
 	  # Add a before_action to authenticate all requests.
 	  # Move this to subclassed controllers if you only
 	  # want to authenticate certain methods.
-
-	  include Swagger::Docs::ImpotentMethods
-
-
-
-
-
-
 
 
 	  protected
@@ -35,11 +30,6 @@ class ApplicationController < ActionController::API
 	    self.headers["WWW-Authenticate"] = %(Token realm="#{realm.gsub(/"/, "")}")
 	    render json: 'Bad credentials', status: :unauthorized
 	  end
-
-
-
-
-
 
 
   class << self
