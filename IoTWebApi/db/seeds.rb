@@ -21,6 +21,7 @@ Discipline.delete_all
 Project.delete_all
 SchoolClass.delete_all
 SchoolYear.delete_all
+Attach.delete_all
 
 puts ""
 puts "######### Apagou com sucesso os dados anteriores ##########"
@@ -429,6 +430,21 @@ puts "##################### Adicionar projectos #################"
 @project10 = Project.create(name:'Prj10',description:'Descr Proj 10',grade:10,discipline:@discipline10,school_year:@SchoolYear10)
 @project11 = Project.create(name:'Prj11',description:'Descr Proj 11',grade:10,discipline:@discipline11,school_year:@SchoolYear11)
 
+puts "##################### Adicionar 'anexos' #################"
+
+#puts @project1.inspect
+
+@attach1 = Attach.create(name:'attach1',description:'Desc attach 1',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project1,data_type:'jpg')
+@attach2 = Attach.create(name:'attach2',description:'Desc attach 2',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project2,data_type:'jpg')
+@attach3 = Attach.create(name:'attach3',description:'Desc attach 3',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project3,data_type:'jpg')
+@attach4 = Attach.create(name:'attach4',description:'Desc attach 4',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project4,data_type:'jpg')
+@attach5 = Attach.create(name:'attach5',description:'Desc attach 5',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project5,data_type:'jpg')
+@attach6 = Attach.create(name:'attach6',description:'Desc attach 6',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project6,data_type:'jpg')
+@attach7 = Attach.create(name:'attach7',description:'Desc attach 7',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project7,data_type:'jpg')
+@attach8 = Attach.create(name:'attach8',description:'Desc attach 8',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project8,data_type:'jpg')
+@attach9 = Attach.create(name:'attach9',description:'Desc attach 9',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project9,data_type:'jpg')
+@attach10 = Attach.create(name:'attach10',description:'Desc attach 10',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project10,data_type:'jpg')
+@attach11 = Attach.create(name:'attach11',description:'Desc attach 11',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project11,data_type:'jpg')
 
 puts "####################### Adicionar Aulas ###################"
 	
@@ -443,6 +459,20 @@ puts "####################### Adicionar Aulas ###################"
 @SchoolClass9 = SchoolClass.create(description:'SchoolClass9',start_time:DateTime.now,end_time:DateTime.now,class_letter:'C',class_type:'T+TP',professor:'Prof9',room:@room9,discipline:@discipline9,school_year:@SchoolYear9)
 @SchoolClass10 = SchoolClass.create(description:'SchoolClass10',start_time:DateTime.now,end_time:DateTime.now,class_letter:'D',class_type:'T',professor:'Prof10',room:@room10,discipline:@discipline10,school_year:@SchoolYear10)
 @SchoolClass11 = SchoolClass.create(description:'SchoolClass11',start_time:DateTime.now,end_time:DateTime.now,class_letter:'D',class_type:'T+TP',professor:'Prof11',room:@room11,discipline:@discipline11,school_year:@SchoolYear11)
+
+puts "################### Adicionar summaries ###################"
+
+@summary1 = Summary.create(number_students:'29',date:'DateTime.now',description:'Summary1',school_class:@SchoolClass1)
+@summary2 = Summary.create(number_students:'27',date:'DateTime.now',description:'Summary2',school_class:@SchoolClass2)
+@summary3 = Summary.create(number_students:'20',date:'DateTime.now',description:'Summary3',school_class:@SchoolClass3)
+@summary4 = Summary.create(number_students:'28',date:'DateTime.now',description:'Summary4',school_class:@SchoolClass4)
+@summary5 = Summary.create(number_students:'27',date:'DateTime.now',description:'Summary5',school_class:@SchoolClass5)
+@summary6 = Summary.create(number_students:'30',date:'DateTime.now',description:'Summary6',school_class:@SchoolClass6)
+@summary7 = Summary.create(number_students:'18',date:'DateTime.now',description:'Summary7',school_class:@SchoolClass7)
+@summary8 = Summary.create(number_students:'20',date:'DateTime.now',description:'Summary8',school_class:@SchoolClass8)
+@summary9 = Summary.create(number_students:'17',date:'DateTime.now',description:'Summary9',school_class:@SchoolClass9)
+@summary10 = Summary.create(number_students:'23',date:'DateTime.now',description:'Summary10',school_class:@SchoolClass10)
+@summary11 = Summary.create(number_students:'15',date:'DateTime.now',description:'Summary11',school_class:@SchoolClass11)
 
 
 puts "################## Carregado com sucesso ##################"

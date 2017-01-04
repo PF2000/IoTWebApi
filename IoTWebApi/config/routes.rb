@@ -19,6 +19,9 @@ scope module: 'api' do
 			resources :disciplines
 		    resources :projects
 			resources :school_classes
+  			resources :attaches
+  			resources :summaries
+  			resources :school_years
 
 			resources :schools do
 				resources :courses
@@ -40,10 +43,11 @@ scope module: 'api' do
 			resources :disciplines do
 				resources :school_classes
 			end
-			
-		  	resources :school_years
 
-
+			resources :projects do
+				resources :summaries
+			end
+		
 		  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 		end
 	end

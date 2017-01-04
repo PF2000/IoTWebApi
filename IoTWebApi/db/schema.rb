@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103220643) do
+ActiveRecord::Schema.define(version: 20170104115954) do
+
+  create_table "attaches", force: :cascade do |t|
+    t.string   "name"
+    t.string   "data"
+    t.string   "data_type"
+    t.string   "description"
+    t.datetime "date"
+    t.integer  "project_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["project_id"], name: "index_attaches_on_project_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -107,6 +119,16 @@ ActiveRecord::Schema.define(version: 20170103220643) do
     t.string   "address_details"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "summaries", force: :cascade do |t|
+    t.integer  "number_students"
+    t.string   "description"
+    t.datetime "date"
+    t.integer  "school_class_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["school_class_id"], name: "index_summaries_on_school_class_id"
   end
 
   create_table "users", force: :cascade do |t|
