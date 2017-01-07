@@ -102,7 +102,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def project_params
-        params.require(:project).permit(:name, :description, :grade, :discipline_id)
+        params.require(:project).permit(:name, :description, :grade, :discipline => [:id])
       end
   end
 end
