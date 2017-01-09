@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :discipline
+  belongs_to :school_year
 
 #overrides the sets
 	def discipline=(params)

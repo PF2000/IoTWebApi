@@ -16,10 +16,13 @@ module Api::V1
 
     # POST /school_classes
     def create
+      #debugger
       @school_class = SchoolClass.new(school_class_params)
 
+      #debugger
+
       if @school_class.save
-        render json: @school_class, status: :created, location: @school_class
+        render json: @school_class, status: :created#, location: @school_class
       else
         render json: @school_class.errors, status: :unprocessable_entity
       end
@@ -47,7 +50,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def school_class_params
-        params.require(:school_class).permit(:description, :startTime, :endTime, :classLetter, :classType, :professor, :discipline_id, :room_id)
+        params.require(:school_class).permit(:description, :start_time, :end_time, :class_letter, :class_type, :professor, :discipline => [:id], :room => [:id], :school_year => [:id])
       end
   end
 end
