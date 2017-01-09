@@ -40,8 +40,9 @@ module Api::V1
 
   	def login
   		#Rails.logger.debug  params[:username]
-  		#Rails.logger.debug  params[:password]
-  		@user =	User.find_by(email: params[:username], password: params[:password])
+  		#Rails.logger.debug  params[:password]  		
+    	@pass = Digest::SHA2.hexdigest( params[:password] )	
+  		@user =	User.find_by(email: params[:username], password: @pass )
 		#Rails.logger.debug @user
   	   	if @user.nil?
   	   		render :status => :forbidden, :plain => "Authentication credentials provided were invalid"	     	
