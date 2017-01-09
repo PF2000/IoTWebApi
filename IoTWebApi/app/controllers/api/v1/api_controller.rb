@@ -57,6 +57,9 @@ module Api::V1
 
  	def checkLockOrCount
  		if !@current_user.nil?
+ 			if @current_user.token_count_reset_date.nil?
+ 				@current_user.token_count_reset_date = Time.now
+ 			end
  			numDays = ((((Time.now - @current_user.token_count_reset_date)/60)/60)/24).to_i
 	 		if (@current_user.locked && numDays < 30) && (@current_user.token_count >= @current_user.token_limit) 
 	 			if !@current_user.locked
