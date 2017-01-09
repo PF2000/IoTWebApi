@@ -44,7 +44,7 @@ scope module: 'api' do
 				resources :school_classes
 			end
 
-			resources :projects do
+			resources :school_classes do
 				resources :summaries
 			end
 		

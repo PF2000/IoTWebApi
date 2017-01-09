@@ -5,12 +5,12 @@ module Api::V1
     # GET /summaries
     def index
       @summaries = Summary.all
-
+      debugger
       render json: @summaries
     end
 
     # GET /summaries/1
-    def show
+    def shows
       render json: @summary
     end
 
@@ -19,7 +19,7 @@ module Api::V1
       @summary = Summary.new(summary_params)
 
       if @summary.save
-        render json: @summary, status: :created, location: @summary
+        render json: @summary, status: :created#, location: @summary
       else
         render json: @summary.errors, status: :unprocessable_entity
       end
@@ -47,7 +47,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def summary_params
-        params.require(:summary).permit(:number_students, :description, :date, :school_class_id)
+        params.require(:summary).permit(:number_students, :description, :date, :school_class  => [:id])
       end
   end
 end
