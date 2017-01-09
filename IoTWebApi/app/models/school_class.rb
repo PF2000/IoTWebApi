@@ -9,19 +9,29 @@ class SchoolClass < ApplicationRecord
 		super(@discipline)
 	end
 
-	#Overrides the Gets
+	def room=(params)
+		@room = Room.find( params[:id])	
+	 	super(@room)
+	end
+
+	def school_year=(params)
+		@school_year = School_year.find( params[:id])	
+	 	super(@school_year)
+	end
+
+
+	# #Overrides the Gets
+	def room	
+	 	super
+	end
+
 	def discipline	
 		super
 	end
+	
+	def school_year	
+		super
+	end
 
-	# def room=(params)
-	# 	@room = Room.find( params[:id])	
-	# 	super(@room)
-	# end
-
-	# #Overrides the Gets
-	# def room	
-	# 	super
-	# end
-
+	
 end

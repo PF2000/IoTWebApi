@@ -19,7 +19,7 @@ module Api::V1
       @school_year = SchoolYear.new(school_year_params)
 
       if @school_year.save
-        render json: @school_year, status: :created, location: @school_year
+        render json: @school_year, status: :created#, location: @school_year
       else
         render json: @school_year.errors, status: :unprocessable_entity
       end

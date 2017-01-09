@@ -1,2 +1,5 @@
 class SchoolYear < ApplicationRecord
+
+
+
 end
