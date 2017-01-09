@@ -1,5 +1,7 @@
 angular.module("app").controller('LoginController',function($scope, $location, AuthenticationService,SessionService) {
   
+$scope.alertClass = "";
+
   $scope.isAuth = function() { 
     if(SessionService.isLoggedIn()){
       $location.path('/managment/'+ SessionService.getLoggedID());
@@ -12,11 +14,14 @@ angular.module("app").controller('LoginController',function($scope, $location, A
      SessionService.setLoggedToken(data.api_key); 
      //Sets the Role on session vaeriable
      SessionService.setLoggedRole(data.role.name); 
+     //Sets the name
+     SessionService.setLoggedName(data.name + " " + data.surname); 
      SessionService.setSession(true);
      $location.path('/managment/'+ data.id );
   };
   
   var onLoginError = function(data) {
+    $scope.alertClass = "alert alert-danger";
     $scope.message = data;
   };
 
@@ -24,14 +29,6 @@ angular.module("app").controller('LoginController',function($scope, $location, A
     AuthenticationService.login($scope.credentials)
     .success(onLoginSuccess)
     .error(onLoginError);
-  };
-
-  $scope.register = function() {
-    $location.path('/register');
-  };
-  
-  $scope.passRecovery = function() {
-    $location.path('/passRecovery');
   };
 
 });

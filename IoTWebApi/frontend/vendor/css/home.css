@@ -1,0 +1,79 @@
+.mbr-section-hero .mbr-section-lead {
+  color: #fff;
+  font-family: Lora;
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-top: -1em; 
+}
+
+p.lead,
+.lead p {
+  font-size: 1.07rem;
+  font-weight: 300;
+  margin-bottom: 2.3125rem; 
+}
+
+.mbr-section-title + .mbr-section-subtitle {
+  margin-top: -21px; 
+}
+
+.mbr-section-hero::before {
+  display: none !important; 
+}
+.mbr-section-hero .mbr-section-title {
+  color: #fff;
+  margin-bottom: 1.6875rem; 
+}
+.mbr-section-hero .mbr-section-lead {
+  color: #fff;
+  font-family: Lora;
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-top: -1em; 
+}
+.mbr-section-hero .mbr-section-text {
+  color: #fff; 
+}
+
+.mbr-section {
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+  
+.display-1 {
+  font-size: 4.39rem;
+  font-weight: 600;
+  letter-spacing: -2px;
+  margin-bottom: 0.2843em;
+  margin-top: 3.9rem; }
+
+.display-2 {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin-bottom: 1.5625rem;
+  margin-top: 3.5rem; }
+
+.display-3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-top: 3.2rem;
+  margin-bottom: 2rem; }
+
+.display-4 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 2.3rem;
+  margin-bottom: 1.8rem; }
+
+.home {
+  color:#FFFFFF !important;
+  text-align: center;
+}
+#view{
+  min-height:87%;
+}

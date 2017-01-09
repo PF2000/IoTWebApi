@@ -4,7 +4,7 @@ module Api::V1
 
   #only skip if action is create
   skip_before_action :authenticate , :only => [:create,:resetPassword]
-  skip_before_action :autorize, :only => [:create,:resetPassword]
+  skip_before_action :autorize, :only => [:create,:resetPassword,:update]
 
   # GET /users
   def index

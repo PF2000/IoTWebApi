@@ -28,9 +28,5 @@
       "description": "Projects Management"
     }
   ],
-  "authorizations": null,
-  "info": {
-    "title": "NBOS Rails Oauth provider application",
-    "description": "Rails API documention with Swagger UI."
-  }
+  "authorizations": null
 }

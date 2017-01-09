@@ -1,16 +1,209 @@
-<div id="examples" class="row">
-  <div class="large-6 large-offset-3">
-    <div class="alert-box">{{ message }}</div>
+<div class="container">
+	<div class="jumbotron formLike">
+  	<div id="alert-box">{{ message }}</div>
+		<ui-accordions>
+			<ui-accordion title="Android Example" class="acordionTitle">
+				<pre><cod> private void makeRequest(String url, final int method, JSONObject reqObj){
 
+                JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                        (method, url , reqObj, new Response.Listener<JSONObject>() {
 
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                if (response.length()>0) {
+                                    if(method == 0 || method == 1 || method == 7) {
+                                        if (!setDataFromJson(response)) {
+                                            sendToast(getResources().getString(R.string.ErrorParsingResponse));
+                                        }
+                                    }else{
+                                        sendToast("success");
+                                    }
+                                } else {
+                                    sendToast(getResources().getString(R.string.noResponseFromAPI));
+                                }
+                            }
 
+                        }, new Response.ErrorListener() {
 
-     <div class="large-12 columns">
-      <button id="btn_documentation" type="submit" class="button large expand radius" ng-click="documentation()">Documentation</button>
-      <button id="btn_examples" type="submit" class="button large expand radius" ng-click="examples()">Examples</button>
-      <button id="btn_login" type="submit" class="button large expand radius" ng-click="login()">Log-in</button>
-      <button id="btn_register" type="submit" class="button large expand radius" ng-click="register()">Register</button>
-      
-    </div>
-  </div>
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                sendToast(error.toString());
+
+                            }
+                        }){
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        Map<String, String> headers = new HashMap<>();
+                        headers.put("Content-Type", "application/json");
+                        headers.put("Authorization",token);
+                        return headers;
+                    }
+                };
+                queue.add(jsObjRequest);
+    }
+
+    @Nullable
+    private JSONObject setDataToSend(){
+        JSONObject  params = new JSONObject();
+        try {
+            if(!edId.getText().toString().equals("")) {
+                params.put("id", edId.getText().toString());
+            }
+            if(!edName.getText().toString().equals("")) {
+                params.put("name", edName.getText().toString());
+            }
+            if(!edCountry.getText().toString().equals("")) {
+                params.put("country", edCountry.getText().toString());
+            }
+            if(!edDistric.getText().toString().equals("")) {
+                params.put("distric", edDistric.getText().toString());
+            }
+            if(!edCity.getText().toString().equals("")) {
+                params.put("city", edCity.getText().toString());
+            }
+            if(!edCounty.getText().toString().equals("")) {
+                params.put("county", edCounty.getText().toString());
+            }
+            if(!edPostCode.getText().toString().equals("")) {
+                params.put("postCode", edPostCode.getText().toString());
+            }
+            if(!edAdressDetails.getText().toString().equals("")) {
+                params.put("addressDetails", edAdressDetails.getText().toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return params;
+    }
+
+				</cod></pre>
+				<br><br><button ng-click = "androidGit()">Android Sample</button>
+			</ui-accordion>
+
+			<ui-accordion title="Java Example" class="acordionTitle">
+				<pre><cod> DefaultHttpClient httpClient;
+String baseUrl; 
+    
+public SchoolController() {
+  httpClient = new DefaultHttpClient();
+  baseUrl = "http://localhost:3000/";
+}
+
+...
+
+HttpGet getRequest = new HttpGet(baseUrl+"v1/schools");
+	getRequest.addHeader("accept", "application/json");
+	getRequest.addHeader("Authorization", "Token token=pJzVJ9DZlhWxVotjRRRqoQtt");
+
+	HttpResponse response = httpClient.execute(getRequest);
+
+	if (response.getStatusLine().getStatusCode() != 200) {
+	        throw new RuntimeException("Failed : HTTP error code : "
+	                        + response.getStatusLine().getStatusCode());
+	}
+
+	BufferedReader br = new BufferedReader(new InputStreamReader(
+	                (response.getEntity().getContent())));
+
+	String output;
+	System.out.println("Output from Server .... \n");
+	while ((output = br.readLine()) != null) {
+
+    System.out.println(output);
+}
+				</cod></pre>
+				<br><br><button ng-click = "javaGit()" >Java Sample</button>
+			</ui-accordion>
+
+			<ui-accordion title="C# Example" class="acordionTitle">
+				<pre><cod>static HttpClient client = new HttpClient();
+...
+static async Task<School> CreateSchoolAsync(School school){
+	//converts object to json
+	StringContent json = CreteJson(school);
+	//Do post
+	var response = await client.PostAsync("v1/schools", json);
+	response.EnsureSuccessStatusCode();
+	// Deserialize the Created product from the response body.
+	return await response.Content.ReadAsAsync<School>();
+}
+				</cod></pre>
+				<br><br><button ng-click = "csharpGit()">C# Sample</button>
+			</ui-accordion>
+
+			<ui-accordion title="Ruby Example" class="acordionTitle">
+				<pre><cod>@action =  ARGV[0]
+@id =  ARGV[1]
+
+@url = 'http://localhost:3000'
+@token = 'Token token=jStvR2Bw1mcb6jePzm7noQtt';
+				</cod></pre>
+				<pre><cod>puts case @action
+when 'Get'
+	response = HTTParty.get(@url + "/v1/schools/"+@id, 
+	:headers => { "Authorization" => @token})
+	
+when 'Post'
+	@School = {school:{name: "TesteRuby"}}
+	
+	response = HTTParty.post(@url + "/v1/schools", 
+	:headers => { "Authorization" => @token},
+	:body => @School)
+when 'Put'
+	@School = {school:{name: "TesteRubyUpdate"}}
+	
+	response = HTTParty.put(@url + "/v1/schools/" + @id, 
+	:headers => { "Authorization" => @token},
+	:body => @School)
+
+when 'Delete'
+	response = HTTParty.delete(@url + "/v1/schools/" + @id, 
+	:headers => { "Authorization" => @token})
+	
+else
+	puts 'Get Put Post or Delete'
+end
+				</cod></pre>
+				<br><br><button ng-click = "rubyGit()" >Ruby Sample</button>
+			</ui-accordion>
+			
+			<ui-accordion title="Python Example" class="acordionTitle">
+				<cod><pre>import json
+import requests
+import pprint
+url = 'http://192.168.10.123:8000/v1/schools'
+headers = {'Content-type': 'application/json',"Authorization":"Token token=9ZQrhUSg3rTIPla7cyHGGAtt"}
+data = {"school":{"name": "TestePython"}}
+data_json = json.dumps(data)
+
+#POST
+pprint.pprint('########### POST ###########')
+response = requests.post(url, data=data_json,headers=headers)
+pprint.pprint(response.json())
+
+id = response.json()['id']
+pprint.pprint(id)
+
+#GET
+pprint.pprint('########### GET ###########')
+response = requests.get(url + "/" + str(id),headers=headers)
+pprint.pprint(response.json())
+
+#PUT
+pprint.pprint('########### PUT ###########')
+data = {"school":{"name": "Badoiks"}}
+data_json = json.dumps(data)
+
+response = requests.put(url + "/" + str(id), data=data_json,headers=headers)
+pprint.pprint(response.json())
+
+#DELETE
+pprint.pprint('########### DELETE ###########')
+response = requests.delete(url + "/" + str(id),headers=headers)
+#pprint.pprint(response.json())</cod></pre>
+				<br><br><button ng-click = "pythonGit()" >Python Sample</button>
+			</ui-accordion>
+		</ui-accordions>
+	</div>
 </div>

@@ -9,26 +9,32 @@ angular.module("app").factory("SessionService", function() {
     getArray: function(){
       return sessionStorage;
     },
-    isLoggedIn() {
+    isLoggedIn: function() {
       return sessionStorage.getItem('authenticated');
     },
-    getLoggedID() {
+    getLoggedID: function() {
       return sessionStorage.getItem('loggedID');
     },
-    setLoggedID(val) {
-      return sessionStorage.setItem("loggedID", val);;
+    setLoggedID: function(val) {
+      return sessionStorage.setItem("loggedID", val);
     },
-    getLoggedToken() {
+    getLoggedToken: function() {
       return sessionStorage.getItem('LoggedToken');
     },
-    setLoggedToken(val) {
-      return sessionStorage.setItem("LoggedToken", val);;
+    setLoggedToken: function(val) {
+      return sessionStorage.setItem("LoggedToken", val);
     },
-    getLoggedRole() {
+    getLoggedRole: function() {
       return sessionStorage.getItem('LoggedRole');
     },
-    setLoggedRole(val) {
-      return sessionStorage.setItem("LoggedRole", val);;
+    setLoggedRole: function(val) {
+      return sessionStorage.setItem("LoggedRole", val);
+    },
+    getLoggedName: function() {
+      return sessionStorage.getItem('LoggedName');
+    },
+    setLoggedName: function(val) {
+      return sessionStorage.setItem("LoggedName", val);
     }
   };
 });

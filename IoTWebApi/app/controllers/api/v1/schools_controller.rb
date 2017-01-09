@@ -90,11 +90,11 @@ module Api::V1
      property :id, :integer, :required, "School ID"
      property :name, :string, :optional, "Name"
      property :country, :string, :required, "Country"
-     property :distric, :string, :optional, "District"
+     property :district, :string, :optional, "District"
      property :city, :string, :required, "City"
      property :county, :string, :optional, "County"
-     property :postCode, :string, :required, "Post Code"
-     property :addressDetails, :string, :optional, "Address Details"
+     property :post_code, :string, :required, "Post Code"
+     property :address_details, :string, :optional, "Address Details"
   end
 
 
@@ -106,7 +106,7 @@ module Api::V1
 
     # Only allow a trusted parameter "white list" through.
     def school_params
-      params.require(:school).permit(:name, :country, :distric, :city, :county, :postCode, :addressDetails)
+      params.require(:school).permit(:name, :country, :district, :city, :county, :post_code, :address_details)
     end
   end 
 end

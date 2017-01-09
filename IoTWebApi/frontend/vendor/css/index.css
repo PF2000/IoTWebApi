@@ -1,0 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.bodyInit {
+	padding-top: 3.777rem;
+}
+
+.navbar{
+
+	background-color: #282828;
+	text-align: center;
+	vertical-align: middle;
+}
+

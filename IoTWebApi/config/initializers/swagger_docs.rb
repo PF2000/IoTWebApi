@@ -16,11 +16,11 @@ Swagger::Docs::Config.base_api_controller = ActionController::API
     # Ability to setup base controller for each api version. Api::V1::SomeController for example.
     #:parent_controller => "ApiController",
     # add custom attributes to api-docs
-    :attributes => {
-      :info => {
-        "title" => "NBOS Rails Oauth provider application",
-        "description" => "Rails API documention with Swagger UI."
-      }
-    }
+    #:attributes => {
+     # :info => {
+      #  "title" => "NBOS Rails Oauth provider application",
+       # "description" => "Rails API documention with Swagger UI."
+      #}
+    #}
   }
 })

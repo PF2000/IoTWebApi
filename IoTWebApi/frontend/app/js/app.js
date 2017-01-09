@@ -1,5 +1,7 @@
-angular.module("app", ["ngResource", "ngRoute"]).run(function($rootScope,$http) {
+angular.module("app", ["ngResource", "ngRoute","ui"]).run(function($rootScope,$http,$templateCache) {
   
+	
+
 
   $rootScope.log = function(thing) {
     console.log(thing);

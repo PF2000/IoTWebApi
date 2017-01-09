@@ -12,8 +12,6 @@
 # rails db:schema:load 	-	Comando para carregar o esquema da BD
 ##########################################################################################
 
-User.delete_all
-Role.delete_all
 
 Room.delete_all
 Course.delete_all
@@ -21,12 +19,17 @@ Degree.delete_all
 School.delete_all
 Discipline.delete_all
 Project.delete_all
+SchoolClass.delete_all
+SchoolYear.delete_all
+Attach.delete_all
 
 puts ""
 puts "######### Apagou com sucesso os dados anteriores ##########"
+puts "############ Parte dos utilizadores comentada #############"
 
-#@s = School.create(name:'IPT', country:'teste', distric:'teste',  city:'teste', county:'teste', postCode:'teste', addressDetails:'teste')
-#@s.courses.create(name:'teste1')
+User.delete_all
+Role.delete_all
+
 @r1 = Role.create(name: 'Manager')
 @r2 = Role.create(name: 'User')
 @r3 = Role.create(name: 'Admin')
@@ -37,170 +40,170 @@ puts "######### Apagou com sucesso os dados anteriores ##########"
 
 puts "#################### Adicionar escolas ####################"
 
-@s1 = School.create(name:'Escola Superior de Tecnologia de Tomar',country:'Portugal',distric:'Santarém',city:'Tomar',county:'Tomar',postCode:'2300',addressDetails:'')
-@s2 = School.create(name:'Escola Superior de Gestão de Tomar',country:'Portugal',distric:'Santarém',city:'Tomar',county:'Tomar',postCode:'2300',addressDetails:'')
-@s3 = School.create(name:'Escola Superior de Tecnologia de Abrantes',country:'Portugal',distric:'Santarém',city:'Tomar',county:'Tomar',postCode:'2300',addressDetails:'')
+@s1 = School.create(name:'Escola Superior de Tecnologia de Tomar',country:'Portugal',district:'Santarém',city:'Tomar',county:'Tomar',post_code:'2300',address_details:'')
+@s2 = School.create(name:'Escola Superior de Gestão de Tomar',country:'Portugal',district:'Santarém',city:'Tomar',county:'Tomar',post_code:'2300',address_details:'')
+@s3 = School.create(name:'Escola Superior de Tecnologia de Abrantes',country:'Portugal',district:'Santarém',city:'Tomar',county:'Tomar',post_code:'2300',address_details:'')
 
 puts "####################  Adicionar salas  ####################"
 
-@s1.rooms.create(description:'A100',projector:'False',seats:'21')
-@s1.rooms.create(description:'A101',projector:'False',seats:'22')
-@s1.rooms.create(description:'A102',projector:'False',seats:'19')
-@s1.rooms.create(description:'A103',projector:'True',seats:'27')
-@s1.rooms.create(description:'A104',projector:'False',seats:'19')
-@s1.rooms.create(description:'A105',projector:'False',seats:'25')
-@s1.rooms.create(description:'A106',projector:'False',seats:'16')
-@s1.rooms.create(description:'A107',projector:'False',seats:'19')
-@s1.rooms.create(description:'A108',projector:'True',seats:'16')
-@s1.rooms.create(description:'A109',projector:'False',seats:'20')
-@s1.rooms.create(description:'A110',projector:'True',seats:'18')
-@s1.rooms.create(description:'A111',projector:'False',seats:'22')
-@s1.rooms.create(description:'A112',projector:'True',seats:'25')
-@s1.rooms.create(description:'A113',projector:'True',seats:'24')
-@s1.rooms.create(description:'A114',projector:'True',seats:'30')
-@s1.rooms.create(description:'A115',projector:'True',seats:'20')
-@s1.rooms.create(description:'A116',projector:'True',seats:'26')
-@s1.rooms.create(description:'A117',projector:'True',seats:'25')
-@s1.rooms.create(description:'A118',projector:'True',seats:'28')
-@s1.rooms.create(description:'A119',projector:'False',seats:'20')
-@s1.rooms.create(description:'A120',projector:'True',seats:'24')
-@s1.rooms.create(description:'A121',projector:'True',seats:'21')
-@s1.rooms.create(description:'A122',projector:'True',seats:'22')
-@s1.rooms.create(description:'A123',projector:'False',seats:'30')
-@s1.rooms.create(description:'A124',projector:'False',seats:'18')
-@s1.rooms.create(description:'A125',projector:'False',seats:'15')
-@s1.rooms.create(description:'A126',projector:'False',seats:'16')
-@s1.rooms.create(description:'A127',projector:'True',seats:'15')
-@s1.rooms.create(description:'A128',projector:'False',seats:'15')
-@s1.rooms.create(description:'A129',projector:'False',seats:'28')
-@s1.rooms.create(description:'A130',projector:'True',seats:'28')
-@s1.rooms.create(description:'A131',projector:'False',seats:'24')
-@s1.rooms.create(description:'A132',projector:'True',seats:'16')
-@s1.rooms.create(description:'A133',projector:'True',seats:'17')
-@s1.rooms.create(description:'A134',projector:'True',seats:'27')
-@s1.rooms.create(description:'A135',projector:'True',seats:'16')
-@s1.rooms.create(description:'A136',projector:'True',seats:'30')
-@s1.rooms.create(description:'A137',projector:'False',seats:'26')
-@s1.rooms.create(description:'A138',projector:'True',seats:'30')
-@s1.rooms.create(description:'A139',projector:'True',seats:'18')
-@s1.rooms.create(description:'A140',projector:'True',seats:'28')
-@s1.rooms.create(description:'A141',projector:'False',seats:'25')
-@s1.rooms.create(description:'A142',projector:'False',seats:'27')
-@s1.rooms.create(description:'A143',projector:'False',seats:'22')
-@s1.rooms.create(description:'A144',projector:'True',seats:'15')
-@s1.rooms.create(description:'A145',projector:'False',seats:'29')
-@s1.rooms.create(description:'A146',projector:'True',seats:'26')
-@s1.rooms.create(description:'A147',projector:'False',seats:'28')
-@s2.rooms.create(description:'A147',projector:'False',seats:'18')
-@s2.rooms.create(description:'A148',projector:'True',seats:'21')
-@s2.rooms.create(description:'A149',projector:'True',seats:'30')
-@s2.rooms.create(description:'A150',projector:'False',seats:'22')
-@s2.rooms.create(description:'A151',projector:'False',seats:'23')
-@s2.rooms.create(description:'A152',projector:'False',seats:'16')
-@s2.rooms.create(description:'A153',projector:'False',seats:'30')
-@s2.rooms.create(description:'A154',projector:'True',seats:'25')
-@s2.rooms.create(description:'A155',projector:'True',seats:'30')
-@s2.rooms.create(description:'A156',projector:'True',seats:'19')
-@s2.rooms.create(description:'A157',projector:'True',seats:'15')
-@s2.rooms.create(description:'A158',projector:'True',seats:'26')
-@s2.rooms.create(description:'A159',projector:'True',seats:'28')
-@s2.rooms.create(description:'A160',projector:'False',seats:'24')
-@s2.rooms.create(description:'A161',projector:'False',seats:'25')
-@s2.rooms.create(description:'A162',projector:'True',seats:'26')
-@s2.rooms.create(description:'A163',projector:'False',seats:'23')
-@s2.rooms.create(description:'A164',projector:'False',seats:'20')
-@s2.rooms.create(description:'A165',projector:'False',seats:'22')
-@s2.rooms.create(description:'A166',projector:'False',seats:'18')
-@s2.rooms.create(description:'A167',projector:'False',seats:'29')
-@s2.rooms.create(description:'A168',projector:'True',seats:'28')
-@s2.rooms.create(description:'A169',projector:'False',seats:'23')
-@s2.rooms.create(description:'A170',projector:'False',seats:'29')
-@s2.rooms.create(description:'A171',projector:'True',seats:'29')
-@s2.rooms.create(description:'A172',projector:'True',seats:'29')
-@s2.rooms.create(description:'A173',projector:'True',seats:'30')
-@s2.rooms.create(description:'A174',projector:'True',seats:'17')
-@s2.rooms.create(description:'A175',projector:'True',seats:'26')
-@s2.rooms.create(description:'A176',projector:'True',seats:'25')
-@s2.rooms.create(description:'A177',projector:'False',seats:'27')
-@s2.rooms.create(description:'A178',projector:'False',seats:'25')
-@s2.rooms.create(description:'A179',projector:'True',seats:'19')
-@s2.rooms.create(description:'A180',projector:'True',seats:'26')
-@s2.rooms.create(description:'A181',projector:'False',seats:'16')
-@s2.rooms.create(description:'A182',projector:'False',seats:'15')
-@s2.rooms.create(description:'A183',projector:'True',seats:'24')
-@s2.rooms.create(description:'A184',projector:'True',seats:'17')
-@s2.rooms.create(description:'A185',projector:'False',seats:'20')
-@s2.rooms.create(description:'A186',projector:'True',seats:'17')
-@s2.rooms.create(description:'A187',projector:'False',seats:'20')
-@s2.rooms.create(description:'A188',projector:'False',seats:'21')
-@s2.rooms.create(description:'A189',projector:'False',seats:'25')
-@s2.rooms.create(description:'A190',projector:'False',seats:'18')
-@s2.rooms.create(description:'A191',projector:'False',seats:'22')
-@s2.rooms.create(description:'A192',projector:'False',seats:'17')
-@s2.rooms.create(description:'A193',projector:'False',seats:'17')
-@s2.rooms.create(description:'A194',projector:'False',seats:'29')
-@s2.rooms.create(description:'A195',projector:'False',seats:'16')
-@s2.rooms.create(description:'A196',projector:'True',seats:'27')
-@s2.rooms.create(description:'A197',projector:'True',seats:'23')
-@s2.rooms.create(description:'A198',projector:'True',seats:'16')
-@s2.rooms.create(description:'A199',projector:'True',seats:'26')
-@s2.rooms.create(description:'A200',projector:'True',seats:'23')
-@s2.rooms.create(description:'A201',projector:'True',seats:'22')
-@s3.rooms.create(description:'A147',projector:'True',seats:'22')
-@s3.rooms.create(description:'A148',projector:'True',seats:'16')
-@s3.rooms.create(description:'A149',projector:'True',seats:'24')
-@s3.rooms.create(description:'A150',projector:'True',seats:'23')
-@s3.rooms.create(description:'A151',projector:'True',seats:'16')
-@s3.rooms.create(description:'A152',projector:'True',seats:'21')
-@s3.rooms.create(description:'A153',projector:'True',seats:'28')
-@s3.rooms.create(description:'A154',projector:'True',seats:'21')
-@s3.rooms.create(description:'A155',projector:'False',seats:'15')
-@s3.rooms.create(description:'A156',projector:'True',seats:'22')
-@s3.rooms.create(description:'A157',projector:'False',seats:'25')
-@s3.rooms.create(description:'A158',projector:'False',seats:'29')
-@s3.rooms.create(description:'A159',projector:'True',seats:'28')
-@s3.rooms.create(description:'A160',projector:'False',seats:'21')
-@s3.rooms.create(description:'A161',projector:'False',seats:'25')
-@s3.rooms.create(description:'A162',projector:'True',seats:'24')
-@s3.rooms.create(description:'A163',projector:'False',seats:'29')
-@s3.rooms.create(description:'A164',projector:'True',seats:'29')
-@s3.rooms.create(description:'A165',projector:'True',seats:'15')
-@s3.rooms.create(description:'A166',projector:'True',seats:'21')
-@s3.rooms.create(description:'A167',projector:'True',seats:'20')
-@s3.rooms.create(description:'A168',projector:'True',seats:'26')
-@s3.rooms.create(description:'A169',projector:'True',seats:'17')
-@s3.rooms.create(description:'A170',projector:'False',seats:'23')
-@s3.rooms.create(description:'A171',projector:'True',seats:'26')
-@s3.rooms.create(description:'A172',projector:'False',seats:'29')
-@s3.rooms.create(description:'A173',projector:'True',seats:'26')
-@s3.rooms.create(description:'A174',projector:'False',seats:'24')
-@s3.rooms.create(description:'A175',projector:'False',seats:'25')
-@s3.rooms.create(description:'A176',projector:'False',seats:'18')
-@s3.rooms.create(description:'A177',projector:'True',seats:'23')
-@s3.rooms.create(description:'A178',projector:'True',seats:'19')
-@s3.rooms.create(description:'A179',projector:'True',seats:'26')
-@s3.rooms.create(description:'A180',projector:'False',seats:'30')
-@s3.rooms.create(description:'A181',projector:'True',seats:'30')
-@s3.rooms.create(description:'A182',projector:'True',seats:'30')
-@s3.rooms.create(description:'A183',projector:'True',seats:'15')
-@s3.rooms.create(description:'A184',projector:'True',seats:'27')
-@s3.rooms.create(description:'A185',projector:'False',seats:'16')
-@s3.rooms.create(description:'A186',projector:'True',seats:'17')
-@s3.rooms.create(description:'A187',projector:'True',seats:'22')
-@s3.rooms.create(description:'A188',projector:'False',seats:'30')
-@s3.rooms.create(description:'A189',projector:'True',seats:'15')
-@s3.rooms.create(description:'A190',projector:'False',seats:'28')
-@s3.rooms.create(description:'A191',projector:'False',seats:'15')
-@s3.rooms.create(description:'A192',projector:'True',seats:'16')
-@s3.rooms.create(description:'A193',projector:'False',seats:'16')
-@s3.rooms.create(description:'A194',projector:'True',seats:'15')
-@s3.rooms.create(description:'A195',projector:'False',seats:'23')
-@s3.rooms.create(description:'A196',projector:'True',seats:'26')
-@s3.rooms.create(description:'A197',projector:'True',seats:'30')
-@s3.rooms.create(description:'A198',projector:'False',seats:'30')
-@s3.rooms.create(description:'A199',projector:'False',seats:'29')
-@s3.rooms.create(description:'A200',projector:'True',seats:'22')
-@s3.rooms.create(description:'A201',projector:'True',seats:'17')
+@room1 = @s1.rooms.create(description:'A100',projector:'False',seats:'25')
+@room2 = @s1.rooms.create(description:'A101',projector:'False',seats:'20')
+@room3 = @s1.rooms.create(description:'A102',projector:'False',seats:'24')
+@room4 = @s1.rooms.create(description:'A103',projector:'True',seats:'29')
+@room5 = @s1.rooms.create(description:'A104',projector:'False',seats:'25')
+@room6 = @s1.rooms.create(description:'A105',projector:'False',seats:'16')
+@room7 = @s1.rooms.create(description:'A106',projector:'False',seats:'17')
+@room8 = @s1.rooms.create(description:'A107',projector:'True',seats:'22')
+@room9 = @s1.rooms.create(description:'A108',projector:'False',seats:'17')
+@room10 = @s1.rooms.create(description:'A109',projector:'True',seats:'15')
+@room11 = @s1.rooms.create(description:'A110',projector:'False',seats:'20')
+@room12 = @s1.rooms.create(description:'A111',projector:'True',seats:'16')
+@room13 = @s1.rooms.create(description:'A112',projector:'True',seats:'18')
+@room14 = @s1.rooms.create(description:'A113',projector:'True',seats:'28')
+@room15 = @s1.rooms.create(description:'A114',projector:'True',seats:'24')
+@room16 = @s1.rooms.create(description:'A115',projector:'False',seats:'18')
+@room17 = @s1.rooms.create(description:'A116',projector:'True',seats:'17')
+@room18 = @s1.rooms.create(description:'A117',projector:'True',seats:'21')
+@room19 = @s1.rooms.create(description:'A118',projector:'True',seats:'30')
+@room20 = @s1.rooms.create(description:'A119',projector:'False',seats:'24')
+@room21 = @s1.rooms.create(description:'A120',projector:'False',seats:'23')
+@room22 = @s1.rooms.create(description:'A121',projector:'False',seats:'26')
+@room23 = @s1.rooms.create(description:'A122',projector:'False',seats:'17')
+@room24 = @s1.rooms.create(description:'A123',projector:'False',seats:'19')
+@room25 = @s1.rooms.create(description:'A124',projector:'False',seats:'18')
+@room26 = @s1.rooms.create(description:'A125',projector:'True',seats:'24')
+@room27 = @s1.rooms.create(description:'A126',projector:'True',seats:'23')
+@room28 = @s1.rooms.create(description:'A127',projector:'False',seats:'15')
+@room29 = @s1.rooms.create(description:'A128',projector:'False',seats:'16')
+@room30 = @s1.rooms.create(description:'A129',projector:'True',seats:'26')
+@room31 = @s1.rooms.create(description:'A130',projector:'False',seats:'24')
+@room32 = @s1.rooms.create(description:'A131',projector:'True',seats:'22')
+@room33 = @s1.rooms.create(description:'A132',projector:'False',seats:'26')
+@room34 = @s1.rooms.create(description:'A133',projector:'False',seats:'27')
+@room35 = @s1.rooms.create(description:'A134',projector:'False',seats:'15')
+@room36 = @s1.rooms.create(description:'A135',projector:'False',seats:'18')
+@room37 = @s1.rooms.create(description:'A136',projector:'False',seats:'24')
+@room38 = @s1.rooms.create(description:'A137',projector:'False',seats:'23')
+@room39 = @s1.rooms.create(description:'A138',projector:'True',seats:'17')
+@room40 = @s1.rooms.create(description:'A139',projector:'False',seats:'29')
+@room41 = @s1.rooms.create(description:'A140',projector:'False',seats:'24')
+@room42 = @s1.rooms.create(description:'A141',projector:'False',seats:'29')
+@room43 = @s1.rooms.create(description:'A142',projector:'False',seats:'29')
+@room44 = @s1.rooms.create(description:'A143',projector:'True',seats:'23')
+@room45 = @s1.rooms.create(description:'A144',projector:'True',seats:'30')
+@room46 = @s1.rooms.create(description:'A145',projector:'True',seats:'25')
+@room47 = @s1.rooms.create(description:'A146',projector:'True',seats:'18')
+@room48 = @s1.rooms.create(description:'A147',projector:'False',seats:'24')
+@room49 = @s2.rooms.create(description:'A147',projector:'False',seats:'29')
+@room50 = @s2.rooms.create(description:'A148',projector:'True',seats:'30')
+@room51 = @s2.rooms.create(description:'A149',projector:'False',seats:'21')
+@room52 = @s2.rooms.create(description:'A150',projector:'False',seats:'30')
+@room53 = @s2.rooms.create(description:'A151',projector:'True',seats:'15')
+@room54 = @s2.rooms.create(description:'A152',projector:'False',seats:'17')
+@room55 = @s2.rooms.create(description:'A153',projector:'True',seats:'15')
+@room56 = @s2.rooms.create(description:'A154',projector:'False',seats:'28')
+@room57 = @s2.rooms.create(description:'A155',projector:'True',seats:'16')
+@room58 = @s2.rooms.create(description:'A156',projector:'False',seats:'25')
+@room59 = @s2.rooms.create(description:'A157',projector:'True',seats:'15')
+@room60 = @s2.rooms.create(description:'A158',projector:'False',seats:'27')
+@room61 = @s2.rooms.create(description:'A159',projector:'False',seats:'17')
+@room62 = @s2.rooms.create(description:'A160',projector:'False',seats:'15')
+@room63 = @s2.rooms.create(description:'A161',projector:'False',seats:'28')
+@room64 = @s2.rooms.create(description:'A162',projector:'False',seats:'24')
+@room65 = @s2.rooms.create(description:'A163',projector:'False',seats:'25')
+@room66 = @s2.rooms.create(description:'A164',projector:'False',seats:'29')
+@room67 = @s2.rooms.create(description:'A165',projector:'True',seats:'18')
+@room68 = @s2.rooms.create(description:'A166',projector:'False',seats:'20')
+@room69 = @s2.rooms.create(description:'A167',projector:'False',seats:'28')
+@room70 = @s2.rooms.create(description:'A168',projector:'True',seats:'15')
+@room71 = @s2.rooms.create(description:'A169',projector:'False',seats:'16')
+@room72 = @s2.rooms.create(description:'A170',projector:'False',seats:'21')
+@room73 = @s2.rooms.create(description:'A171',projector:'True',seats:'29')
+@room74 = @s2.rooms.create(description:'A172',projector:'True',seats:'19')
+@room75 = @s2.rooms.create(description:'A173',projector:'True',seats:'22')
+@room76 = @s2.rooms.create(description:'A174',projector:'False',seats:'26')
+@room77 = @s2.rooms.create(description:'A175',projector:'True',seats:'22')
+@room78 = @s2.rooms.create(description:'A176',projector:'True',seats:'21')
+@room79 = @s2.rooms.create(description:'A177',projector:'True',seats:'17')
+@room80 = @s2.rooms.create(description:'A178',projector:'True',seats:'19')
+@room81 = @s2.rooms.create(description:'A179',projector:'False',seats:'24')
+@room82 = @s2.rooms.create(description:'A180',projector:'True',seats:'15')
+@room83 = @s2.rooms.create(description:'A181',projector:'True',seats:'19')
+@room84 = @s2.rooms.create(description:'A182',projector:'False',seats:'20')
+@room85 = @s2.rooms.create(description:'A183',projector:'True',seats:'20')
+@room86 = @s2.rooms.create(description:'A184',projector:'False',seats:'23')
+@room87 = @s2.rooms.create(description:'A185',projector:'True',seats:'28')
+@room88 = @s2.rooms.create(description:'A186',projector:'False',seats:'28')
+@room89 = @s2.rooms.create(description:'A187',projector:'False',seats:'20')
+@room90 = @s2.rooms.create(description:'A188',projector:'False',seats:'18')
+@room91 = @s2.rooms.create(description:'A189',projector:'True',seats:'29')
+@room92 = @s2.rooms.create(description:'A190',projector:'False',seats:'25')
+@room93 = @s2.rooms.create(description:'A191',projector:'True',seats:'22')
+@room94 = @s2.rooms.create(description:'A192',projector:'True',seats:'18')
+@room95 = @s2.rooms.create(description:'A193',projector:'False',seats:'29')
+@room96 = @s2.rooms.create(description:'A194',projector:'False',seats:'23')
+@room97 = @s2.rooms.create(description:'A195',projector:'True',seats:'30')
+@room98 = @s2.rooms.create(description:'A196',projector:'True',seats:'16')
+@room99 = @s2.rooms.create(description:'A197',projector:'True',seats:'22')
+@room100 = @s2.rooms.create(description:'A198',projector:'True',seats:'15')
+@room101 = @s2.rooms.create(description:'A199',projector:'True',seats:'16')
+@room102 = @s2.rooms.create(description:'A200',projector:'False',seats:'18')
+@room103 = @s2.rooms.create(description:'A201',projector:'True',seats:'15')
+@room104 = @s3.rooms.create(description:'A147',projector:'True',seats:'21')
+@room105 = @s3.rooms.create(description:'A148',projector:'True',seats:'15')
+@room106 = @s3.rooms.create(description:'A149',projector:'True',seats:'20')
+@room107 = @s3.rooms.create(description:'A150',projector:'True',seats:'19')
+@room108 = @s3.rooms.create(description:'A151',projector:'True',seats:'24')
+@room109 = @s3.rooms.create(description:'A152',projector:'True',seats:'19')
+@room110 = @s3.rooms.create(description:'A153',projector:'False',seats:'29')
+@room111 = @s3.rooms.create(description:'A154',projector:'False',seats:'20')
+@room112 = @s3.rooms.create(description:'A155',projector:'True',seats:'18')
+@room113 = @s3.rooms.create(description:'A156',projector:'True',seats:'30')
+@room114 = @s3.rooms.create(description:'A157',projector:'False',seats:'22')
+@room115 = @s3.rooms.create(description:'A158',projector:'True',seats:'21')
+@room116 = @s3.rooms.create(description:'A159',projector:'False',seats:'29')
+@room117 = @s3.rooms.create(description:'A160',projector:'False',seats:'26')
+@room118 = @s3.rooms.create(description:'A161',projector:'True',seats:'20')
+@room119 = @s3.rooms.create(description:'A162',projector:'False',seats:'20')
+@room120 = @s3.rooms.create(description:'A163',projector:'True',seats:'15')
+@room121 = @s3.rooms.create(description:'A164',projector:'True',seats:'15')
+@room122 = @s3.rooms.create(description:'A165',projector:'False',seats:'24')
+@room123 = @s3.rooms.create(description:'A166',projector:'False',seats:'27')
+@room124 = @s3.rooms.create(description:'A167',projector:'False',seats:'19')
+@room125 = @s3.rooms.create(description:'A168',projector:'False',seats:'21')
+@room126 = @s3.rooms.create(description:'A169',projector:'False',seats:'24')
+@room127 = @s3.rooms.create(description:'A170',projector:'True',seats:'26')
+@room128 = @s3.rooms.create(description:'A171',projector:'False',seats:'28')
+@room129 = @s3.rooms.create(description:'A172',projector:'False',seats:'22')
+@room130 = @s3.rooms.create(description:'A173',projector:'True',seats:'22')
+@room131 = @s3.rooms.create(description:'A174',projector:'True',seats:'22')
+@room132 = @s3.rooms.create(description:'A175',projector:'False',seats:'26')
+@room133 = @s3.rooms.create(description:'A176',projector:'True',seats:'23')
+@room134 = @s3.rooms.create(description:'A177',projector:'False',seats:'25')
+@room135 = @s3.rooms.create(description:'A178',projector:'True',seats:'27')
+@room136 = @s3.rooms.create(description:'A179',projector:'False',seats:'18')
+@room137 = @s3.rooms.create(description:'A180',projector:'False',seats:'16')
+@room138 = @s3.rooms.create(description:'A181',projector:'False',seats:'16')
+@room139 = @s3.rooms.create(description:'A182',projector:'True',seats:'23')
+@room140 = @s3.rooms.create(description:'A183',projector:'True',seats:'18')
+@room141 = @s3.rooms.create(description:'A184',projector:'False',seats:'22')
+@room142 = @s3.rooms.create(description:'A185',projector:'False',seats:'16')
+@room143 = @s3.rooms.create(description:'A186',projector:'False',seats:'23')
+@room144 = @s3.rooms.create(description:'A187',projector:'False',seats:'27')
+@room145 = @s3.rooms.create(description:'A188',projector:'False',seats:'22')
+@room146 = @s3.rooms.create(description:'A189',projector:'True',seats:'21')
+@room147 = @s3.rooms.create(description:'A190',projector:'True',seats:'18')
+@room148 = @s3.rooms.create(description:'A191',projector:'False',seats:'22')
+@room149 = @s3.rooms.create(description:'A192',projector:'False',seats:'26')
+@room150 = @s3.rooms.create(description:'A193',projector:'True',seats:'16')
+@room151 = @s3.rooms.create(description:'A194',projector:'True',seats:'30')
+@room152 = @s3.rooms.create(description:'A195',projector:'True',seats:'19')
+@room153 = @s3.rooms.create(description:'A196',projector:'True',seats:'15')
+@room154 = @s3.rooms.create(description:'A197',projector:'False',seats:'23')
+@room155 = @s3.rooms.create(description:'A198',projector:'False',seats:'17')
+@room156 = @s3.rooms.create(description:'A199',projector:'False',seats:'17')
+@room157 = @s3.rooms.create(description:'A200',projector:'False',seats:'19')
+@room158 = @s3.rooms.create(description:'A201',projector:'True',seats:'30')
 
 puts "############### Adicionar Níveis de cursos ################"
 
@@ -210,16 +213,22 @@ puts "############### Adicionar Níveis de cursos ################"
 @r4 = Degree.create(description:'Doutoramento')
 @r5 = Degree.create(description:'Pós-Graduação')
 
-#puts @r1.inspect
+puts "################ Adicionar anos lectivos ##################"
 
-
-##ainda não está a funcionar para baixo
+@SchoolYear1 = SchoolYear.create(description:'2005/2006',start_time:DateTime.now,end_time:DateTime.now)
+@SchoolYear2 = SchoolYear.create(description:'2006/2007',start_time:DateTime.now,end_time:DateTime.now)
+@SchoolYear3 = SchoolYear.create(description:'2007/2008',start_time:DateTime.now,end_time:DateTime.now)
+@SchoolYear4 = SchoolYear.create(description:'2008/2009',start_time:DateTime.now,end_time:DateTime.now)
+@SchoolYear5 = SchoolYear.create(description:'2009/2010',start_time:DateTime.now,end_time:DateTime.now)
+@SchoolYear6 = SchoolYear.create(description:'2010/2011',start_time:DateTime.now,end_time:DateTime.now)
+@SchoolYear7 = SchoolYear.create(description:'2011/2012',start_time:DateTime.now,end_time:DateTime.now)
+@SchoolYear8 = SchoolYear.create(description:'2012/2013',start_time:DateTime.now,end_time:DateTime.now)
+@SchoolYear9 = SchoolYear.create(description:'2013/2014',start_time:DateTime.now,end_time:DateTime.now)
+@SchoolYear10 = SchoolYear.create(description:'2014/2015',start_time:DateTime.now,end_time:DateTime.now)
+@SchoolYear11 = SchoolYear.create(description:'2015/2016',start_time:DateTime.now,end_time:DateTime.now)
 
 puts "#################### Adicionar  cursos ####################"
 
-#puts @s1.inspect
-
-#@s1.courses.create(name:'Administração de Bases de Dados',degree:@r1)
 @course1 = @s1.courses.create(name:'Administração de Bases de Dados',degree:@r1)
 @course2 = @s1.courses.create(name:'Animação e Modelação 3D',degree:@r1)
 @course3 = @s1.courses.create(name:'Arte e Técnica do Couro',degree:@r1)
@@ -307,8 +316,39 @@ puts "#################### Adicionar  cursos ####################"
 @course85 = @s1.courses.create(name:'Proteção Civil: A Gestão da Comunicação no Risco, nas Emergências e nas Crises',degree:@r5)
 @course86 = @s1.courses.create(name:'Pós-graduação em Novas Tecnologias da Comunicação',degree:@r5)
 
+puts "############# Ligação - Courses / SchoolYears #############"
 
-#@d.disciplines.create(name:'Álgebra', course: [Course.find(user: 'Engenharia Informática')])
+@course1.school_years << @SchoolYear1
+@course2.school_years << @SchoolYear2
+@course3.school_years << @SchoolYear3
+@course4.school_years << @SchoolYear4
+@course5.school_years << @SchoolYear5
+@course6.school_years << @SchoolYear6
+@course7.school_years << @SchoolYear7
+@course8.school_years << @SchoolYear8
+@course9.school_years << @SchoolYear9
+@course10.school_years << @SchoolYear10
+@course11.school_years << @SchoolYear11
+@course12.school_years << @SchoolYear1
+@course13.school_years << @SchoolYear2
+@course14.school_years << @SchoolYear3
+@course15.school_years << @SchoolYear4
+@course16.school_years << @SchoolYear5
+@course17.school_years << @SchoolYear6
+@course18.school_years << @SchoolYear7
+@course19.school_years << @SchoolYear8
+@course20.school_years << @SchoolYear9
+@course21.school_years << @SchoolYear10
+@course22.school_years << @SchoolYear11
+@course23.school_years << @SchoolYear1
+@course24.school_years << @SchoolYear2
+@course25.school_years << @SchoolYear3
+@course26.school_years << @SchoolYear4
+@course27.school_years << @SchoolYear5
+@course28.school_years << @SchoolYear6
+@course29.school_years << @SchoolYear7
+@course30.school_years << @SchoolYear8
+
 
 puts "################## Adicionar  disciplina ##################"
 
@@ -343,12 +383,7 @@ puts "################## Adicionar  disciplina ##################"
 @discipline29 = Discipline.create(name:'Projecto Final')
 @discipline30 = Discipline.create(name:'Sistemas de Informação nas Organizações')
 
-
-
-
 puts "############# Ligação - Courses / Disciplines #############"
-
-#@course38.disciplines << @discipline1
 
 @course38.disciplines << @discipline1
 @course38.disciplines << @discipline2
@@ -383,17 +418,62 @@ puts "############# Ligação - Courses / Disciplines #############"
 
 puts "##################### Adicionar projectos #################"
 
-@project1 = Project.create(name:'Prj1',description:'Descr Proj 1',grade:10,discipline:@discipline1)
-@project2 = Project.create(name:'Prj2',description:'Descr Proj 2',grade:10,discipline:@discipline2)
-@project3 = Project.create(name:'Prj3',description:'Descr Proj 3',grade:10,discipline:@discipline3)
-@project4 = Project.create(name:'Prj4',description:'Descr Proj 4',grade:10,discipline:@discipline4)
-@project5 = Project.create(name:'Prj5',description:'Descr Proj 5',grade:10,discipline:@discipline5)
-@project6 = Project.create(name:'Prj6',description:'Descr Proj 6',grade:10,discipline:@discipline6)
-@project7 = Project.create(name:'Prj7',description:'Descr Proj 7',grade:10,discipline:@discipline7)
-@project8 = Project.create(name:'Prj8',description:'Descr Proj 8',grade:10,discipline:@discipline8)
-@project9 = Project.create(name:'Prj9',description:'Descr Proj 9',grade:10,discipline:@discipline9)
-@project10 = Project.create(name:'Prj10',description:'Descr Proj 10',grade:10,discipline:@discipline10)
-@project11 = Project.create(name:'Prj11',description:'Descr Proj 11',grade:10,discipline:@discipline11)
+@project1 = Project.create(name:'Prj1',description:'Descr Proj 1',grade:10,discipline:@discipline1,school_year:@SchoolYear1)
+@project2 = Project.create(name:'Prj2',description:'Descr Proj 2',grade:10,discipline:@discipline2,school_year:@SchoolYear2)
+@project3 = Project.create(name:'Prj3',description:'Descr Proj 3',grade:10,discipline:@discipline3,school_year:@SchoolYear3)
+@project4 = Project.create(name:'Prj4',description:'Descr Proj 4',grade:10,discipline:@discipline4,school_year:@SchoolYear4)
+@project5 = Project.create(name:'Prj5',description:'Descr Proj 5',grade:10,discipline:@discipline5,school_year:@SchoolYear5)
+@project6 = Project.create(name:'Prj6',description:'Descr Proj 6',grade:10,discipline:@discipline6,school_year:@SchoolYear6)
+@project7 = Project.create(name:'Prj7',description:'Descr Proj 7',grade:10,discipline:@discipline7,school_year:@SchoolYear7)
+@project8 = Project.create(name:'Prj8',description:'Descr Proj 8',grade:10,discipline:@discipline8,school_year:@SchoolYear8)
+@project9 = Project.create(name:'Prj9',description:'Descr Proj 9',grade:10,discipline:@discipline9,school_year:@SchoolYear9)
+@project10 = Project.create(name:'Prj10',description:'Descr Proj 10',grade:10,discipline:@discipline10,school_year:@SchoolYear10)
+@project11 = Project.create(name:'Prj11',description:'Descr Proj 11',grade:10,discipline:@discipline11,school_year:@SchoolYear11)
+
+puts "##################### Adicionar 'anexos' #################"
+
+#puts @project1.inspect
+
+@attach1 = Attach.create(name:'attach1',description:'Desc attach 1',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project1,data_type:'jpg')
+@attach2 = Attach.create(name:'attach2',description:'Desc attach 2',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project2,data_type:'jpg')
+@attach3 = Attach.create(name:'attach3',description:'Desc attach 3',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project3,data_type:'jpg')
+@attach4 = Attach.create(name:'attach4',description:'Desc attach 4',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project4,data_type:'jpg')
+@attach5 = Attach.create(name:'attach5',description:'Desc attach 5',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project5,data_type:'jpg')
+@attach6 = Attach.create(name:'attach6',description:'Desc attach 6',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project6,data_type:'jpg')
+@attach7 = Attach.create(name:'attach7',description:'Desc attach 7',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project7,data_type:'jpg')
+@attach8 = Attach.create(name:'attach8',description:'Desc attach 8',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project8,data_type:'jpg')
+@attach9 = Attach.create(name:'attach9',description:'Desc attach 9',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project9,data_type:'jpg')
+@attach10 = Attach.create(name:'attach10',description:'Desc attach 10',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project10,data_type:'jpg')
+@attach11 = Attach.create(name:'attach11',description:'Desc attach 11',data:'jhgfjegfegrglerhgr+ir+qerg',project:@project11,data_type:'jpg')
+
+puts "####################### Adicionar Aulas ###################"
+	
+@SchoolClass1 = SchoolClass.create(description:'SchoolClass1',start_time:DateTime.now,end_time:DateTime.now,class_letter:'A',class_type:'T',professor:'Prof1',room:@room1,discipline:@discipline1,school_year:@SchoolYear1)
+@SchoolClass2 = SchoolClass.create(description:'SchoolClass2',start_time:DateTime.now,end_time:DateTime.now,class_letter:'A',class_type:'T',professor:'Prof2',room:@room2,discipline:@discipline2,school_year:@SchoolYear2)
+@SchoolClass3 = SchoolClass.create(description:'SchoolClass3',start_time:DateTime.now,end_time:DateTime.now,class_letter:'A',class_type:'T+TP',professor:'Prof3',room:@room3,discipline:@discipline3,school_year:@SchoolYear3)
+@SchoolClass4 = SchoolClass.create(description:'SchoolClass4',start_time:DateTime.now,end_time:DateTime.now,class_letter:'B',class_type:'T',professor:'Prof4',room:@room4,discipline:@discipline4,school_year:@SchoolYear4)
+@SchoolClass5 = SchoolClass.create(description:'SchoolClass5',start_time:DateTime.now,end_time:DateTime.now,class_letter:'B',class_type:'T',professor:'Prof5',room:@room5,discipline:@discipline5,school_year:@SchoolYear5)
+@SchoolClass6 = SchoolClass.create(description:'SchoolClass6',start_time:DateTime.now,end_time:DateTime.now,class_letter:'B',class_type:'T+TP',professor:'Prof6',room:@room6,discipline:@discipline6,school_year:@SchoolYear6)
+@SchoolClass7 = SchoolClass.create(description:'SchoolClass7',start_time:DateTime.now,end_time:DateTime.now,class_letter:'C',class_type:'T',professor:'Prof7',room:@room7,discipline:@discipline7,school_year:@SchoolYear7)
+@SchoolClass8 = SchoolClass.create(description:'SchoolClass8',start_time:DateTime.now,end_time:DateTime.now,class_letter:'C',class_type:'T',professor:'Prof8',room:@room8,discipline:@discipline8,school_year:@SchoolYear8)
+@SchoolClass9 = SchoolClass.create(description:'SchoolClass9',start_time:DateTime.now,end_time:DateTime.now,class_letter:'C',class_type:'T+TP',professor:'Prof9',room:@room9,discipline:@discipline9,school_year:@SchoolYear9)
+@SchoolClass10 = SchoolClass.create(description:'SchoolClass10',start_time:DateTime.now,end_time:DateTime.now,class_letter:'D',class_type:'T',professor:'Prof10',room:@room10,discipline:@discipline10,school_year:@SchoolYear10)
+@SchoolClass11 = SchoolClass.create(description:'SchoolClass11',start_time:DateTime.now,end_time:DateTime.now,class_letter:'D',class_type:'T+TP',professor:'Prof11',room:@room11,discipline:@discipline11,school_year:@SchoolYear11)
+
+puts "################### Adicionar summaries ###################"
+
+@summary1 = Summary.create(number_students:'29',date:'DateTime.now',description:'Summary1',school_class:@SchoolClass1)
+@summary2 = Summary.create(number_students:'27',date:'DateTime.now',description:'Summary2',school_class:@SchoolClass2)
+@summary3 = Summary.create(number_students:'20',date:'DateTime.now',description:'Summary3',school_class:@SchoolClass3)
+@summary4 = Summary.create(number_students:'28',date:'DateTime.now',description:'Summary4',school_class:@SchoolClass4)
+@summary5 = Summary.create(number_students:'27',date:'DateTime.now',description:'Summary5',school_class:@SchoolClass5)
+@summary6 = Summary.create(number_students:'30',date:'DateTime.now',description:'Summary6',school_class:@SchoolClass6)
+@summary7 = Summary.create(number_students:'18',date:'DateTime.now',description:'Summary7',school_class:@SchoolClass7)
+@summary8 = Summary.create(number_students:'20',date:'DateTime.now',description:'Summary8',school_class:@SchoolClass8)
+@summary9 = Summary.create(number_students:'17',date:'DateTime.now',description:'Summary9',school_class:@SchoolClass9)
+@summary10 = Summary.create(number_students:'23',date:'DateTime.now',description:'Summary10',school_class:@SchoolClass10)
+@summary11 = Summary.create(number_students:'15',date:'DateTime.now',description:'Summary11',school_class:@SchoolClass11)
+
 
 puts "################## Carregado com sucesso ##################"
 
