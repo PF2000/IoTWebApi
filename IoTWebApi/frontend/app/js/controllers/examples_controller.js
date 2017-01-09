@@ -30,6 +30,10 @@ angular.module("app").controller('ExamplesController',function($scope,$window, $
 	$scope.androidGit = function(){
 		 $window.open('https://github.com/PF2000/IoTWebApiExamples/tree/master/Android/MyApplication','_blank');
 	};
+
+	$scope.pythonGit = function(){
+		 $window.open('https://github.com/PF2000/IoTWebApiExamples/tree/master/Python','_blank');
+	};
 });
 
 
