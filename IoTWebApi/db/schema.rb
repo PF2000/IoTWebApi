@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103170257) do
+ActiveRecord::Schema.define(version: 20170107150623) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -113,13 +113,20 @@ ActiveRecord::Schema.define(version: 20170103170257) do
     t.string   "name"
     t.string   "email"
     t.integer  "role_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "api_key"
     t.string   "password"
     t.string   "resetToken"
     t.string   "surname"
     t.datetime "resetDate"
+    t.date     "reset_date"
+    t.boolean  "reset"
+    t.integer  "reset_day_count"
+    t.integer  "token_count"
+    t.integer  "token_limit"
+    t.datetime "token_count_reset_date"
+    t.boolean  "locked"
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 

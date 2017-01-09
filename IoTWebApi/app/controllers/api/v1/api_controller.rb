@@ -4,7 +4,7 @@ module Api::V1
 	
 	before_action :authenticate , :except => [:login]
 	before_action :autorize, :except => [:login] 
-
+	before_action :checkLockOrCount, :except => [:login, :resetPassword, :show, :resetApiToken, :update,:isUserPassword] 
 
 
 
@@ -46,8 +46,32 @@ module Api::V1
   	   	if @user.nil?
   	   		render :status => :forbidden, :plain => "Authentication credentials provided were invalid"	     	
 	    else
-	    	render json: @user
+	    	if !@user.locked
+	    		render json: @user
+	    	else
+	    		render :status => :forbidden, :plain => "User is locked"	     	
+	    	end
 	    end
+ 	end
+
+ 	def checkLockOrCount
+ 		if !@current_user.nil?
+ 			numDays = ((((Time.now - @current_user.token_count_reset_date)/60)/60)/24).to_i
+	 		if (@current_user.locked && numDays < 30) && (@current_user.token_count >= @current_user.token_limit) 
+	 			if !@current_user.locked
+	 				@current_user.locked = true
+	 			end
+	 			render :status => :forbidden, :plain => "User is locked"
+	 		else
+	 			if numDays >= 30
+	 				@current_user.token_count_reset_date = Time.now
+	 				@current_user.token_count = 0
+	 				@current_user.locked = false
+	 			end
+	 			@current_user.token_count = @current_user.token_count + 1 
+	 			@current_user.save
+	 		end
+	 	end
  	end
 
   end
