@@ -1,5 +1,3 @@
 class SchoolYear < ApplicationRecord
 
-
-
 end

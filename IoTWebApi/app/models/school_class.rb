@@ -15,7 +15,8 @@ class SchoolClass < ApplicationRecord
 	end
 
 	def school_year=(params)
-		@school_year = School_year.find( params[:id])	
+		#debugger
+		@school_year = SchoolYear.find( params[:id])	
 	 	super(@school_year)
 	end
 
