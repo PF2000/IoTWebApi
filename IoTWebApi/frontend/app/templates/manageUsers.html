@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>E-mail</th>
+      <th>Acesses</th>
       <th>Role</th>
       <th></th>
       <th></th>
@@ -14,6 +15,7 @@
       <td><input type="text" name="userName" ng-model="user.name" readonly="true" ></td>
       <td><input type="text" name="email" ng-model="user.email" readonly="true" ></td>
       <!-- <td>{{user.role.name}}</td>      --> 
+      <td><input type="text" name="token_count" ng-model="user.token_count"></td>
       <td>
       <select id="ddl_roles"  ng-model="newRole">
             <option value="">select a role</option> 
@@ -25,7 +27,7 @@
       <td><button class="deleteBtn" ng-click="deleteUser(user)">Delete</button></td>
     </tr>
     <tr >
-      <td colspan="6">
+      <td colspan="7">
         <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Previous</button>
           {{currentPage+1}}/{{numberOfPages()}}
         <button ng-disabled="currentPage >= usersRoles.length/pageSize - 1" ng-click="currentPage=currentPage+1">Next</button>

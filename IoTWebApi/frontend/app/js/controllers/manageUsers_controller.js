@@ -19,7 +19,6 @@ $scope.alertClass = "";
     }
   };
   
-
   $scope.usersRoles = {};
   $scope.roles = {};
 
@@ -48,12 +47,11 @@ $scope.alertClass = "";
     $scope.message = data;
   };
   $scope.updateUser = function(usr, rId) {
-    if(rId){
-     var user =  {id: usr.id ,role: {id: rId}};
-      user = {user:user};
-      ManageUserService.updateUser(user).success(onUpdateUserSuccess).error(onUpdateUserError);
+    var roleId = rId == undefined?usr.role.id:rId;
+    var user =  {id: usr.id ,token_count:usr.token_count ,email: usr.email ,role: {id: roleId}};
+    user = {user:user};
+    ManageUserService.updateUser(user).success(onUpdateUserSuccess).error(onUpdateUserError);
       //resets the role id to undefined
-    }
   };
 
   $scope.isUndefined = function(rId) {

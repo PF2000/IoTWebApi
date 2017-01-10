@@ -4,7 +4,7 @@ module Api::V1
 	
 	before_action :authenticate , :except => [:login]
 	before_action :autorize, :except => [:login] 
-	before_action :checkLockOrCount, :except => [:login, :resetPassword, :resetApiToken,:isUserPassword] 
+	before_action :checkLockOrCount, :except => [:login, :resetPassword, :resetApiToken,:isUserPassword,:update] 
 
 
 
