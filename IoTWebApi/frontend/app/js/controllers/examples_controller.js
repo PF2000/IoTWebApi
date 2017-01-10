@@ -2,7 +2,6 @@ angular.module("app").controller('ExamplesController',function($scope,$window, $
   
 
   	$scope.message = "";
-
 	$scope.login = function() {
 	    $location.path('/login');
 	}; 
@@ -28,6 +27,13 @@ angular.module("app").controller('ExamplesController',function($scope,$window, $
 		 $window.open('https://github.com/PF2000/IoTWebApiExamples/tree/master/Ruby','_blank');
 	};
 
+	$scope.androidGit = function(){
+		 $window.open('https://github.com/PF2000/IoTWebApiExamples/tree/master/Android/MyApplication','_blank');
+	};
+
+	$scope.pythonGit = function(){
+		 $window.open('https://github.com/PF2000/IoTWebApiExamples/tree/master/Python','_blank');
+	};
 });
 
 

@@ -1,12 +1,17 @@
 class User < ApplicationRecord
+    include ActiveSupport
+
   belongs_to :role ,  optional: true
   
+
   #only if is a new user
   after_initialize :init, unless: :persisted?
 
   def init
-    self.role  ||= Role.find_by(name:"User")            
+    self.role  ||= Role.find_by(name:"User")   
+    self.password = Digest::SHA2.hexdigest(password)         
   end
+
 
   #overrides the sets
   def role=(params)
