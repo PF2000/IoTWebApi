@@ -6,6 +6,8 @@ module Api::V1
   skip_before_action :authenticate , :only => [:create,:resetPassword]
   skip_before_action :autorize, :only => [:create,:resetPassword,:update]
 
+  before_action :checkLockOrCount, :only => [:show] 
+
   # GET /users
   def index
     @users = User.all
@@ -20,7 +22,8 @@ module Api::V1
 
   # POST /users
   def create
-    @user = User.new(user_params)  
+    @user = User.new(user_params) 
+    @user.token_limit = 5000
     if @user.save
       #deliver_later will execute your method from the background job.
       UserMailer.mailRegisto(@user).deliver_later   

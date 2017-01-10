@@ -2,6 +2,8 @@ module Api::V1
   class RolesController < ApiController
     before_action :set_role, only: [:show, :update, :destroy]
 
+    before_action :checkLockOrCount, :only => [] 
+
     # GET /roles
     def index
       @roles = Role.all

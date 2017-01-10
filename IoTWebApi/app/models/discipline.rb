@@ -2,6 +2,8 @@ class Discipline < ApplicationRecord
 	has_and_belongs_to_many :courses
 	has_many :school_classes
 
+  	validates :name, presence: {message: 'Please provide a discipline name'}
+
 	def courses=(params)
 		@cor = [];
 		params.each do |courseID|

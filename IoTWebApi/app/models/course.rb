@@ -2,6 +2,10 @@ class Course < ApplicationRecord
 	belongs_to :school
 	belongs_to :degree, :foreign_key => 'degree_id', :class_name => 'Degree'
 
+  	validates :name, presence: {message: 'Course name should be present'}
+  	validates :school_id, presence: {message: 'Please state related School id'}
+  	validates :degree_id, presence:{ message: 'Please state related degree id'}
+
     has_and_belongs_to_many :disciplines
     has_and_belongs_to_many :school_years
 

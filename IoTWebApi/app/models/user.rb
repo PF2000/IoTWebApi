@@ -1,6 +1,11 @@
 class User < ApplicationRecord
     include ActiveSupport
 
+    validates :name, presence: { message: 'Please provide the user\'s name' }
+    validates :email, presence: {message: 'Please provide the user\'s email'}, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, message: "not a valid e-mail address" }
+    validates :password, presence: {message: 'Please provide the user\'s password'}, length: { minimum: 6 }
+    validates :surname, presence: {message: 'Please provide the user\'s surname'}
+
   belongs_to :role ,  optional: true
   
 

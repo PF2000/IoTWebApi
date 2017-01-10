@@ -4,7 +4,7 @@ module Api::V1
 	
 	before_action :authenticate , :except => [:login]
 	before_action :autorize, :except => [:login] 
-	before_action :checkLockOrCount, :except => [:login, :resetPassword, :show, :resetApiToken, :update,:isUserPassword] 
+	before_action :checkLockOrCount, :except => [:login, :resetPassword, :resetApiToken,:isUserPassword] 
 
 
 
@@ -71,6 +71,9 @@ module Api::V1
 	 				@current_user.token_count_reset_date = Time.now
 	 				@current_user.token_count = 0
 	 				@current_user.locked = false
+	 			end
+	 			if @current_user.token_count.nil?
+	 				@current_user.token_count = 0;
 	 			end
 	 			@current_user.token_count = @current_user.token_count + 1 
 	 			@current_user.save
