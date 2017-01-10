@@ -2,7 +2,7 @@ class Summary < ApplicationRecord
 	belongs_to :school_class
 
 	def school_class=(params)
-		debugger
+		#debugger
 		@school_class = SchoolClass.find( params[:id])	
 	 	super(@school_class)
 	end
