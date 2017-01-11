@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+	
+  include ActionController::RequestForgeryProtection
 	#Para serializar todos os objectos
 	include ActionController::Serialization
 
@@ -6,7 +8,6 @@ class ApplicationController < ActionController::API
 	include ActionController::HttpAuthentication::Token::ControllerMethods
 	#Swagger
   	include Swagger::Docs::ImpotentMethods
-  	
 
 	  # Add a before_action to authenticate all requests.
 	  # Move this to subclassed controllers if you only

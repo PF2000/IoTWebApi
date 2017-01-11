@@ -1,7 +1,6 @@
 module Api::V1
   class ApiController < ApplicationController
     # Generic API stuff here
-	
 	before_action :authenticate , :except => [:login]
 	before_action :autorize, :except => [:login] 
 	before_action :checkLockOrCount, :except => [:login, :resetPassword, :resetApiToken,:isUserPassword,:update] 

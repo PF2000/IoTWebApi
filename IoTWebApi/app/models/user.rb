@@ -13,8 +13,10 @@ class User < ApplicationRecord
   after_initialize :init, unless: :persisted?
 
   def init
-    self.role  ||= Role.find_by(name:"User")   
-    self.password = Digest::SHA2.hexdigest(password)         
+    if !password.nil?
+      self.role  ||= Role.find_by(name:"User")   
+      self.password = Digest::SHA2.hexdigest(password)         
+    end
   end
 
 
