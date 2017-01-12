@@ -1,6 +1,5 @@
 module Api::V1
   class UsersController < ApiController
-    skip_before_filter :verify_authenticity_token
   before_action :set_user, only: [:show, :update, :destroy, :resetApiToken, :isUserPassword ]
 
   #only skip if action is create

@@ -1,6 +1,6 @@
 class Discipline < ApplicationRecord
 	has_and_belongs_to_many :courses
-	has_many :school_classes
+	has_many :school_classes, :dependent => :destroy
 
   	validates :name, presence: {message: 'Please provide a discipline name'}
 

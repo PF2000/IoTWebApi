@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107150623) do
+ActiveRecord::Schema.define(version: 20170112134635) do
 
   create_table "attaches", force: :cascade do |t|
     t.string   "name"
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 20170107150623) do
   create_table "courses_school_years", id: false, force: :cascade do |t|
     t.integer "course_id",      null: false
     t.integer "school_year_id", null: false
+  end
+
+  create_table "courses_schoolyears", id: false, force: :cascade do |t|
+    t.integer "course_id",     null: false
+    t.integer "schoolyear_id", null: false
   end
 
   create_table "degrees", force: :cascade do |t|
@@ -139,9 +144,9 @@ ActiveRecord::Schema.define(version: 20170107150623) do
     t.datetime "updated_at",             null: false
     t.string   "api_key"
     t.string   "password"
-    t.string   "resetToken"
+    t.string   "reset_token"
     t.string   "surname"
-    t.datetime "resetDate"
+    t.datetime "rese_date"
     t.integer  "token_count"
     t.integer  "token_limit"
     t.datetime "token_count_reset_date"

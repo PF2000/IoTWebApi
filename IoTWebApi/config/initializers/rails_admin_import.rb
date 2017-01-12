@@ -7,5 +7,19 @@ RailsAdmin.config do |config|
     import
   end
 
+  config.model User do
+     import do
+      field :name
+      field :email
+      field :role_id
+      field :api_key
+      field :password
+      field :surname
+      field :token_limit
+      field :locked
+    end
+  
+end
+
  
 end

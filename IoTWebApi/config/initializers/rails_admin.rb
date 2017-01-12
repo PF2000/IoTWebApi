@@ -9,7 +9,7 @@ RailsAdmin::ApplicationController.class_eval do
 config.authorize_with do
   authenticate_or_request_with_http_basic('Login required') do |username, password|
       pass = Digest::SHA2.hexdigest(password) 
-      user = User.where(email: username, password: pass).first
+      user = User.where(email: username, password: pass, role: 3).first
       user
   end
 end

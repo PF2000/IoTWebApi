@@ -1,7 +1,10 @@
 class School < ApplicationRecord
-	has_many :courses
-	has_many :rooms
+	has_many :courses, :dependent => :destroy
+	has_many :rooms,:dependent => :destroy
 
-  	# alguém se deve ter enganado a meter isto aqui:
-  	# validates :description, presence: {message: 'Please provide a degree description'}
+    validates :name, presence: {message: 'Please provide a school name'}
+    validates :country, presence: {message: 'Please provide a school country'}
+    validates :district, presence: {message: 'Please provide a school district'}
+    validates :city, presence: {message: 'Please provide a school city'}
+    validates :county, presence: {message: 'Please provide a school county'}
 end
