@@ -7,7 +7,7 @@ class Summary < ApplicationRecord
   	validates :school_class_id, presence: {message: 'Please provide a school class id'}
 
 	def school_class=(params)
-		debugger
+		# debugger - comentado para conseguir correr seeds
 		@school_class = SchoolClass.find( params[:id])	
 	 	super(@school_class)
 	end

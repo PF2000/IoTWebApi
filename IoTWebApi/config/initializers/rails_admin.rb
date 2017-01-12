@@ -1,5 +1,11 @@
 RailsAdmin.config do |config|
+  
+config.parent_controller = '::RailsAdminCustomController'
 
+RailsAdmin::ApplicationController.class_eval do
+    skip_before_action :verify_authenticity_token
+  end
+  
 config.authorize_with do
   authenticate_or_request_with_http_basic('Login required') do |username, password|
       pass = Digest::SHA2.hexdigest(password) 
@@ -29,11 +35,6 @@ end
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar true
-
-  RailsAdmin.config do |config|
-    # other config stuff ...
-    config.parent_controller = '::RailsAdminCustomController'
-  end
 
   
   config.actions do

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
 	
-  include ActionController::RequestForgeryProtection
+  
 	#Para serializar todos os objectos
 	include ActionController::Serialization
 

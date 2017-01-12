@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104115954) do
+ActiveRecord::Schema.define(version: 20170107150623) do
 
   create_table "attaches", force: :cascade do |t|
     t.string   "name"
@@ -142,9 +142,6 @@ ActiveRecord::Schema.define(version: 20170104115954) do
     t.string   "resetToken"
     t.string   "surname"
     t.datetime "resetDate"
-    t.date     "reset_date"
-    t.boolean  "reset"
-    t.integer  "reset_day_count"
     t.integer  "token_count"
     t.integer  "token_limit"
     t.datetime "token_count_reset_date"

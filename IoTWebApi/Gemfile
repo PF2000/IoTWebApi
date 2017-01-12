@@ -14,8 +14,6 @@ gem 'active_model_serializers'
 #for attacks DDoS
 gem 'rack-attack'
 
-gem 'byebug'
-
 # Swagger
 gem 'swagger-docs'
 
