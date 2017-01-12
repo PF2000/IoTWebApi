@@ -8,8 +8,17 @@ class Project < ApplicationRecord
 		super(@discipline)
 	end
 
+	def school_year=(params)
+		@school_year = SchoolYear.find( params[:id])	
+		super(@school_year)
+	end
+
 	#Overrides the Gets
 	def discipline	
+		super
+ 	end
+
+ 	def school_year	
 		super
  	end
 
