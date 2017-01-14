@@ -26,7 +26,7 @@ module Api::V1
   swagger_api :show do
     summary "Fetches a Course items"
     notes "This lists an active Course"
-    param :path, :id, :integer, :optional, "Course ID"
+    param :path, :id, :integer, :required, "Course ID"
     response :ok, "Success", :course
     response :unauthorized
     response :not_acceptable
@@ -65,7 +65,7 @@ module Api::V1
   swagger_api :update do
     summary "Updates a Course item"
     notes "Updates a Course item"
-    param :path, :id, :integer, :optional, "Course ID"
+    param :path, :id, :integer, :required, "Course ID"
     param :body ,:body, :course, :required, "Updates a Course"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
@@ -79,7 +79,7 @@ module Api::V1
   swagger_api :destroy do
     summary "Destroys a Courses item"
     notes "Destroys a Courses item"
-    param :path, :id, :integer, :optional, "Course ID"
+    param :path, :id, :integer, :required, "Course ID"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end

@@ -26,7 +26,7 @@ module Api::V1
     swagger_api :show do
       summary "Fetches a Room item"
       notes "This lists an active Room"
-      param :path, :id, :integer, :optional, "Room ID"
+      param :path, :id, :integer, :required, "Room ID"
       response :ok, "Success", :Room
       response :unauthorized
       response :not_acceptable
@@ -66,7 +66,7 @@ module Api::V1
     swagger_api :update do
       summary "Degree a Room item"
       notes "Degree a Room item"
-      param :path, :id, :integer, :optional, "Room ID"
+      param :path, :id, :integer, :required, "Room ID"
       param :body ,:body, :Room, :required, "Updates a Room"
       response :unauthorized
       response :not_acceptable, "Room ID doesn't exist"
@@ -80,7 +80,7 @@ module Api::V1
     swagger_api :destroy do
       summary "Destroys a Room item"
       notes "Destroys a Room item"
-      param :path, :id, :integer, :optional, "Room ID"
+      param :path, :id, :integer, :required, "Room ID"
       response :unauthorized
       response :not_acceptable, "Room ID doesn't exist"
     end
@@ -89,9 +89,9 @@ module Api::V1
      description "A Aux Room object."
      property :id, :integer, :required, "Room ID"
      property :school, :school, :required, "School"
-     property :description, :string, :optional, "Description"
-     property :projector, :boolean, :optional, "Has Projector?"
-     property :seats, :integer, :optional, "Number of Seats"
+     property :description, :string, :required, "Description"
+     property :projector, :boolean, :required, "Has Projector?"
+     property :seats, :integer, :required, "Number of Seats"
     end
 
     swagger_model :school do

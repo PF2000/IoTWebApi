@@ -26,7 +26,7 @@ module Api::V1
   swagger_api :show do
     summary "Fetches a School item"
     notes "This lists an active School"
-    param :path, :id, :integer, :optional, "School ID"
+    param :path, :id, :integer, :required, "School ID"
     response :ok, "Success", :School
     response :unauthorized
     response :not_acceptable
@@ -65,7 +65,7 @@ module Api::V1
   swagger_api :update do
     summary "Updates a School item"
     notes "Updates a School item"
-    param :path, :id, :integer, :optional, "School ID"
+    param :path, :id, :integer, :required, "School ID"
     param :body ,:body, :School, :required, "Updates a School"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
@@ -79,7 +79,7 @@ module Api::V1
   swagger_api :destroy do
     summary "Destroys a School item"
     notes "Destroys a School item"
-    param :path, :id, :integer, :optional, "School ID"
+    param :path, :id, :integer, :required, "School ID"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
   end
@@ -88,13 +88,13 @@ module Api::V1
   swagger_model :School do
      description "A School object."
      property :id, :integer, :required, "School ID"
-     property :name, :string, :optional, "Name"
+     property :name, :string, :required, "Name"
      property :country, :string, :required, "Country"
-     property :district, :string, :optional, "District"
+     property :district, :string, :required, "District"
      property :city, :string, :required, "City"
-     property :county, :string, :optional, "County"
+     property :county, :string, :required, "County"
      property :post_code, :string, :required, "Post Code"
-     property :address_details, :string, :optional, "Address Details"
+     property :address_details, :string, :required, "Address Details"
   end
 
 

@@ -26,7 +26,7 @@ module Api::V1
     swagger_api :show do
       summary "Fetches a Project item"
       notes "This lists an active Project"
-      param :path, :id, :integer, :optional, "Project ID"
+      param :path, :id, :integer, :required, "Project ID"
       response :ok, "Success", :project
       response :unauthorized
       response :not_acceptable
@@ -66,7 +66,7 @@ module Api::V1
     swagger_api :update do
       summary "Degree a Project item"
       notes "Degree a Project item"
-      param :path, :id, :integer, :optional, "Project ID"
+      param :path, :id, :integer, :required, "Project ID"
       param :body ,:body, :project, :required, "Updates a Project"
       response :unauthorized
       response :not_acceptable, "Project ID doesn't exist"
@@ -80,7 +80,7 @@ module Api::V1
     swagger_api :destroy do
       summary "Destroys a Project item"
       notes "Destroys a Project item"
-      param :path, :id, :integer, :optional, "Project ID"
+      param :path, :id, :integer, :required, "Project ID"
       response :unauthorized
       response :not_acceptable, "Project ID doesn't exist"
     end
@@ -93,9 +93,9 @@ module Api::V1
     swagger_model :pos do
      description "A Aux Project object."
      property :id, :integer, :required, "Project ID"
-     property :name, :string, :optional, "Name"
-     property :description, :string, :optional, "Description"
-     property :grade, :integer, :optional, "Grade"
+     property :name, :string, :required, "Name"
+     property :description, :string, :required, "Description"
+     property :grade, :integer, :required, "Grade"
      property_list :disciplines, :disciplines, :required, "Disciplines", [:disciplines,:disciplines]
     end
 

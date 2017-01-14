@@ -26,7 +26,7 @@ module Api::V1
     swagger_api :show do
       summary "Fetches a Degree item"
       notes "This lists an active Course"
-      param :path, :id, :integer, :optional, "Degree ID"
+      param :path, :id, :integer, :required, "Degree ID"
       response :ok, "Success", :Degree
       response :unauthorized
       response :not_acceptable
@@ -65,7 +65,7 @@ module Api::V1
     swagger_api :update do
       summary "Degree a Degree item"
       notes "Degree a Degree item"
-      param :path, :id, :integer, :optional, "Degree ID"
+      param :path, :id, :integer, :required, "Degree ID"
       param :body ,:body, :Degree, :required, "Updates a Degree"
       response :unauthorized
       response :not_acceptable, "Degree ID doesn't exist"
@@ -79,7 +79,7 @@ module Api::V1
     swagger_api :destroy do
       summary "Destroys a Degree item"
       notes "Destroys a Degree item"
-      param :path, :id, :integer, :optional, "Degree ID"
+      param :path, :id, :integer, :required, "Degree ID"
       response :unauthorized
       response :not_acceptable, "Degree ID doesn't exist"
     end
@@ -87,7 +87,7 @@ module Api::V1
     swagger_model :Degree do
      description "A Degree object."
      property :id, :integer, :required, "Degree ID"
-     property :description, :string, :optional, "Description"
+     property :description, :string, :required, "Description"
     end
 
     private

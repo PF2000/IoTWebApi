@@ -26,7 +26,7 @@ module Api::V1
     swagger_api :show do
       summary "Fetches a Discipline item"
       notes "This lists an active Discipline"
-      param :path, :id, :integer, :optional, "Discipline ID"
+      param :path, :id, :integer, :required, "Discipline ID"
       response :ok, "Success", :Discipline
       response :unauthorized
       response :not_acceptable
@@ -66,7 +66,7 @@ module Api::V1
     swagger_api :update do
       summary "Degree a Discipline item"
       notes "Degree a Discipline item"
-      param :path, :id, :integer, :optional, "Discipline ID"
+      param :path, :id, :integer, :required, "Discipline ID"
       param :body ,:body, :Discipline, :required, "Updates a Discipline"
       response :unauthorized
       response :not_acceptable, "Discipline ID doesn't exist"
@@ -80,7 +80,7 @@ module Api::V1
     swagger_api :destroy do
       summary "Destroys a Discipline item"
       notes "Destroys a Discipline item"
-      param :path, :id, :integer, :optional, "Discipline ID"
+      param :path, :id, :integer, :required, "Discipline ID"
       response :unauthorized
       response :not_acceptable, "Discipline ID doesn't exist"
     end
@@ -88,7 +88,7 @@ module Api::V1
     swagger_model :Discipline do
      description "A Discipline object."
      property :id, :integer, :required, "Discipline ID"
-     property :name, :string, :optional, "Name"
+     property :name, :string, :required, "Name"
     end
 
     private
@@ -99,7 +99,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def discipline_params
-        params.require(:discipline).permit(:name, :courses => [:id])
+        params.require(:discipline).permit(:name)#, :courses => [:id])
       end
   end
 end
