@@ -64,8 +64,8 @@ module Api::V1
     end
 
     swagger_api :update do
-      summary "Degree a Discipline item"
-      notes "Degree a Discipline item"
+      summary "Updates a Discipline item"
+      notes "Updates a Discipline item"
       param :path, :id, :integer, :required, "Discipline ID"
       param :body ,:body, :Discipline, :required, "Updates a Discipline"
       response :unauthorized

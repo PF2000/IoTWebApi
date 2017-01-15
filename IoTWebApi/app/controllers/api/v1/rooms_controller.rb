@@ -64,8 +64,8 @@ module Api::V1
     end
 
     swagger_api :update do
-      summary "Degree a Room item"
-      notes "Degree a Room item"
+      summary "Updates a Room item"
+      notes "Updates a Room item"
       param :path, :id, :integer, :required, "Room ID"
       param :body ,:body, :Room, :required, "Updates a Room"
       response :unauthorized

@@ -97,12 +97,20 @@ module Api::V1
      property :description, :string, :required, "Description"
      property :grade, :integer, :required, "Grade"
      property_list :disciplines, :disciplines, :required, "Disciplines", [:disciplines,:disciplines]
+     property :school_year, :integer, :required, "School Year ID"
     end
 
     swagger_model :disciplines do
       description "A Disciplines object."
       property :id, :integer, :required, "Disciplines ID"
     end
+
+    swagger_model :school_year do
+      description "A School Year object."
+      property :id, :integer, :required, "School Year ID"
+    end
+
+    #a fazer: incluir o school year
 
     private
       # Use callbacks to share common setup or constraints between actions.
