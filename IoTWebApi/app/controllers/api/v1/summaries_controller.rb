@@ -11,20 +11,27 @@ module Api::V1
       render json: @summaries
     end
 
+    swagger_api :index do
+      summary "Fetches all summaries items"
+      notes "This lists all the summaries Schools"
+      response :unauthorized
+      response :not_acceptable, "Summary ID doesn't exist"
+    end
+
     # GET /summaries/1
     def shows
       render json: @summary
     end
 
     swagger_api :show do
-      summary "Fetches a Summaries item"
-      notes "This lists an active Summaries"
-      param :path, :id, :integer, :required, "Summaries ID"
+      summary "Fetches a summary item"
+      notes "This lists an active summary"
+      param :path, :id, :integer, :required, "Summary ID"
       response :ok, "Success", :Summaries
       response :unauthorized
       response :not_acceptable
       response :not_found
-      response :not_acceptable, "Summaries ID doesn't exist"
+      response :not_acceptable, "Summary ID doesn't exist"
     end
 
     # POST /summaries
@@ -39,8 +46,8 @@ module Api::V1
     end
 
     swagger_api :create do
-      summary "Creates a Summaries item"
-      notes "Creates a Summaries item"
+      summary "Creates a summary item"
+      notes "Creates a summary item"
       param  :body ,:body, :Summaries, :required, "Create a Summaries"
       response :unauthorized
       response :not_acceptable, "Summaries ID doesn't exist"
@@ -56,10 +63,10 @@ module Api::V1
     end
 
     swagger_api :update do
-      summary "Updates a Summaries item"
-      notes "Updates a Summaries item"
+      summary "Updates a summary item"
+      notes "Updates a summary item"
       param :path, :id, :integer, :required, "Summaries ID"
-      param :body ,:body, :Summaries, :required, "Updates a Summaries"
+      param :body ,:body, :Summaries, :required, "Updates a summary"
       response :unauthorized
       response :not_acceptable, "Summaries ID doesn't exist"
     end
@@ -70,15 +77,15 @@ module Api::V1
     end
 
     swagger_api :destroy do
-      summary "Destroys a Summaries item"
-      notes "Destroys a Summaries item"
+      summary "Destroys a summary item"
+      notes "Destroys a summary item"
       param :path, :id, :integer, :required, "Summaries ID"
       response :unauthorized
       response :not_acceptable, "Summaries ID doesn't exist"
     end
 
     swagger_model :ss do
-     description "An Aux Summaries object."
+     description "An Aux summary object."
      property :id, :integer, :required, "Summaries ID"
      property :number_students, :integer, :required, "Number of Students"
      property :description, :string, :required, "Description"
@@ -92,7 +99,7 @@ module Api::V1
     end
 
     swagger_model :Summaries do
-     description "A Summaries object."
+     description "A summary object."
      property :Summaries, :ss, :required, "Summaries"
     end
 

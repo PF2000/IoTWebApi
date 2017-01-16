@@ -2,10 +2,10 @@
   "apiVersion": "1.0",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "rooms",
+  "resourcePath": "summaries",
   "apis": [
     {
-      "path": "/v1/rooms.json",
+      "path": "/v1/summaries.json",
       "operations": [
         {
           "parameters": [
@@ -17,8 +17,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches all room items",
-          "notes": "This lists all the active rooms",
+          "summary": "Fetches all summaries items",
+          "notes": "This lists all the summaries Schools",
           "responseMessages": [
             {
               "code": 401,
@@ -28,16 +28,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "Summary ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#index",
+          "nickname": "Api::V1::Summaries#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/v1/rooms.json",
+      "path": "/v1/summaries.json",
       "operations": [
         {
           "parameters": [
@@ -51,13 +51,13 @@
             {
               "paramType": "body",
               "name": "body",
-              "type": "Room",
-              "description": "Create a room",
+              "type": "Summaries",
+              "description": "Create a Summaries",
               "required": true
             }
           ],
-          "summary": "Creates a room item",
-          "notes": "Creates a room item",
+          "summary": "Creates a summary item",
+          "notes": "Creates a summary item",
           "responseMessages": [
             {
               "code": 401,
@@ -67,16 +67,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "Summaries ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#create",
+          "nickname": "Api::V1::Summaries#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/v1/rooms/{id}.json",
+      "path": "/v1/summaries/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -91,16 +91,16 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Room ID",
+              "description": "Summary ID",
               "required": true
             }
           ],
-          "summary": "Fetches a room item",
-          "notes": "This lists an active room",
+          "summary": "Fetches a summary item",
+          "notes": "This lists an active summary",
           "responseMessages": [
             {
               "code": 200,
-              "responseModel": "Room",
+              "responseModel": "Summaries",
               "message": "Success"
             },
             {
@@ -121,16 +121,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "Summary ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#show",
+          "nickname": "Api::V1::Summaries#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/v1/rooms/{id}.json",
+      "path": "/v1/summaries/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -145,19 +145,19 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Room ID",
+              "description": "Summaries ID",
               "required": true
             },
             {
               "paramType": "body",
               "name": "body",
-              "type": "Room",
-              "description": "Updates a room",
+              "type": "Summaries",
+              "description": "Updates a summary",
               "required": true
             }
           ],
-          "summary": "Updates a room item",
-          "notes": "Updates a room item",
+          "summary": "Updates a summary item",
+          "notes": "Updates a summary item",
           "responseMessages": [
             {
               "code": 401,
@@ -167,16 +167,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "Summaries ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#update",
+          "nickname": "Api::V1::Summaries#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/v1/rooms/{id}.json",
+      "path": "/v1/summaries/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -184,12 +184,12 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Room ID",
+              "description": "Summaries ID",
               "required": true
             }
           ],
-          "summary": "Destroys a room item",
-          "notes": "Destroys a room item",
+          "summary": "Destroys a summary item",
+          "notes": "Destroys a summary item",
           "responseMessages": [
             {
               "code": 401,
@@ -199,10 +199,10 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "Summaries ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#destroy",
+          "nickname": "Api::V1::Summaries#destroy",
           "method": "delete"
         }
       ]
@@ -210,64 +210,64 @@
   ],
   "authorizations": null,
   "models": {
-    "Rm": {
-      "id": "Rm",
+    "ss": {
+      "id": "ss",
       "required": [
         "id",
-        "school",
+        "number_students",
         "description",
-        "projector",
-        "seats"
+        "date",
+        "school_class"
       ],
       "properties": {
         "id": {
           "type": "integer",
-          "description": "Room ID"
+          "description": "Summaries ID"
         },
-        "school": {
-          "type": "school",
-          "description": "School"
+        "numberStudents": {
+          "type": "integer",
+          "description": "Number of Students"
         },
         "description": {
           "type": "string",
           "description": "Description"
         },
-        "projector": {
-          "type": "boolean",
-          "description": "Has Projector?"
+        "date": {
+          "type": "date",
+          "description": "Date"
         },
-        "seats": {
+        "schoolClass": {
           "type": "integer",
-          "description": "Number of Seats"
+          "description": "School Class ID"
         }
       },
-      "description": "A Aux Room object."
+      "description": "An Aux summary object."
     },
-    "school": {
-      "id": "school",
+    "school_class": {
+      "id": "school_class",
       "required": [
         "id"
       ],
       "properties": {
         "id": {
           "type": "integer",
-          "description": "School ID"
+          "description": "School Class ID"
         }
       },
-      "description": "A School object."
+      "description": "A School Class object."
     },
-    "Room": {
-      "id": "Room",
+    "Summaries": {
+      "id": "Summaries",
       "required": [
-        "room"
+        "Summaries"
       ],
       "properties": {
-        "room": {
-          "type": "Rm",
-          "description": "Room"
+        "summaries": {
+          "type": "ss",
+          "description": "Summaries"
         }
       },
-      "description": "A Room object."
+      "description": "A summary object."
     }
   }
 }

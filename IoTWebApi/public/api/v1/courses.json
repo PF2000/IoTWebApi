@@ -17,8 +17,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches all Course items",
-          "notes": "This lists all the active Course",
+          "summary": "Fetches all sourse items",
+          "notes": "This lists all the active soursees",
           "responseMessages": [
             {
               "code": 401,
@@ -52,12 +52,12 @@
               "paramType": "body",
               "name": "body",
               "type": "course",
-              "description": "Create a Course",
+              "description": "Create a sourse",
               "required": true
             }
           ],
-          "summary": "Creates a Course item",
-          "notes": "Creates a Course item",
+          "summary": "Creates a sourse item",
+          "notes": "Creates a sourse item",
           "responseMessages": [
             {
               "code": 401,
@@ -92,11 +92,11 @@
               "name": "id",
               "type": "integer",
               "description": "Course ID",
-              "required": false
+              "required": true
             }
           ],
-          "summary": "Fetches a Course items",
-          "notes": "This lists an active Course",
+          "summary": "Fetches a sourse items",
+          "notes": "This lists an active sourse",
           "responseMessages": [
             {
               "code": 200,
@@ -146,18 +146,18 @@
               "name": "id",
               "type": "integer",
               "description": "Course ID",
-              "required": false
+              "required": true
             },
             {
               "paramType": "body",
               "name": "body",
               "type": "course",
-              "description": "Updates a Course",
+              "description": "Updates a sourse",
               "required": true
             }
           ],
-          "summary": "Updates a Course item",
-          "notes": "Updates a Course item",
+          "summary": "Updates a sourse item",
+          "notes": "Updates a sourse item",
           "responseMessages": [
             {
               "code": 401,
@@ -185,11 +185,11 @@
               "name": "id",
               "type": "integer",
               "description": "Course ID",
-              "required": false
+              "required": true
             }
           ],
-          "summary": "Destroys a Courses item",
-          "notes": "Destroys a Courses item",
+          "summary": "Destroys a sourse item",
+          "notes": "Destroys a sourse item",
           "responseMessages": [
             {
               "code": 401,
@@ -251,14 +251,7 @@
         },
         "disciplines": {
           "type": "disciplines",
-          "description": "Disciplines",
-          "allowableValues": {
-            "valueType": "LIST",
-            "values": [
-              "disciplines",
-              "disciplines"
-            ]
-          }
+          "description": "Disciplines"
         }
       },
       "description": "A Course aux object."

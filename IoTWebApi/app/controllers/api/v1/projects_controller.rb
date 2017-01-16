@@ -12,8 +12,8 @@ module Api::V1
     end
 
     swagger_api :index do
-      summary "Fetches all Project items"
-      notes "This lists all the active Projects"
+      summary "Fetches all project items"
+      notes "This lists all the active projects"
       response :unauthorized
       response :not_acceptable, "Project ID doesn't exist"
     end
@@ -24,8 +24,8 @@ module Api::V1
     end
 
     swagger_api :show do
-      summary "Fetches a Project item"
-      notes "This lists an active Project"
+      summary "Fetches a project item"
+      notes "This lists an active project"
       param :path, :id, :integer, :required, "Project ID"
       response :ok, "Success", :project
       response :unauthorized
@@ -46,10 +46,10 @@ module Api::V1
     end
 
     swagger_api :create do
-      summary "Creates a Project item"
-      notes "Creates a Project item"
+      summary "Creates a project item"
+      notes "Creates a project item"
       #param :course ,:name, :string, :optional, "Name"
-      param  :body ,:body, :project, :required, "Create a Project"
+      param  :body ,:body, :project, :required, "Create a project"
       response :unauthorized
       response :not_acceptable, "Project ID doesn't exist"
     end
@@ -64,8 +64,8 @@ module Api::V1
     end
 
     swagger_api :update do
-      summary "Degree a Project item"
-      notes "Degree a Project item"
+      summary "Degree a project item"
+      notes "Degree a project item"
       param :path, :id, :integer, :required, "Project ID"
       param :body ,:body, :project, :required, "Updates a Project"
       response :unauthorized
@@ -78,8 +78,8 @@ module Api::V1
     end
 
     swagger_api :destroy do
-      summary "Destroys a Project item"
-      notes "Destroys a Project item"
+      summary "Destroys a project item"
+      notes "Destroys a project item"
       param :path, :id, :integer, :required, "Project ID"
       response :unauthorized
       response :not_acceptable, "Project ID doesn't exist"

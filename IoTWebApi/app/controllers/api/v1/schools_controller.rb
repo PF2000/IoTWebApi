@@ -12,8 +12,8 @@ module Api::V1
   end
 
   swagger_api :index do
-    summary "Fetches all School items"
-    notes "This lists all the active Schools"
+    summary "Fetches all school items"
+    notes "This lists all the active schools"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
   end
@@ -24,8 +24,8 @@ module Api::V1
   end
 
   swagger_api :show do
-    summary "Fetches a School item"
-    notes "This lists an active School"
+    summary "Fetches a school item"
+    notes "This lists an active school"
     param :path, :id, :integer, :required, "School ID"
     response :ok, "Success", :School
     response :unauthorized
@@ -46,9 +46,9 @@ module Api::V1
   end
 
   swagger_api :create do
-    summary "Creates a School item"
-    notes "Creates a School item"
-    param  :body ,:body, :School, :required, "Create a School"
+    summary "Creates a school item"
+    notes "Creates a school item"
+    param  :body ,:body, :School, :required, "Create a school"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
   end
@@ -63,10 +63,10 @@ module Api::V1
   end
 
   swagger_api :update do
-    summary "Updates a School item"
-    notes "Updates a School item"
+    summary "Updates a school item"
+    notes "Updates a school item"
     param :path, :id, :integer, :required, "School ID"
-    param :body ,:body, :School, :required, "Updates a School"
+    param :body ,:body, :School, :required, "Updates a school"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
   end
@@ -77,8 +77,8 @@ module Api::V1
   end
 
   swagger_api :destroy do
-    summary "Destroys a School item"
-    notes "Destroys a School item"
+    summary "Destroys a school item"
+    notes "Destroys a school item"
     param :path, :id, :integer, :required, "School ID"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
@@ -86,7 +86,7 @@ module Api::V1
 
 
   swagger_model :School do
-     description "A School object."
+     description "A school object."
      property :id, :integer, :required, "School ID"
      property :name, :string, :required, "Name"
      property :country, :string, :required, "Country"

@@ -11,20 +11,27 @@ module Api::V1
       render json: @school_classes
     end
 
+    swagger_api :index do
+      summary "Fetches all school class items"
+      notes "This lists all the active school classes"
+      response :unauthorized
+      response :not_acceptable, "School class ID doesn't exist"
+    end
+
     # GET /school_classes/1
     def show
       render json: @school_class
     end
 
     swagger_api :show do
-      summary "Fetches a School Classes item"
-      notes "This lists an active School Classes"
-      param :path, :id, :integer, :required, "School Class ID"
+      summary "Fetches a school classes item"
+      notes "This lists an active school classes"
+      param :path, :id, :integer, :required, "School class ID"
       response :ok, "Success", :School_year
       response :unauthorized
       response :not_acceptable
       response :not_found
-      response :not_acceptable, "School Class ID doesn't exist"
+      response :not_acceptable, "School class ID doesn't exist"
     end
 
     # POST /school_classes
@@ -35,11 +42,11 @@ module Api::V1
       #debugger
 
     swagger_api :create do
-      summary "Creates a School Class item"
-      notes "Creates a School Class item"
-      param  :body ,:body, :School_class, :required, "Create a School Class"
+      summary "Creates a school class item"
+      notes "Creates a school class item"
+      param  :body ,:body, :School_class, :required, "Create a school class"
       response :unauthorized
-      response :not_acceptable, "School Classes ID doesn't exist"
+      response :not_acceptable, "School classes ID doesn't exist"
     end
 
       if @school_class.save
@@ -59,12 +66,12 @@ module Api::V1
     end
 
     swagger_api :update do
-      summary "Updates a School Class item"
-      notes "Updates a School Class item"
-      param :path, :id, :integer, :required, "School Classes ID"
-      param :body ,:body, :School_class, :required, "Updates a School Class"
+      summary "Updates a school class item"
+      notes "Updates a school class item"
+      param :path, :id, :integer, :required, "School class ID"
+      param :body ,:body, :School_class, :required, "Updates a school class"
       response :unauthorized
-      response :not_acceptable, "School Classes ID doesn't exist"
+      response :not_acceptable, "School class ID doesn't exist"
     end
 
     # DELETE /school_classes/1
@@ -73,11 +80,11 @@ module Api::V1
     end
 
     swagger_api :destroy do
-      summary "Destroys a School Class item"
-      notes "Destroys a School Class item"
-      param :path, :id, :integer, :required, "School Class ID"
+      summary "Destroys a school class item"
+      notes "Destroys a school class item"
+      param :path, :id, :integer, :required, "School class ID"
       response :unauthorized
-      response :not_acceptable, "School Classes ID doesn't exist"
+      response :not_acceptable, "School class ID doesn't exist"
     end
 
     swagger_model :discipline do

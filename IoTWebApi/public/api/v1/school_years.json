@@ -2,10 +2,10 @@
   "apiVersion": "1.0",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "rooms",
+  "resourcePath": "school_years",
   "apis": [
     {
-      "path": "/v1/rooms.json",
+      "path": "/v1/school_years.json",
       "operations": [
         {
           "parameters": [
@@ -17,8 +17,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches all room items",
-          "notes": "This lists all the active rooms",
+          "summary": "Fetches all school year items",
+          "notes": "This lists all the active school year",
           "responseMessages": [
             {
               "code": 401,
@@ -28,16 +28,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "School year ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#index",
+          "nickname": "Api::V1::SchoolYears#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/v1/rooms.json",
+      "path": "/v1/school_years.json",
       "operations": [
         {
           "parameters": [
@@ -51,13 +51,13 @@
             {
               "paramType": "body",
               "name": "body",
-              "type": "Room",
-              "description": "Create a room",
+              "type": "School_year",
+              "description": "Create a school year",
               "required": true
             }
           ],
-          "summary": "Creates a room item",
-          "notes": "Creates a room item",
+          "summary": "Creates a school year item",
+          "notes": "Creates a school year item",
           "responseMessages": [
             {
               "code": 401,
@@ -67,16 +67,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "School year ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#create",
+          "nickname": "Api::V1::SchoolYears#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/v1/rooms/{id}.json",
+      "path": "/v1/school_years/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -91,16 +91,16 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Room ID",
+              "description": "School year ID",
               "required": true
             }
           ],
-          "summary": "Fetches a room item",
-          "notes": "This lists an active room",
+          "summary": "Fetches a school year item",
+          "notes": "This lists an active school year",
           "responseMessages": [
             {
               "code": 200,
-              "responseModel": "Room",
+              "responseModel": "School_year",
               "message": "Success"
             },
             {
@@ -121,16 +121,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "School year ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#show",
+          "nickname": "Api::V1::SchoolYears#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/v1/rooms/{id}.json",
+      "path": "/v1/school_years/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -145,19 +145,19 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Room ID",
+              "description": "School year ID",
               "required": true
             },
             {
               "paramType": "body",
               "name": "body",
-              "type": "Room",
-              "description": "Updates a room",
+              "type": "School_year",
+              "description": "Updates a school year",
               "required": true
             }
           ],
-          "summary": "Updates a room item",
-          "notes": "Updates a room item",
+          "summary": "Updates a school year item",
+          "notes": "Updates a school year item",
           "responseMessages": [
             {
               "code": 401,
@@ -167,16 +167,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "School year ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#update",
+          "nickname": "Api::V1::SchoolYears#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/v1/rooms/{id}.json",
+      "path": "/v1/school_years/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -184,12 +184,12 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Room ID",
+              "description": "School year ID",
               "required": true
             }
           ],
-          "summary": "Destroys a room item",
-          "notes": "Destroys a room item",
+          "summary": "Destroys a school year item",
+          "notes": "Destroys a school year item",
           "responseMessages": [
             {
               "code": 401,
@@ -199,10 +199,10 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "School year ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#destroy",
+          "nickname": "Api::V1::SchoolYears#destroy",
           "method": "delete"
         }
       ]
@@ -210,64 +210,33 @@
   ],
   "authorizations": null,
   "models": {
-    "Rm": {
-      "id": "Rm",
+    "School_year": {
+      "id": "School_year",
       "required": [
         "id",
-        "school",
         "description",
-        "projector",
-        "seats"
+        "start_time",
+        "end_time"
       ],
       "properties": {
         "id": {
           "type": "integer",
-          "description": "Room ID"
-        },
-        "school": {
-          "type": "school",
-          "description": "School"
+          "description": "School Year ID"
         },
         "description": {
           "type": "string",
           "description": "Description"
         },
-        "projector": {
-          "type": "boolean",
-          "description": "Has Projector?"
+        "startTime": {
+          "type": "date",
+          "description": "Start Time"
         },
-        "seats": {
-          "type": "integer",
-          "description": "Number of Seats"
+        "endTime": {
+          "type": "date",
+          "description": "End Time"
         }
       },
-      "description": "A Aux Room object."
-    },
-    "school": {
-      "id": "school",
-      "required": [
-        "id"
-      ],
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "School ID"
-        }
-      },
-      "description": "A School object."
-    },
-    "Room": {
-      "id": "Room",
-      "required": [
-        "room"
-      ],
-      "properties": {
-        "room": {
-          "type": "Rm",
-          "description": "Room"
-        }
-      },
-      "description": "A Room object."
+      "description": "A School Year object."
     }
   }
 }

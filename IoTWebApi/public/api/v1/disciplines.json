@@ -17,8 +17,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches all Discipline items",
-          "notes": "This lists all the active Disciplines",
+          "summary": "Fetches all discipline items",
+          "notes": "This lists all the active disciplines",
           "responseMessages": [
             {
               "code": 401,
@@ -52,12 +52,12 @@
               "paramType": "body",
               "name": "body",
               "type": "Discipline",
-              "description": "Create a Discipline",
+              "description": "Create a discipline",
               "required": true
             }
           ],
-          "summary": "Creates a Discipline item",
-          "notes": "Creates a Discipline item",
+          "summary": "Creates a discipline item",
+          "notes": "Creates a discipline item",
           "responseMessages": [
             {
               "code": 401,
@@ -92,11 +92,11 @@
               "name": "id",
               "type": "integer",
               "description": "Discipline ID",
-              "required": false
+              "required": true
             }
           ],
-          "summary": "Fetches a Discipline item",
-          "notes": "This lists an active Discipline",
+          "summary": "Fetches a discipline item",
+          "notes": "This lists an active discipline",
           "responseMessages": [
             {
               "code": 200,
@@ -146,18 +146,18 @@
               "name": "id",
               "type": "integer",
               "description": "Discipline ID",
-              "required": false
+              "required": true
             },
             {
               "paramType": "body",
               "name": "body",
               "type": "Discipline",
-              "description": "Updates a Discipline",
+              "description": "Updates a discipline",
               "required": true
             }
           ],
-          "summary": "Degree a Discipline item",
-          "notes": "Degree a Discipline item",
+          "summary": "Updates a discipline item",
+          "notes": "Updates a discipline item",
           "responseMessages": [
             {
               "code": 401,
@@ -185,11 +185,11 @@
               "name": "id",
               "type": "integer",
               "description": "Discipline ID",
-              "required": false
+              "required": true
             }
           ],
-          "summary": "Destroys a Discipline item",
-          "notes": "Destroys a Discipline item",
+          "summary": "Destroys a discipline item",
+          "notes": "Destroys a discipline item",
           "responseMessages": [
             {
               "code": 401,
@@ -213,7 +213,8 @@
     "Discipline": {
       "id": "Discipline",
       "required": [
-        "id"
+        "id",
+        "name"
       ],
       "properties": {
         "id": {

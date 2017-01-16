@@ -11,20 +11,27 @@ module Api::V1
       render json: @school_years
     end
 
+    swagger_api :index do
+      summary "Fetches all school year items"
+      notes "This lists all the active school year"
+      response :unauthorized
+      response :not_acceptable, "School year ID doesn't exist"
+    end
+
     # GET /school_years/1
     def show
       render json: @school_year
     end
 
     swagger_api :show do
-      summary "Fetches a School Year item"
-      notes "This lists an active School Year"
-      param :path, :id, :integer, :required, "School Year ID"
+      summary "Fetches a school year item"
+      notes "This lists an active school year"
+      param :path, :id, :integer, :required, "School year ID"
       response :ok, "Success", :School_year
       response :unauthorized
       response :not_acceptable
       response :not_found
-      response :not_acceptable, "School Year ID doesn't exist"
+      response :not_acceptable, "School year ID doesn't exist"
     end
 
     # POST /school_years
@@ -39,11 +46,11 @@ module Api::V1
     end
 
     swagger_api :create do
-      summary "Creates a School Year item"
-      notes "Creates a School Year item"
-      param  :body ,:body, :School_year, :required, "Create a School Year"
+      summary "Creates a school year item"
+      notes "Creates a school year item"
+      param  :body ,:body, :School_year, :required, "Create a school year"
       response :unauthorized
-      response :not_acceptable, "School Year ID doesn't exist"
+      response :not_acceptable, "School year ID doesn't exist"
     end
 
     # PATCH/PUT /school_years/1
@@ -56,12 +63,12 @@ module Api::V1
     end
 
     swagger_api :update do
-      summary "Updates a School Year item"
-      notes "Updates a School Year item"
-      param :path, :id, :integer, :required, "School Year ID"
-      param :body ,:body, :School_year, :required, "Updates a School Year"
+      summary "Updates a school year item"
+      notes "Updates a school year item"
+      param :path, :id, :integer, :required, "School year ID"
+      param :body ,:body, :School_year, :required, "Updates a school year"
       response :unauthorized
-      response :not_acceptable, "School Year ID doesn't exist"
+      response :not_acceptable, "School year ID doesn't exist"
     end
 
     # DELETE /school_years/1
@@ -70,11 +77,11 @@ module Api::V1
     end
 
     swagger_api :destroy do
-      summary "Destroys a School Year item"
-      notes "Destroys a School Year item"
-      param :path, :id, :integer, :required, "School Year ID"
+      summary "Destroys a school year item"
+      notes "Destroys a school year item"
+      param :path, :id, :integer, :required, "School year ID"
       response :unauthorized
-      response :not_acceptable, "School Year ID doesn't exist"
+      response :not_acceptable, "School year ID doesn't exist"
     end
 
     swagger_model :School_year do

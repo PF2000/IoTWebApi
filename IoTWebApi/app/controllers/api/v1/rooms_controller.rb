@@ -12,8 +12,8 @@ module Api::V1
     end
 
     swagger_api :index do
-      summary "Fetches all Room items"
-      notes "This lists all the active Rooms"
+      summary "Fetches all room items"
+      notes "This lists all the active rooms"
       response :unauthorized
       response :not_acceptable, "Room ID doesn't exist"
     end
@@ -24,8 +24,8 @@ module Api::V1
     end
 
     swagger_api :show do
-      summary "Fetches a Room item"
-      notes "This lists an active Room"
+      summary "Fetches a room item"
+      notes "This lists an active room"
       param :path, :id, :integer, :required, "Room ID"
       response :ok, "Success", :Room
       response :unauthorized
@@ -46,10 +46,10 @@ module Api::V1
     end
 
     swagger_api :create do
-      summary "Creates a Room item"
-      notes "Creates a Room item"
+      summary "Creates a room item"
+      notes "Creates a room item"
       #param :course ,:name, :string, :optional, "Name"
-      param  :body ,:body, :Room, :required, "Create a Room"
+      param  :body ,:body, :Room, :required, "Create a room"
       response :unauthorized
       response :not_acceptable, "Room ID doesn't exist"
     end
@@ -64,10 +64,10 @@ module Api::V1
     end
 
     swagger_api :update do
-      summary "Updates a Room item"
-      notes "Updates a Room item"
+      summary "Updates a room item"
+      notes "Updates a room item"
       param :path, :id, :integer, :required, "Room ID"
-      param :body ,:body, :Room, :required, "Updates a Room"
+      param :body ,:body, :Room, :required, "Updates a room"
       response :unauthorized
       response :not_acceptable, "Room ID doesn't exist"
     end
@@ -78,8 +78,8 @@ module Api::V1
     end
 
     swagger_api :destroy do
-      summary "Destroys a Room item"
-      notes "Destroys a Room item"
+      summary "Destroys a room item"
+      notes "Destroys a room item"
       param :path, :id, :integer, :required, "Room ID"
       response :unauthorized
       response :not_acceptable, "Room ID doesn't exist"

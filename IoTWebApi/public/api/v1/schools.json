@@ -17,8 +17,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches all School items",
-          "notes": "This lists all the active Schools",
+          "summary": "Fetches all school items",
+          "notes": "This lists all the active schools",
           "responseMessages": [
             {
               "code": 401,
@@ -52,12 +52,12 @@
               "paramType": "body",
               "name": "body",
               "type": "School",
-              "description": "Create a School",
+              "description": "Create a school",
               "required": true
             }
           ],
-          "summary": "Creates a School item",
-          "notes": "Creates a School item",
+          "summary": "Creates a school item",
+          "notes": "Creates a school item",
           "responseMessages": [
             {
               "code": 401,
@@ -92,11 +92,11 @@
               "name": "id",
               "type": "integer",
               "description": "School ID",
-              "required": false
+              "required": true
             }
           ],
-          "summary": "Fetches a School item",
-          "notes": "This lists an active School",
+          "summary": "Fetches a school item",
+          "notes": "This lists an active school",
           "responseMessages": [
             {
               "code": 200,
@@ -146,18 +146,18 @@
               "name": "id",
               "type": "integer",
               "description": "School ID",
-              "required": false
+              "required": true
             },
             {
               "paramType": "body",
               "name": "body",
               "type": "School",
-              "description": "Updates a School",
+              "description": "Updates a school",
               "required": true
             }
           ],
-          "summary": "Updates a School item",
-          "notes": "Updates a School item",
+          "summary": "Updates a school item",
+          "notes": "Updates a school item",
           "responseMessages": [
             {
               "code": 401,
@@ -185,11 +185,11 @@
               "name": "id",
               "type": "integer",
               "description": "School ID",
-              "required": false
+              "required": true
             }
           ],
-          "summary": "Destroys a School item",
-          "notes": "Destroys a School item",
+          "summary": "Destroys a school item",
+          "notes": "Destroys a school item",
           "responseMessages": [
             {
               "code": 401,
@@ -214,9 +214,13 @@
       "id": "School",
       "required": [
         "id",
+        "name",
         "country",
+        "district",
         "city",
-        "postCode"
+        "county",
+        "post_code",
+        "address_details"
       ],
       "properties": {
         "id": {
@@ -231,7 +235,7 @@
           "type": "string",
           "description": "Country"
         },
-        "distric": {
+        "district": {
           "type": "string",
           "description": "District"
         },
@@ -252,7 +256,7 @@
           "description": "Address Details"
         }
       },
-      "description": "A School object."
+      "description": "A school object."
     }
   }
 }

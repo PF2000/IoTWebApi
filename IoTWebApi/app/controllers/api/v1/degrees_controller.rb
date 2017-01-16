@@ -12,8 +12,8 @@ module Api::V1
     end
 
     swagger_api :index do
-      summary "Fetches all Degree items"
-      notes "This lists all the active Degrees"
+      summary "Fetches all degree items"
+      notes "This lists all the active degrees"
       response :unauthorized
       response :not_acceptable, "Degree ID doesn't exist"
     end
@@ -24,8 +24,8 @@ module Api::V1
     end
 
     swagger_api :show do
-      summary "Fetches a Degree item"
-      notes "This lists an active Course"
+      summary "Fetches a degree item"
+      notes "This lists an active degree"
       param :path, :id, :integer, :required, "Degree ID"
       response :ok, "Success", :Degree
       response :unauthorized
@@ -46,9 +46,9 @@ module Api::V1
     end
 
     swagger_api :create do
-      summary "Creates a Degree item"
-      notes "Creates a Degree item"
-      param  :body ,:body, :Degree, :required, "Create a Degree"
+      summary "Creates a degree item"
+      notes "Creates a degree item"
+      param  :body ,:body, :Degree, :required, "Create a degree"
       response :unauthorized
       response :not_acceptable, "Degree ID doesn't exist"
     end
@@ -63,10 +63,10 @@ module Api::V1
     end
 
     swagger_api :update do
-      summary "Updates a Degree item"
-      notes "Updates a Degree item"
+      summary "Updates a degree item"
+      notes "Updates a degree item"
       param :path, :id, :integer, :required, "Degree ID"
-      param :body ,:body, :Degree, :required, "Updates a Degree"
+      param :body ,:body, :Degree, :required, "Updates a degree"
       response :unauthorized
       response :not_acceptable, "Degree ID doesn't exist"
     end
@@ -77,8 +77,8 @@ module Api::V1
     end
 
     swagger_api :destroy do
-      summary "Destroys a Degree item"
-      notes "Destroys a Degree item"
+      summary "Destroys a degree item"
+      notes "Destroys a degree item"
       param :path, :id, :integer, :required, "Degree ID"
       response :unauthorized
       response :not_acceptable, "Degree ID doesn't exist"

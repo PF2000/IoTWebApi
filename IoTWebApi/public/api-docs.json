@@ -26,6 +26,18 @@
     {
       "path": "/api/v1/projects.{format}",
       "description": "Projects Management"
+    },
+    {
+      "path": "/api/v1/school_classes.{format}",
+      "description": "School Class Management"
+    },
+    {
+      "path": "/api/v1/summaries.{format}",
+      "description": "Summaries Management"
+    },
+    {
+      "path": "/api/v1/school_years.{format}",
+      "description": "School Year Management"
     }
   ],
   "authorizations": null

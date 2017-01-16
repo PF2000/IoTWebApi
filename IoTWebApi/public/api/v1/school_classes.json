@@ -2,10 +2,10 @@
   "apiVersion": "1.0",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "rooms",
+  "resourcePath": "school_classes",
   "apis": [
     {
-      "path": "/v1/rooms.json",
+      "path": "/v1/school_classes.json",
       "operations": [
         {
           "parameters": [
@@ -17,8 +17,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches all room items",
-          "notes": "This lists all the active rooms",
+          "summary": "Fetches all school class items",
+          "notes": "This lists all the active school classes",
           "responseMessages": [
             {
               "code": 401,
@@ -28,16 +28,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "School class ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#index",
+          "nickname": "Api::V1::SchoolClasses#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/v1/rooms.json",
+      "path": "/v1/school_classes.json",
       "operations": [
         {
           "parameters": [
@@ -47,36 +47,15 @@
               "type": "string",
               "description": "Authentication token",
               "required": true
-            },
-            {
-              "paramType": "body",
-              "name": "body",
-              "type": "Room",
-              "description": "Create a room",
-              "required": true
             }
           ],
-          "summary": "Creates a room item",
-          "notes": "Creates a room item",
-          "responseMessages": [
-            {
-              "code": 401,
-              "responseModel": null,
-              "message": "Unauthorized"
-            },
-            {
-              "code": 406,
-              "responseModel": null,
-              "message": "Room ID doesn't exist"
-            }
-          ],
-          "nickname": "Api::V1::Rooms#create",
+          "nickname": "Api::V1::SchoolClasses#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/v1/rooms/{id}.json",
+      "path": "/v1/school_classes/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -91,16 +70,16 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Room ID",
+              "description": "School class ID",
               "required": true
             }
           ],
-          "summary": "Fetches a room item",
-          "notes": "This lists an active room",
+          "summary": "Fetches a school classes item",
+          "notes": "This lists an active school classes",
           "responseMessages": [
             {
               "code": 200,
-              "responseModel": "Room",
+              "responseModel": "School_year",
               "message": "Success"
             },
             {
@@ -121,16 +100,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "School class ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#show",
+          "nickname": "Api::V1::SchoolClasses#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/v1/rooms/{id}.json",
+      "path": "/v1/school_classes/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -145,19 +124,19 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Room ID",
+              "description": "School class ID",
               "required": true
             },
             {
               "paramType": "body",
               "name": "body",
-              "type": "Room",
-              "description": "Updates a room",
+              "type": "School_class",
+              "description": "Updates a school class",
               "required": true
             }
           ],
-          "summary": "Updates a room item",
-          "notes": "Updates a room item",
+          "summary": "Updates a school class item",
+          "notes": "Updates a school class item",
           "responseMessages": [
             {
               "code": 401,
@@ -167,16 +146,16 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "School class ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#update",
+          "nickname": "Api::V1::SchoolClasses#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/v1/rooms/{id}.json",
+      "path": "/v1/school_classes/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -184,12 +163,12 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Room ID",
+              "description": "School class ID",
               "required": true
             }
           ],
-          "summary": "Destroys a room item",
-          "notes": "Destroys a room item",
+          "summary": "Destroys a school class item",
+          "notes": "Destroys a school class item",
           "responseMessages": [
             {
               "code": 401,
@@ -199,10 +178,10 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Room ID doesn't exist"
+              "message": "School class ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Rooms#destroy",
+          "nickname": "Api::V1::SchoolClasses#destroy",
           "method": "delete"
         }
       ]
@@ -210,64 +189,110 @@
   ],
   "authorizations": null,
   "models": {
-    "Rm": {
-      "id": "Rm",
-      "required": [
-        "id",
-        "school",
-        "description",
-        "projector",
-        "seats"
-      ],
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "Room ID"
-        },
-        "school": {
-          "type": "school",
-          "description": "School"
-        },
-        "description": {
-          "type": "string",
-          "description": "Description"
-        },
-        "projector": {
-          "type": "boolean",
-          "description": "Has Projector?"
-        },
-        "seats": {
-          "type": "integer",
-          "description": "Number of Seats"
-        }
-      },
-      "description": "A Aux Room object."
-    },
-    "school": {
-      "id": "school",
+    "discipline": {
+      "id": "discipline",
       "required": [
         "id"
       ],
       "properties": {
         "id": {
           "type": "integer",
-          "description": "School ID"
+          "description": "Discipline ID"
         }
       },
-      "description": "A School object."
+      "description": "A Discipline object."
     },
-    "Room": {
-      "id": "Room",
+    "room": {
+      "id": "room",
       "required": [
-        "room"
+        "id"
       ],
       "properties": {
-        "room": {
-          "type": "Rm",
-          "description": "Room"
+        "id": {
+          "type": "integer",
+          "description": "Room ID"
         }
       },
       "description": "A Room object."
+    },
+    "school_year": {
+      "id": "school_year",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "School Year ID"
+        }
+      },
+      "description": "A Room object."
+    },
+    "sc": {
+      "id": "sc",
+      "required": [
+        "id",
+        "description",
+        "start_time",
+        "end_time",
+        "class_letter",
+        "professor",
+        "discipline",
+        "room",
+        "school_year"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "School Class ID"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description"
+        },
+        "startTime": {
+          "type": "date",
+          "description": "Start Time"
+        },
+        "endTime": {
+          "type": "date",
+          "description": "End Time"
+        },
+        "classLetter": {
+          "type": "string",
+          "description": "Class Letter"
+        },
+        "professor": {
+          "type": "string",
+          "description": "Professor"
+        },
+        "discipline": {
+          "type": "integer",
+          "description": "Discipline ID"
+        },
+        "room": {
+          "type": "integer",
+          "description": "Room ID"
+        },
+        "schoolYear": {
+          "type": "integer",
+          "description": "School Year ID"
+        }
+      },
+      "description": "An Aux school_class object."
+    },
+    "School_class": {
+      "id": "School_class",
+      "required": [
+        "School_class"
+      ],
+      "properties": {
+        "schoolClass": {
+          "type": "sc",
+          "description": "School Class"
+        }
+      },
+      "description": "A School Class object."
     }
   }
 }

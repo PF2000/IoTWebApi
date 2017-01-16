@@ -5,7 +5,7 @@
   "resourcePath": "projects",
   "apis": [
     {
-      "path": "/v1/disciplines/{discipline_id}/projects.json",
+      "path": "/v1/projects.json",
       "operations": [
         {
           "parameters": [
@@ -17,8 +17,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches all Project items",
-          "notes": "This lists all the active Projects",
+          "summary": "Fetches all project items",
+          "notes": "This lists all the active projects",
           "responseMessages": [
             {
               "code": 401,
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "path": "/v1/disciplines/{discipline_id}/projects.json",
+      "path": "/v1/projects.json",
       "operations": [
         {
           "parameters": [
@@ -52,12 +52,12 @@
               "paramType": "body",
               "name": "body",
               "type": "project",
-              "description": "Create a Project",
+              "description": "Create a project",
               "required": true
             }
           ],
-          "summary": "Creates a Project item",
-          "notes": "Creates a Project item",
+          "summary": "Creates a project item",
+          "notes": "Creates a project item",
           "responseMessages": [
             {
               "code": 401,
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "path": "/v1/disciplines/{discipline_id}/projects/{id}.json",
+      "path": "/v1/projects/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -92,11 +92,11 @@
               "name": "id",
               "type": "integer",
               "description": "Project ID",
-              "required": false
+              "required": true
             }
           ],
-          "summary": "Fetches a Project item",
-          "notes": "This lists an active Project",
+          "summary": "Fetches a project item",
+          "notes": "This lists an active project",
           "responseMessages": [
             {
               "code": 200,
@@ -130,7 +130,7 @@
       ]
     },
     {
-      "path": "/v1/disciplines/{discipline_id}/projects/{id}.json",
+      "path": "/v1/projects/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -146,7 +146,7 @@
               "name": "id",
               "type": "integer",
               "description": "Project ID",
-              "required": false
+              "required": true
             },
             {
               "paramType": "body",
@@ -156,8 +156,8 @@
               "required": true
             }
           ],
-          "summary": "Degree a Project item",
-          "notes": "Degree a Project item",
+          "summary": "Degree a project item",
+          "notes": "Degree a project item",
           "responseMessages": [
             {
               "code": 401,
@@ -176,7 +176,7 @@
       ]
     },
     {
-      "path": "/v1/disciplines/{discipline_id}/projects/{id}.json",
+      "path": "/v1/projects/{id}.json",
       "operations": [
         {
           "parameters": [
@@ -185,11 +185,11 @@
               "name": "id",
               "type": "integer",
               "description": "Project ID",
-              "required": false
+              "required": true
             }
           ],
-          "summary": "Destroys a Project item",
-          "notes": "Destroys a Project item",
+          "summary": "Destroys a project item",
+          "notes": "Destroys a project item",
           "responseMessages": [
             {
               "code": 401,
@@ -227,7 +227,11 @@
       "id": "pos",
       "required": [
         "id",
-        "disciplines"
+        "name",
+        "description",
+        "grade",
+        "disciplines",
+        "school_year"
       ],
       "properties": {
         "id": {
@@ -256,6 +260,10 @@
               "disciplines"
             ]
           }
+        },
+        "schoolYear": {
+          "type": "integer",
+          "description": "School Year ID"
         }
       },
       "description": "A Aux Project object."
@@ -272,6 +280,19 @@
         }
       },
       "description": "A Disciplines object."
+    },
+    "school_year": {
+      "id": "school_year",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "School Year ID"
+        }
+      },
+      "description": "A School Year object."
     }
   }
 }

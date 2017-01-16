@@ -12,8 +12,8 @@ module Api::V1
   end
 
   swagger_api :index do
-    summary "Fetches all Course items"
-    notes "This lists all the active Course"
+    summary "Fetches all sourse items"
+    notes "This lists all the active soursees"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
@@ -24,8 +24,8 @@ module Api::V1
   end
 
   swagger_api :show do
-    summary "Fetches a Course items"
-    notes "This lists an active Course"
+    summary "Fetches a sourse items"
+    notes "This lists an active sourse"
     param :path, :id, :integer, :required, "Course ID"
     response :ok, "Success", :course
     response :unauthorized
@@ -46,9 +46,9 @@ module Api::V1
   end
 
   swagger_api :create do
-    summary "Creates a Course item"
-    notes "Creates a Course item"
-    param  :body ,:body, :course, :required, "Create a Course"
+    summary "Creates a sourse item"
+    notes "Creates a sourse item"
+    param  :body ,:body, :course, :required, "Create a sourse"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
@@ -63,10 +63,10 @@ module Api::V1
   end
 
   swagger_api :update do
-    summary "Updates a Course item"
-    notes "Updates a Course item"
+    summary "Updates a sourse item"
+    notes "Updates a sourse item"
     param :path, :id, :integer, :required, "Course ID"
-    param :body ,:body, :course, :required, "Updates a Course"
+    param :body ,:body, :course, :required, "Updates a sourse"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
@@ -77,8 +77,8 @@ module Api::V1
   end
 
   swagger_api :destroy do
-    summary "Destroys a Courses item"
-    notes "Destroys a Courses item"
+    summary "Destroys a sourse item"
+    notes "Destroys a sourse item"
     param :path, :id, :integer, :required, "Course ID"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
@@ -95,8 +95,8 @@ module Api::V1
      property :name, :string, :required, "Name"
      property :school, :school, :required, "School"
      property :degree, :degree, :required, "Degree"
-     property_list :disciplines, :disciplines, :required, "Disciplines", [:disciplines,:disciplines]
-     #property :disciplines, :disciplines, :required, "Disciplines"
+     #property_list :disciplines, :disciplines, :required, "Disciplines", [:disciplines,:disciplines]
+     property :disciplines, :disciplines, :required, "Disciplines"
   end
 
   swagger_model :school do
@@ -108,6 +108,7 @@ module Api::V1
     description "A Degree object."
     property :id, :integer, :required, "Degree ID"
   end
+
   swagger_model :disciplines do
     description "A Disciplines object."
     property :id, :integer, :required, "Disciplines ID"

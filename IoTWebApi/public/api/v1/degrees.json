@@ -17,8 +17,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches all Degree items",
-          "notes": "This lists all the active Degrees",
+          "summary": "Fetches all degree items",
+          "notes": "This lists all the active degrees",
           "responseMessages": [
             {
               "code": 401,
@@ -52,12 +52,12 @@
               "paramType": "body",
               "name": "body",
               "type": "Degree",
-              "description": "Create a Degree",
+              "description": "Create a degree",
               "required": true
             }
           ],
-          "summary": "Creates a Degree item",
-          "notes": "Creates a Degree item",
+          "summary": "Creates a degree item",
+          "notes": "Creates a degree item",
           "responseMessages": [
             {
               "code": 401,
@@ -92,11 +92,11 @@
               "name": "id",
               "type": "integer",
               "description": "Degree ID",
-              "required": false
+              "required": true
             }
           ],
-          "summary": "Fetches a Degree item",
-          "notes": "This lists an active Course",
+          "summary": "Fetches a degree item",
+          "notes": "This lists an active degree",
           "responseMessages": [
             {
               "code": 200,
@@ -146,18 +146,18 @@
               "name": "id",
               "type": "integer",
               "description": "Degree ID",
-              "required": false
+              "required": true
             },
             {
               "paramType": "body",
               "name": "body",
               "type": "Degree",
-              "description": "Updates a Degree",
+              "description": "Updates a degree",
               "required": true
             }
           ],
-          "summary": "Degree a Degree item",
-          "notes": "Degree a Degree item",
+          "summary": "Updates a degree item",
+          "notes": "Updates a degree item",
           "responseMessages": [
             {
               "code": 401,
@@ -185,11 +185,11 @@
               "name": "id",
               "type": "integer",
               "description": "Degree ID",
-              "required": false
+              "required": true
             }
           ],
-          "summary": "Destroys a Degree item",
-          "notes": "Destroys a Degree item",
+          "summary": "Destroys a degree item",
+          "notes": "Destroys a degree item",
           "responseMessages": [
             {
               "code": 401,
@@ -213,7 +213,8 @@
     "Degree": {
       "id": "Degree",
       "required": [
-        "id"
+        "id",
+        "description"
       ],
       "properties": {
         "id": {

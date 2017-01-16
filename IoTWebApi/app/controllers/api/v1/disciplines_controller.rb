@@ -12,8 +12,8 @@ module Api::V1
     end
 
     swagger_api :index do
-      summary "Fetches all Discipline items"
-      notes "This lists all the active Disciplines"
+      summary "Fetches all discipline items"
+      notes "This lists all the active disciplines"
       response :unauthorized
       response :not_acceptable, "Discipline ID doesn't exist"
     end
@@ -24,8 +24,8 @@ module Api::V1
     end
 
     swagger_api :show do
-      summary "Fetches a Discipline item"
-      notes "This lists an active Discipline"
+      summary "Fetches a discipline item"
+      notes "This lists an active discipline"
       param :path, :id, :integer, :required, "Discipline ID"
       response :ok, "Success", :Discipline
       response :unauthorized
@@ -46,10 +46,10 @@ module Api::V1
     end
 
     swagger_api :create do
-      summary "Creates a Discipline item"
-      notes "Creates a Discipline item"
+      summary "Creates a discipline item"
+      notes "Creates a discipline item"
       #param :course ,:name, :string, :optional, "Name"
-      param  :body ,:body, :Discipline, :required, "Create a Discipline"
+      param  :body ,:body, :Discipline, :required, "Create a discipline"
       response :unauthorized
       response :not_acceptable, "Discipline ID doesn't exist"
     end
@@ -64,10 +64,10 @@ module Api::V1
     end
 
     swagger_api :update do
-      summary "Updates a Discipline item"
-      notes "Updates a Discipline item"
+      summary "Updates a discipline item"
+      notes "Updates a discipline item"
       param :path, :id, :integer, :required, "Discipline ID"
-      param :body ,:body, :Discipline, :required, "Updates a Discipline"
+      param :body ,:body, :Discipline, :required, "Updates a discipline"
       response :unauthorized
       response :not_acceptable, "Discipline ID doesn't exist"
     end
@@ -78,8 +78,8 @@ module Api::V1
     end
 
     swagger_api :destroy do
-      summary "Destroys a Discipline item"
-      notes "Destroys a Discipline item"
+      summary "Destroys a discipline item"
+      notes "Destroys a discipline item"
       param :path, :id, :integer, :required, "Discipline ID"
       response :unauthorized
       response :not_acceptable, "Discipline ID doesn't exist"
@@ -90,6 +90,11 @@ module Api::V1
      property :id, :integer, :required, "Discipline ID"
      property :name, :string, :required, "Name"
     end
+
+    #swagger_model :courses do
+      #description "A courses object."
+      #property :id, :integer, :required, "Courses ID"
+    #end
 
     private
       # Use callbacks to share common setup or constraints between actions.
