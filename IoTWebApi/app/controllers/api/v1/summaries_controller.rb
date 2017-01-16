@@ -2,6 +2,8 @@ module Api::V1
   class SummariesController < ApiController
     before_action :set_summary, only: [:show, :update, :destroy]
 
+    swagger_controller :summaries, "Summaries Management"
+
     # GET /summaries
     def index
       @summaries = Summary.all
@@ -91,7 +93,7 @@ module Api::V1
 
     swagger_model :Summaries do
      description "A Summaries object."
-     property :room, :Rm, :required, "Summaries"
+     property :Summaries, :ss, :required, "Summaries"
     end
 
     private

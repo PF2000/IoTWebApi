@@ -2,6 +2,8 @@ module Api::V1
   class SchoolClassesController < ApiController
     before_action :set_school_class, only: [:show, :update, :destroy]
 
+    swagger_controller :school_classes, "School Class Management"
+
     # GET /school_classes
     def index
       @school_classes = SchoolClass.all
@@ -108,7 +110,7 @@ module Api::V1
 
     swagger_model :School_class do
      description "A School Class object."
-     property :room, :sc, :required, "School Class"
+     property :School_class, :sc, :required, "School Class"
     end
 
     private

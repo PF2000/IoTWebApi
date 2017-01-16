@@ -2,6 +2,8 @@ module Api::V1
   class SchoolYearsController < ApiController
     before_action :set_school_year, only: [:show, :update, :destroy]
 
+    swagger_controller :school_years, "School Year Management"
+
     # GET /school_years
     def index
       @school_years = SchoolYear.all
