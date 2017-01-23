@@ -79,7 +79,7 @@
           "responseMessages": [
             {
               "code": 200,
-              "responseModel": "School_year",
+              "responseModel": "School_class",
               "message": "Success"
             },
             {

@@ -27,7 +27,7 @@ module Api::V1
       summary "Fetches a school classes item"
       notes "This lists an active school classes"
       param :path, :id, :integer, :required, "School class ID"
-      response :ok, "Success", :School_year
+      response :ok, "Success", :School_class
       response :unauthorized
       response :not_acceptable
       response :not_found

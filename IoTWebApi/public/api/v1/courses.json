@@ -17,8 +17,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches all sourse items",
-          "notes": "This lists all the active soursees",
+          "summary": "Fetches all course items",
+          "notes": "This lists all the active coursees",
           "responseMessages": [
             {
               "code": 401,
@@ -52,12 +52,12 @@
               "paramType": "body",
               "name": "body",
               "type": "course",
-              "description": "Create a sourse",
+              "description": "Create a course",
               "required": true
             }
           ],
-          "summary": "Creates a sourse item",
-          "notes": "Creates a sourse item",
+          "summary": "Creates a course item",
+          "notes": "Creates a course item",
           "responseMessages": [
             {
               "code": 401,
@@ -95,8 +95,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches a sourse items",
-          "notes": "This lists an active sourse",
+          "summary": "Fetches a course items",
+          "notes": "This lists an active course",
           "responseMessages": [
             {
               "code": 200,
@@ -152,12 +152,12 @@
               "paramType": "body",
               "name": "body",
               "type": "course",
-              "description": "Updates a sourse",
+              "description": "Updates a course",
               "required": true
             }
           ],
-          "summary": "Updates a sourse item",
-          "notes": "Updates a sourse item",
+          "summary": "Updates a course item",
+          "notes": "Updates a course item",
           "responseMessages": [
             {
               "code": 401,
@@ -188,8 +188,8 @@
               "required": true
             }
           ],
-          "summary": "Destroys a sourse item",
-          "notes": "Destroys a sourse item",
+          "summary": "Destroys a course item",
+          "notes": "Destroys a course item",
           "responseMessages": [
             {
               "code": 401,
