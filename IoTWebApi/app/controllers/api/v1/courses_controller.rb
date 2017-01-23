@@ -12,8 +12,8 @@ module Api::V1
   end
 
   swagger_api :index do
-    summary "Fetches all sourse items"
-    notes "This lists all the active soursees"
+    summary "Fetches all course items"
+    notes "This lists all the active coursees"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
@@ -24,8 +24,8 @@ module Api::V1
   end
 
   swagger_api :show do
-    summary "Fetches a sourse items"
-    notes "This lists an active sourse"
+    summary "Fetches a course items"
+    notes "This lists an active course"
     param :path, :id, :integer, :required, "Course ID"
     response :ok, "Success", :course
     response :unauthorized
@@ -46,9 +46,9 @@ module Api::V1
   end
 
   swagger_api :create do
-    summary "Creates a sourse item"
-    notes "Creates a sourse item"
-    param  :body ,:body, :course, :required, "Create a sourse"
+    summary "Creates a course item"
+    notes "Creates a course item"
+    param  :body ,:body, :course, :required, "Create a course"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
@@ -63,10 +63,10 @@ module Api::V1
   end
 
   swagger_api :update do
-    summary "Updates a sourse item"
-    notes "Updates a sourse item"
+    summary "Updates a course item"
+    notes "Updates a course item"
     param :path, :id, :integer, :required, "Course ID"
-    param :body ,:body, :course, :required, "Updates a sourse"
+    param :body ,:body, :course, :required, "Updates a course"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
@@ -77,8 +77,8 @@ module Api::V1
   end
 
   swagger_api :destroy do
-    summary "Destroys a sourse item"
-    notes "Destroys a sourse item"
+    summary "Destroys a course item"
+    notes "Destroys a course item"
     param :path, :id, :integer, :required, "Course ID"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
