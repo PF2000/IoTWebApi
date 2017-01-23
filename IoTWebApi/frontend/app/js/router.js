@@ -59,6 +59,11 @@ angular.module('app').config(function($routeProvider, $locationProvider,$httpPro
     controller: 'ResetConfirmController'
   });
 
+ $routeProvider.when('/about', {
+    templateUrl: 'about.html',
+    controller: 'aboutController'
+  });
+
   $routeProvider.otherwise({ redirectTo: '/home' });
 
 });

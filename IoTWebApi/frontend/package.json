@@ -22,5 +22,8 @@
   "scripts": {
     "start": "lineman run",
     "test": "lineman spec-ci"
+  },
+  "dependencies": {
+    "angular-socialshare": "^2.3.3"
   }
 }

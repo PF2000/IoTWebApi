@@ -34,6 +34,10 @@ angular.module("app").controller('ExamplesController',function($scope,$window, $
 	$scope.pythonGit = function(){
 		 $window.open('https://github.com/PF2000/IoTWebApiExamples/tree/master/Python','_blank');
 	};
+	
+	$scope.codeGenGit = function(){
+		 $window.open('https://github.com/swagger-api/swagger-codegen#getting-started','_blank');
+	};
 });
 
 

@@ -204,6 +204,23 @@ response = requests.delete(url + "/" + str(id),headers=headers)
 #pprint.pprint(response.json())</cod></pre>
 				<br><br><button ng-click = "pythonGit()" >Python Sample</button>
 			</ui-accordion>
+            <ui-accordion title="Swagger CodeGen - Automaticaly generate code" class="acordionTitle">
+                <pre><cod>To generate PHP code:
+                git clone https://github.com/swagger-api/swagger-codegen
+cd swagger-codegen
+mvn clean package
+java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate \
+   -i http://petstore.swagger.io/v2/swagger.json \
+   -l php \
+   -o /var/tmp/php_api_client
+
+(if you're on Windows, replace the last command with java -jar modules\swagger-codegen-cli\target\swagger-codegen-cli.jar generate -i http://petstore.swagger.io/v2/swagger.json -l php -o c:\temp\php_api_client)
+
+You can also download the JAR (latest release) directly from <a href="http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.2.1/swagger-codegen-cli-2.2.1.jar">maven.org</a>
+
+                </cod></pre>
+                <br><br><button ng-click = "codeGenGit()">CodeGen Git</button>
+            </ui-accordion>
 		</ui-accordions>
 	</div>
 </div>

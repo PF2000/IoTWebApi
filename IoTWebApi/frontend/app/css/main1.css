@@ -134,6 +134,32 @@ body {
     margin-bottom: 10px;
 }
 
+.floatLeft {
+    float: left;
+    margin-right: 15px;
+}
+
+.floatRight {
+    float: right;
+    margin-left: 15px;
+}
+
+#aboutContent{
+    background-color: #282828;    
+    margin-left:auto;
+    margin-right: auto;
+    color: white;
+    padding: 15px;
+}
+#aboutContent > h1{
+    color: white;
+}
+#aboutAuthors{
+    max-width: 40%;
+    margin-left:auto;
+    margin-right: auto;
+    padding: 15px;
+}
 /* Responsive Styles */
 @media (max-width: 767px) {
 
