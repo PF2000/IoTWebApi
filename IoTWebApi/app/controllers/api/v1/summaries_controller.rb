@@ -5,7 +5,7 @@ module Api::V1
     # GET /summaries
     def index
       @summaries = Summary.all
-      debugger
+      #debugger
       render json: @summaries
     end
 
