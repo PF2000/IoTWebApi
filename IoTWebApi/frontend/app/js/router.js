@@ -3,7 +3,9 @@ angular.module('app').config(function($routeProvider, $locationProvider,$httpPro
   //Push in to the httpProvider what we want
   $httpProvider.interceptors.push('sessionInjector');
 
-
+  //http://stackoverflow.com/questions/41211875/angularjs-1-6-0-latest-now-routes-not-working
+  $locationProvider.hashPrefix('');
+  
   $locationProvider.html5Mode({enabled:false});
 
   $routeProvider.when('/login', {

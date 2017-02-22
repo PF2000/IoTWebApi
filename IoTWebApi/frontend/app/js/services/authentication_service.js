@@ -1,4 +1,4 @@
-angular.module("app").factory('AuthenticationService', function($http,SessionService ) {
+angular.module("app").factory('AuthenticationService', function($http,  SessionService ) {
   
 
   return {
