@@ -2,18 +2,18 @@ angular.module("app").controller('RegisterController',function($scope, $location
   
   $scope.credentialsRegister = { user:{ name: "",surname: "", password: "", email: ""}};
 
-  var onRegisterSuccess = function(data) {
-    $location.path('/login');
-  };
-  
-  var onRegisterError = function(data) {
-    $scope.message = data;
-  };
+
 
   $scope.register = function() {
     AuthenticationService.register($scope.credentialsRegister)
-    .success(onRegisterSuccess)
-    .error(onRegisterError);
+      .then(function (success){
+        var data = success.data;
+        $location.path('/login');
+
+     },function (error){
+        var data = error.data;
+        $scope.message = data;
+     });
   };
 
 });

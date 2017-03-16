@@ -8,14 +8,6 @@ angular.module("app").controller('ChangePasswordController',function($scope, $lo
 	$scope.changePassword = false;
   $scope.alertClass = "";
 
- var onResetPasswordSuccess = function(data) {
-    $location.path('/login');
-  };
-
-  //check if isUserPassword
-  var onResetPasswordError = function(data) {
-    $scope.message = data.exception;
-  };
 
   $scope.hasToken = function() {
     if($scope.token!==undefined){
@@ -23,45 +15,39 @@ angular.module("app").controller('ChangePasswordController',function($scope, $lo
         var data = {};
         data.resetToken = $scope.token;
         data.password = $scope.credentials.password;
-        AuthenticationService.resetPassWord(data).success(onResetPasswordSuccess).error(onResetPasswordError);      
+        //resets the passwords
+        AuthenticationService.resetPassWord(data)
+        .then(function (success){
+          var data = success.data;
+          $location.path('/login');    
+         },function (error){
+            var data = error.data;
+            $scope.message = data.exception;
+         });      
       }
     }else{
        $scope.isUserPassword();
     }
   };
 
-  var onisUserPasswordSuccess = function(data) {
-    $scope.changePassword = data;
-    $scope.updateUserData();
-  };  
-  var onisUserPasswordError = function(data) {
-     $scope.message = data.exception;
-  }; 
+
  $scope.isUserPassword = function() {
     var id = SessionService.getLoggedID();
     var password = $scope.credentials.Oldpassword;
     var user = {id:id, password: password };
-    ManageUserService.isUserPassword(user).success(onisUserPasswordSuccess).error(onisUserPasswordError);
+
+    ManageUserService.isUserPassword(user)
+    .then(function (success){
+      var data = success.data;
+      $scope.changePassword = data;
+      $scope.updateUserData();
+    },function (error){
+      var data = error.data;
+      $scope.message = data.exception;
+    });
+
   };
 
-  //check if isUserPassword
-  $scope.isUserPassword = function() {
-    var id = SessionService.getLoggedID();
-    var password = $scope.credentials.Oldpassword;
-    var user = {id:id, password: password };
-    ManageUserService.isUserPassword(user).success(onisUserPasswordSuccess).error(onisUserPasswordError);
-  };
-
-
-
-  //update User Data
-  var onUpdateUserDataSuccess = function(data) {
-     $scope.alertClass = "alert alert-success";
-     $scope.message = "password changed..";
-  };  
-  var onUpdateUserDataError = function(data) {
-     $scope.message = data.exception;
-  }; 
   $scope.updateUserData = function() {
 
     if($scope.changePassword === true){
@@ -70,7 +56,16 @@ angular.module("app").controller('ChangePasswordController',function($scope, $lo
 	    var password = $scope.credentials.password;
 	    var user = {id:id, password: password };
     	user = {user:user};
-    	ManageUserService.updateUser(user).success(onUpdateUserDataSuccess).error(onUpdateUserDataError);
+    	ManageUserService.updateUser(user)
+      .then(function (success){
+        var data = success.data;
+        $scope.alertClass = "alert alert-success";
+        $scope.message = "password changed..";
+      },function (error){
+        var data = error.data;
+        $scope.message = data.exception;
+      });
+
     }else{
     	$scope.message = "password dont match..";
     }

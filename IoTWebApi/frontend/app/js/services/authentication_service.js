@@ -1,8 +1,9 @@
-angular.module("app").factory('AuthenticationService', function($http,  SessionService ) {
+angular.module("app").factory('AuthenticationService', function($http, SessionService ) {
   
 
   return {
     login: function(credentials) {
+      console.log(credentials);
     	return $http.post('/v1/login',credentials);
     },
     register: function(credentials) {

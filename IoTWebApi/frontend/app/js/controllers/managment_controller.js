@@ -2,13 +2,8 @@ angular.module("app").controller('managmentController', function($scope, $locati
   $scope.credentials ={};
 
   $scope.readOnly = true;
-
   $scope.changePassword = false;
-
   $scope.alertClass = "";
-
-var onGetUserSuccess, onGetUserError, onResetTokenSuccess, onResetTokenError;
-var onUpdateUserDataSuccess, onUpdateUserDataError;
  
   //Authentication
   $scope.isAuth = function() {
@@ -26,31 +21,34 @@ var onUpdateUserDataSuccess, onUpdateUserDataError;
       if( !($scope.isAdmin() || SessionService.getLoggedID() === id) ){
         id=SessionService.getLoggedID();
       }
-      ManageUserService.getUser(id).success(onGetUserSuccess).error(onGetUserError);
+      ManageUserService.getUser(id)
+        .then(function (success){
+          var data = success.data;
+          $scope.credentials = data;
+          //$scope.message = "Success...";
+
+       },function (error){
+          var data = error.data;
+          $scope.message = data.exception;
+       });
   }; 
-   onGetUserSuccess = function(data) {
-     $scope.credentials = data;
-     //$scope.message = "Success...";
-  };
-   onGetUserError = function(data) {
-     $scope.message = data.exception;
-  };  
 
 
   //Reset token --------
   $scope.resetToken = function() {
     var id = $scope.credentials.id;
-    ManageUserService.resetApiKey(id).success(onResetTokenSuccess).error(onResetTokenError);
-  };
-   onResetTokenSuccess = function(data) {
-     $scope.credentials.api_key = data.api_key;
-     //sets the new token on session
-     SessionService.setLoggedToken(data.api_key); 
-     $scope.message = "New token generated...";
-  };  
-   onResetTokenError = function(data) {
-     $scope.message = data.exception;
-  };  
+    ManageUserService.resetApiKey(id)
+      .then(function (success){
+        var data = success.data;
+         $scope.credentials.api_key = data.api_key;
+         //sets the new token on session
+         SessionService.setLoggedToken(data.api_key); 
+         $scope.message = "New token generated...";
+     },function (error){
+        var data = error.data;
+        $scope.message = data.exception;
+     });
+  }; 
 
 
   //update User Data
@@ -59,19 +57,20 @@ var onUpdateUserDataSuccess, onUpdateUserDataError;
     user = {user:user};
     delete user.user['api_key'];
     delete user.user['role'];
-    ManageUserService.updateUser(user).success(onUpdateUserDataSuccess).error(onUpdateUserDataError);
-  };
-
-   onUpdateUserDataSuccess = function(data) {
+    ManageUserService.updateUser(user)
+    .then(function (success){
+      var data = success.data;
      $scope.alertClass = "alert alert-success";
      $scope.credentials = data;
      $scope.message = "Data update success...";
-     $scope.editUserData();    
-  };  
-   onUpdateUserDataError = function(data) {
-     $scope.alertClass = "alert alert-danger";
-     $scope.message = data;
-  }; 
+     $scope.editUserData(); 
+
+   },function (error){
+      var data = error.data;
+      $scope.alertClass = "alert alert-danger";
+      $scope.message = data;
+   });
+  };
 
 
   //Edit Button

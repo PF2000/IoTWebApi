@@ -11,18 +11,15 @@ var onResetSuccess, onResetError;
 
 $scope.recover = function() {
    AuthenticationService.resetPassWord($scope.data)
-    .success(onResetSuccess)
-    .error(onResetError);
-  };
+    .then(function (success){
+      var data = success.data;
+      $location.path('/resetConfirm');
 
-  onResetSuccess = function(data) {
-     $location.path('/resetConfirm');
+   },function (error){
+      var data = error.data;
+      $scope.message = data;
+   });
   };
-  
-  onResetError = function(data) {
-    $scope.message = data;
-  };
-
 });
 
 

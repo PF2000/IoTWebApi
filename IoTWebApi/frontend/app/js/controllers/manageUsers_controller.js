@@ -9,9 +9,6 @@ $scope.alertClass = "";
     }
   };
 
- var  onGetUsersAndRolesSuccess = function(data) {
-    $scope.usersRoles = data;
-  };
 
   $scope.isAdmin = function() {
     if(!AuthenticationService.isAdmin(SessionService.getLoggedRole())){
@@ -24,34 +21,37 @@ $scope.alertClass = "";
 
 
   $scope.getUsersAndRoles = function() {
-     ManageUserService.getUserRole().success(onGetUsersAndRolesSuccess);    
+     ManageUserService.getUserRole()
+     .then(function (success){
+        var data = success.data;
+        $scope.usersRoles = data;
+      });  
   };
-  // ---Roles
-   var onGetRolesSuccess = function(data) {
-    $scope.roles = data;
-  };
+
   $scope.getRoles = function() {
-     ManageUserService.getRoles().success(onGetRolesSuccess);    
+     ManageUserService.getRoles()
+      .then(function (success){
+        var data = success.data;
+        $scope.roles = data;
+      }); 
   };
 
 
-   //--UpdateUsers
-  var onUpdateUserSuccess = function(data) {
-    //update frontEnd
-    $scope.alertClass = "alert alert-success";
-    $scope.message = "Updated with success User with the ID = " + data.id;
-  };
-
-  var onUpdateUserError = function(data) {
-    $scope.alertClass = "alert alert-danger";
-    $scope.message = data;
-  };
   $scope.updateUser = function(usr, rId) {
     var roleId = rId == undefined?usr.role.id:rId;
     var user =  {id: usr.id ,token_count:usr.token_count ,email: usr.email ,role: {id: roleId}};
     user = {user:user};
-    ManageUserService.updateUser(user).success(onUpdateUserSuccess).error(onUpdateUserError);
-      //resets the role id to undefined
+    ManageUserService.updateUser(user)
+    .then(function (success){
+      var data = success.data;
+      //update frontEnd
+      $scope.alertClass = "alert alert-success";
+      $scope.message = "Updated with success User with the ID = " + data.id;
+   },function (error){
+      var data = error.data;
+      $scope.alertClass = "alert alert-danger";
+      $scope.message = data;
+   });    
   };
 
   $scope.isUndefined = function(rId) {
@@ -59,30 +59,29 @@ $scope.alertClass = "";
  };
 
 
-  //--Deletes user Button
-  var onDeleteUserSuccess = function(data) {
-    $scope.alertClass = "alert alert-success";
-    $scope.message = "Deleted with success" ;
-    //objects deleted id to update the view
-    var id = data.id;
-    //variavel auxiliar
-    var userRoles = $scope.usersRoles;
-    //Removes the objecto with the specified id
-    $scope.usersRoles = userRoles.filter(function (user) {
-      if (user.id === id){
-       } else{
-         return user;
-       }    
-    });
-  };
-
-  var onDeleteUserError = function(data) {
-    $scope.alertClass = "alert alert-danger";
-    $scope.message = data;
-  };
   $scope.deleteUser = function(user) {
     //deletes the object on server side
-    ManageUserService.deleteUser(user.id).success(onDeleteUserSuccess).error(onDeleteUserError);
+    ManageUserService.deleteUser(user.id)
+    .then(function (success){
+      var data = success.data;
+      $scope.alertClass = "alert alert-success";
+      $scope.message = "Deleted with success" ;
+      //objects deleted id to update the view
+      var id = data.id;
+      //variavel auxiliar
+      var userRoles = $scope.usersRoles;
+      //Removes the objecto with the specified id
+      $scope.usersRoles = userRoles.filter(function (user) {
+        if (user.id === id){
+         } else{
+           return user;
+         }    
+      });
+    },function (error){
+      var data = error.data;
+      $scope.alertClass = "alert alert-danger";
+      $scope.message = data;
+    });
   };
 
 
